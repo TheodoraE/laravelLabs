@@ -3,9 +3,7 @@
     <div class="hero-content">
         <div class="hero-center">
             <img src="{{asset('storage/img/'.$logo[0]->url)}}" alt="">
-            @foreach ($homeCarousel as $carousel)
-                <p>{{$carousel->carouselDescriptions->description}}</p>
-            @endforeach
+            <p>{{$homeCarouselDescription[0]->description}}</p>
         </div>
     </div>
     <!-- slider -->

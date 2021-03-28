@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
             ContactFormEmailSeeder::class,
             ContactFormPlaceholderSeeder::class,
             ContactFormSubjectSeeder::class,
-            HomeCarouselSeeder::class,
             HomeCarouselDescriptionSeeder::class,
+            HomeCarouselSeeder::class,
             
 
             
