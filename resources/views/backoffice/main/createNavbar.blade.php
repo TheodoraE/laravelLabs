@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="mb-5">Modifier le logo</h1>
+                    <h1 class="mb-5">Ajouter un lien navbar</h1>
 
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -17,20 +17,20 @@
                         </div>
                     @endif
 
-                    <form action="/logos/{{$edit->id}}" method="POST" enctype="multipart/form-data" class="m-3">
+                    <form action="/navbars" method="POST" class="m-3">
                         @csrf
-                        @method('PATCH')
-
-                        <div class="form-group w-50">
-                            <label for="name">Nom : </label>
-                            <input type="text" name="name" class="form-control" value="{{old('name') ? old('name') : $edit->name}}">
+                        
+                        <div class="form-group">
+                            <label for="link">Link : </label>
+                            <input type="text" name="link" class="form-control" value="{{old('link')}}">
                         </div>
 
                         <div class="form-group">
-                            <input type="file" name="url" id="">
+                            <label for="page">Page : </label>
+                            <input type="text" name="page" class="form-control" value="{{old('page')}}">
                         </div>
 
-                        <button type="submit" class="btn btn-warning mt-4">Enregistrer</button>
+                        <button type="submit" class="btn btn-success mt-4">Ajouter</button>
                     </form>
                 </div>
             </div>

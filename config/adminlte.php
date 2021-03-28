@@ -236,9 +236,9 @@ return [
         ],
         [
             'text'        => 'Utilisateurs',
-            'url'         => '',
+            'url'         => '/users',
             'icon'        => 'fas fa-users',
-            // 'label'       => count,
+            // 'label'       => count($users),
         ],
         ['header' => 'PARAMÈTRES'],
         [
@@ -257,11 +257,15 @@ return [
                 ],
                 [
                     'text' => 'Footer',
-                    'url'  => '#',
+                    'url'  => '/footers',
                 ],
                 [
                     'text' => 'Navbar',
-                    'url'  => '#',
+                    'url'  => '/navbars',
+                ],
+                [
+                    'text' => 'Page Headers',
+                    'url'  => '/pageHeaders',
                 ],
             ],
         ],
@@ -271,27 +275,23 @@ return [
             'submenu' => [
                 [
                     'text' => 'Address',
-                    'url'  => '#',
+                    'url'  => '/contactFormAddress',
                 ],
                 [
                     'text' => 'Phone',
-                    'url'  => '#',
-                ],
-                [
-                    'text' => 'Mail',
-                    'url'  => '#',
+                    'url'  => '/contactFormPhones',
                 ],
                 [
                     'text' => 'Email',
-                    'url'  => '#',
+                    'url'  => '/contactFormEmails',
                 ],
                 [
                     'text' => 'Placeholder',
-                    'url'  => '#',
+                    'url'  => '/contactFormPlaceholders',
                 ],
                 [
                     'text' => 'Subject',
-                    'url'  => '#',
+                    'url'  => '/contactFormSubjects',
                 ],
             ],
         ],

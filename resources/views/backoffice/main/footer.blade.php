@@ -5,26 +5,26 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="mb-5">Logo</h1>
+                    <h1 class="mb-5">Footer</h1>
                     <table class="table">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Logo</th>
+                            <th scope="col">Copyright</th>
+                            <th scope="col">Credits</th>
+                            <th scope="col">Credits Link</th>
                             <th scope="col"> </th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($logos as $logo)
+                          @foreach ($footers as $footer)
                             <tr>
-                                <th scope="row">{{$logo->id}}</th>
-                                <td>{{$logo->name}}</td>
+                                <th scope="row">{{$footer->id}}</th>
+                                <td>{{$footer->copyright}}</td>
+                                <td>{{$footer->credits}}</td>
+                                <td>{{$footer->creditsLink}}</td>
                                 <td>
-                                    <img src="{{'storage/img/'.$logo->url}}" alt="" height="50px">
-                                </td>
-                                <td>
-                                    <a href="/logos/{{$logo->id}}/edit" class="btn btn-warning">EDIT</a>
+                                    <a href="/footers/{{$footer->id}}/edit" class="btn btn-warning">EDIT</a>
                                 </td>
                             </tr>
                           @endforeach

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PageHeader;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class PageHeaderController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PageHeaderController extends Controller
      */
     public function index()
     {
-        $pageHeaders = PageHeader::all();
-        return view('backoffice.main.pageHeader', compact('pageHeaders'));
+        $users = User::all();
+        return view('backoffice.users', compact('users'));
     }
 
     /**
@@ -25,7 +25,7 @@ class PageHeaderController extends Controller
      */
     public function create()
     {
-        return view('backoffice.main.createPageHeader');
+        //
     }
 
     /**
@@ -36,27 +36,16 @@ class PageHeaderController extends Controller
      */
     public function store(Request $request)
     {
-        $validation = $request->validate([
-            "home" => 'required',
-            "homeLink" => 'required',
-            "page" => 'required'
-        ]);
-
-        $store = new PageHeader;
-        $store->home = $request->home;
-        $store->homeLink = $request->homeLink;
-        $store->page = $request->page;
-        $store->save();
-        return redirect('/pageHeaders');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PageHeader  $pageHeader
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(PageHeader $pageHeader)
+    public function show($id)
     {
         //
     }
@@ -64,10 +53,10 @@ class PageHeaderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PageHeader  $pageHeader
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(PageHeader $pageHeader)
+    public function edit($id)
     {
         //
     }
@@ -76,10 +65,10 @@ class PageHeaderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PageHeader  $pageHeader
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PageHeader $pageHeader)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -87,10 +76,10 @@ class PageHeaderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PageHeader  $pageHeader
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PageHeader $pageHeader)
+    public function destroy($id)
     {
         //
     }

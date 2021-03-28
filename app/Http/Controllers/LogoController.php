@@ -76,12 +76,12 @@ class LogoController extends Controller
             "url" => 'required',
         ]);
 
-        $store = $logo;
-        $store->name = $request->name;
+        $update = $logo;
+        $update->name = $request->name;
         Storage::put('public/img', $request->url);
-        $store->url = $request->file('url')->hashName();
+        $update->url = $request->file('url')->hashName();
 
-        $store->save();
+        $update->save();
         return redirect('/logos');
     }
 

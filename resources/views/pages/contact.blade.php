@@ -1,7 +1,7 @@
 @extends('template.main')
 
 @section('content')
-    <!-- Header section -->
+    {{-- <!-- Header section -->
 	<header class="header-section">
 		<div class="logo">
 			<img src="{{asset('storage/img/'.$logo[0]->url)}}" height="32px" width="111px" alt=""><!-- Logo -->
@@ -17,7 +17,7 @@
 			</ul>
 		</nav>
 	</header>
-	<!-- Header section end -->
+	<!-- Header section end --> --}}
 
 	<!-- Page header -->
 	<div class="page-top-section">

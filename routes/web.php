@@ -14,6 +14,7 @@ use App\Http\Controllers\LogoController;
 use App\Http\Controllers\NavbarController;
 use App\Http\Controllers\PageHeaderController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\UserController;
 use App\Models\ContactFormAddress;
 use App\Models\ContactFormEmail;
 use App\Models\ContactFormPhone;
@@ -82,6 +83,11 @@ Route::resource('contactFormPhones', ContactFormPhoneController::class);
 Route::resource('contactFormEmails', ContactFormEmailController::class);
 Route::resource('contactFormPlaceholders', ContactFormPlaceholderController::class);
 Route::resource('contactFormSubjects', ContactFormSubjectController::class);
+
+// Users
+Route::resource('/users', UserController::class);
+// Profile
+
 
 // Home
         // Arranger les descriptions 

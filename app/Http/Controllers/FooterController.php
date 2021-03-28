@@ -14,7 +14,8 @@ class FooterController extends Controller
      */
     public function index()
     {
-        //
+        $footers = Footer::all();
+        return view('backoffice.main.footer', compact('footers'));
     }
 
     /**
@@ -57,7 +58,8 @@ class FooterController extends Controller
      */
     public function edit(Footer $footer)
     {
-        //
+        $edit = $footer;
+        return view('backoffice.main.editFooter', compact('edit'));
     }
 
     /**
@@ -69,7 +71,19 @@ class FooterController extends Controller
      */
     public function update(Request $request, Footer $footer)
     {
-        //
+        $validation = $request->validate([
+            "copyright" => 'required',
+            "credits" => 'required',
+            "creditsLink" => 'required'
+        ]);
+
+        $update = $footer;
+        $update->copyright = $request->copyright;
+        $update->credits = $request->credits;
+        $update->creditsLink = $request->creditsLink;
+
+        $update->save();
+        return redirect('/footers');
     }
 
     /**

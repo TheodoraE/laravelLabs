@@ -14,7 +14,8 @@ class ContactFormAddressController extends Controller
      */
     public function index()
     {
-        //
+        $addresses = ContactFormAddress::all();
+        return view('backoffice.contactForm.contactFormAddress', compact('addresses'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ContactFormAddressController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.contactForm.createContactFormAddress');
     }
 
     /**
@@ -35,7 +36,16 @@ class ContactFormAddressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            "address1" => 'required',
+            "address2" => 'required'
+        ]);
+
+        $store = new ContactFormAddress;
+        $store->address1 = $request->address1;
+        $store->address2 = $request->address2;
+        $store->save();
+        return redirect('/contactFormAddress');
     }
 
     /**
@@ -57,7 +67,8 @@ class ContactFormAddressController extends Controller
      */
     public function edit(ContactFormAddress $contactFormAddress)
     {
-        //
+        $edit = $contactFormAddress;
+        return view('backoffice.contactForm.editContactFormAddress', compact('edit'));
     }
 
     /**
@@ -69,7 +80,16 @@ class ContactFormAddressController extends Controller
      */
     public function update(Request $request, ContactFormAddress $contactFormAddress)
     {
-        //
+        $validation = $request->validate([
+            "address1" => 'required',
+            "address2" => 'required'
+        ]);
+
+        $update = $contactFormAddress;
+        $update->address1 = $request->address1;
+        $update->address2 = $request->address2;
+        $update->save();
+        return redirect('/contactFormAddress');
     }
 
     /**
@@ -80,6 +100,8 @@ class ContactFormAddressController extends Controller
      */
     public function destroy(ContactFormAddress $contactFormAddress)
     {
-        //
+        $destroy = $contactFormAddress;
+        $destroy->delete();
+        return redirect('/contactFormAddress');
     }
 }

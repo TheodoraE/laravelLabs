@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="mb-5">Modifier le logo</h1>
+                    <h1 class="mb-5">Modifier le footer</h1>
 
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -17,17 +17,23 @@
                         </div>
                     @endif
 
-                    <form action="/logos/{{$edit->id}}" method="POST" enctype="multipart/form-data" class="m-3">
+                    <form action="/footers/{{$edit->id}}" method="POST" class="m-3">
                         @csrf
                         @method('PATCH')
 
-                        <div class="form-group w-50">
-                            <label for="name">Nom : </label>
-                            <input type="text" name="name" class="form-control" value="{{old('name') ? old('name') : $edit->name}}">
+                        <div class="form-group">
+                            <label for="copyright">Copyright : </label>
+                            <input type="text" name="copyright" class="form-control" value="{{old('copyright') ? old('copyright') : $edit->copyright}}">
                         </div>
 
                         <div class="form-group">
-                            <input type="file" name="url" id="">
+                            <label for="credits">Credits : </label>
+                            <input type="text" name="credits" class="form-control" value="{{old('credits') ? old('credits') : $edit->credits}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="creditsLink">CreditsLink : </label>
+                            <input type="text" name="creditsLink" class="form-control" value="{{old('creditsLink') ? old('creditsLink') : $edit->creditsLink}}">
                         </div>
 
                         <button type="submit" class="btn btn-warning mt-4">Enregistrer</button>

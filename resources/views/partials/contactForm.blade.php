@@ -9,9 +9,15 @@
                 </div>
                 <p>{{$contactFormTitle[0]->description}}</p>
                 <h3 class="mt60">{{$contactFormSubtitle[0]->title}}</h3>
-                <p class="con-item">{{$contactFormAddress[0]->address1}} <br> {{$contactFormAddress[0]->address2}} </p>
-                <p class="con-item">{{$contactFormPhone[0]->phone}}</p>
-                <p class="con-item">{{$contactFormEmail[0]->email}}</p>
+                @foreach ($contactFormAddress as $address)
+                    <p class="con-item">{{$address->address1}} <br> {{$address->address2}} </p>
+                @endforeach
+                @foreach ($contactFormPhone as $phone)
+                    <p class="con-item">{{$phone->phone}}</p>
+                @endforeach
+                @foreach ($contactFormEmail as $email)
+                    <p class="con-item">{{$email->email}}</p>
+                @endforeach
             </div>
             <!-- contact form -->
             <div class="col-md-6 col-pull">
