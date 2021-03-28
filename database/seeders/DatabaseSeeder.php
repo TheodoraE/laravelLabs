@@ -17,6 +17,18 @@ class DatabaseSeeder extends Seeder
             LogoSeeder::class,
             NavbarSeeder::class,
             FooterSeeder::class,
+            PageHeaderSeeder::class,
+            ContactFormTitleSeeder::class,
+            ContactFormSubtitleSeeder::class,
+            ContactFormAddressSeeder::class,
+            ContactFormPhoneSeeder::class,
+            ContactFormEmailSeeder::class,
+            ContactFormPlaceholderSeeder::class,
+            ContactFormSubjectSeeder::class,
+            HomeCarouselSeeder::class,
+            HomeCarouselDescriptionSeeder::class,
+            
+
             
         ]);
         // \App\Models\User::factory(10)->create();

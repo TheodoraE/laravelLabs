@@ -2,9 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactFormAddress;
+use App\Models\ContactFormEmail;
+use App\Models\ContactFormPhone;
+use App\Models\ContactFormPlaceholder;
+use App\Models\ContactFormSubject;
+use App\Models\ContactFormSubtitle;
+use App\Models\ContactFormTitle;
 use App\Models\Footer;
 use App\Models\Logo;
 use App\Models\Navbar;
+use App\Models\PageHeader;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -21,7 +29,20 @@ class ContactController extends Controller
         $footer = Footer::all();
         // Navbar
         $navbar = Navbar::all();
-        return view('pages.contact', compact('logo', 'navbar', 'footer'));
+        // PageHeader
+        $pageHeader = PageHeader::all();
+        // ContactForm
+        $contactFormTitle = ContactFormTitle::all();
+        $contactFormSubtitle = ContactFormSubtitle::all();
+        $contactFormAddress = ContactFormAddress::all();
+        $contactFormPhone = ContactFormPhone::all();
+        $contactFormEmail = ContactFormEmail::all();
+        $contactFormPlaceholder = ContactFormPlaceholder::all();
+        $contactFormSubjects = ContactFormSubject::all();
+
+
+
+        return view('pages.contact', compact('logo', 'navbar', 'footer', 'pageHeader', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects'));
     }
 
     /**

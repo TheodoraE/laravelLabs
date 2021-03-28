@@ -5,27 +5,35 @@
             <!-- contact info -->
             <div class="col-md-5 col-md-offset-1 contact-info col-push">
                 <div class="section-title left">
-                    <h2>Contact us</h2>
+                    <h2>{{$contactFormTitle[0]->title}}</h2>
                 </div>
-                <p>Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum. </p>
-                <h3 class="mt60">Main Office</h3>
-                <p class="con-item">C/ Libertad, 34 <br> 05200 Arévalo </p>
-                <p class="con-item">0034 37483 2445 322</p>
-                <p class="con-item">hello@company.com</p>
+                <p>{{$contactFormTitle[0]->description}}</p>
+                <h3 class="mt60">{{$contactFormSubtitle[0]->title}}</h3>
+                <p class="con-item">{{$contactFormAddress[0]->address1}} <br> {{$contactFormAddress[0]->address2}} </p>
+                <p class="con-item">{{$contactFormPhone[0]->phone}}</p>
+                <p class="con-item">{{$contactFormEmail[0]->email}}</p>
             </div>
             <!-- contact form -->
             <div class="col-md-6 col-pull">
                 <form class="form-class" id="con_form">
                     <div class="row">
                         <div class="col-sm-6">
-                            <input type="text" name="name" placeholder="Your name">
+                            <input type="text" name="name" placeholder="{{$contactFormPlaceholder[0]->placeholder}}">
                         </div>
                         <div class="col-sm-6">
-                            <input type="text" name="email" placeholder="Your email">
+                            <input type="text" name="email" placeholder="{{$contactFormPlaceholder[1]->placeholder}}">
                         </div>
                         <div class="col-sm-12">
-                            <input type="text" name="subject" placeholder="Subject">
-                            <textarea name="message" placeholder="Message"></textarea>
+                            <select name="subject_id" id="" class="form-control mb-5">
+                                <option value="">{{$contactFormPlaceholder[2]->placeholder}}</option>
+                                @foreach ($contactFormSubjects as $subject)
+                                    <option value="{{$subject->id}}">{{$subject->subject}}</option>
+                                @endforeach
+                            </select>
+                            {{-- <input type="text" name="subject" placeholder="Subject"> --}}
+
+                            <textarea name="message" placeholder="{{$contactFormPlaceholder[3]->placeholder}}" class="mt-5"></textarea>
+
                             <button class="site-btn">send</button>
                         </div>
                     </div>

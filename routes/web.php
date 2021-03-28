@@ -4,7 +4,16 @@ use App\Models\Logo;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ServicesController;
+use App\Models\ContactFormAddress;
+use App\Models\ContactFormEmail;
+use App\Models\ContactFormPhone;
+use App\Models\ContactFormPlaceholder;
+use App\Models\ContactFormSubject;
+use App\Models\ContactFormSubtitle;
+use App\Models\ContactFormTitle;
 use App\Models\Footer;
+use App\Models\HomeCarousel;
+use App\Models\HomeCarouselDescription;
 use App\Models\Navbar;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +35,19 @@ Route::get('/', function () {
     $footer = Footer::all();
     // Navbar
     $navbar = Navbar::all();
-    return view('welcome', compact('logo', 'navbar', 'footer'));
+    // contactForm
+    $contactFormTitle = ContactFormTitle::all();
+    $contactFormSubtitle = ContactFormSubtitle::all();
+    $contactFormAddress = ContactFormAddress::all();
+    $contactFormPhone = ContactFormPhone::all();
+    $contactFormEmail = ContactFormEmail::all();
+    $contactFormPlaceholder = ContactFormPlaceholder::all();
+    $contactFormSubjects = ContactFormSubject::all();
+    // Home
+    $homeCarousel = HomeCarousel::all();
+    $homeCarouselDescription = HomeCarouselDescription::all();
+
+    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselCount', 'homeCarouselDescription'));
 });
 
 Auth::routes();

@@ -24,10 +24,10 @@
 		<div class="overlay"></div>
 		<div class="container text-right">
 			<div class="page-info">
-				<h2>Services</h2>
+				<h2>{{$pageHeader[0]->page}}</h2>
 				<div class="page-links">
-					<a href="#">Home</a>
-					<span>Services</span>
+					<a href="{{$pageHeader[0]->homeLink}}">{{$pageHeader[0]->home}}</a>
+					<span>{{$pageHeader[0]->page}}</span>
 				</div>
 			</div>
 		</div>

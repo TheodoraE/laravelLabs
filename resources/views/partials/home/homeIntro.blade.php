@@ -3,13 +3,17 @@
     <div class="hero-content">
         <div class="hero-center">
             <img src="{{asset('storage/img/'.$logo[0]->url)}}" alt="">
-            <p>Get your freebie template now!</p>
+            @foreach ($homeCarousel as $carousel)
+                <p>{{$carousel->carouselDescriptions->description}}</p>
+            @endforeach
         </div>
     </div>
     <!-- slider -->
     <div id="hero-slider" class="owl-carousel">
-        <div class="item  hero-item" data-bg="{{asset('img/01.jpg')}}"></div>
-        <div class="item  hero-item" data-bg="{{asset('img/02.jpg')}}"></div>
+        @foreach ($homeCarousel as $carousel)
+            <div class="item  hero-item" data-bg="{{asset('storage/img/'.$carousel->url)}}"></div>
+            {{-- <span style="display: none">{{$homeCarouselCount++}}</span> --}}
+        @endforeach
     </div>
 </div>
 <!-- Intro Section -->
