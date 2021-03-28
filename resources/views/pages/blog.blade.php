@@ -4,16 +4,16 @@
     <!-- Header section -->
 	<header class="header-section">
 		<div class="logo">
-			<img src="{{asset('img/logo.png')}}" alt=""><!-- Logo -->
+			<img src="{{asset('storage/img/'.$logo[0]->url)}}" height="32px" width="111px" alt=""><!-- Logo -->
 		</div>
 		<!-- Navigation -->
 		<div class="responsive"><i class="fa fa-bars"></i></div>
 		<nav>
 			<ul class="menu-list">
-				<li><a href="/">Home</a></li>
-				<li><a href="/services">Services</a></li>
-				<li class="active"><a href="/blog">Blog</a></li>
-				<li><a href="/contact">Contact</a></li>
+				<li><a href="{{$navbar[0]->link}}">{{$navbar[0]->page}}</a></li>
+				<li><a href="{{$navbar[1]->link}}">{{$navbar[1]->page}}</a></li>
+				<li class="active"><a href="{{$navbar[2]->link}}">{{$navbar[2]->page}}</a></li>
+				<li><a href="{{$navbar[3]->link}}">{{$navbar[3]->page}}</a></li>
 			</ul>
 		</nav>
 	</header>

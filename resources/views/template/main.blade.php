@@ -31,7 +31,7 @@
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader">
-			<img src="{{asset('img/logo.png')}}" alt="">
+			<img src="{{asset('storage/img/'.$logo[0]->url)}}" height="32px" width="111px" alt=""><!-- Logo -->
 			<h2>Loading.....</h2>
 		</div>
 	</div>
@@ -43,7 +43,7 @@
 
     <!-- Footer section -->
     <footer class="footer-section">
-        <h2>2017 All rights reserved. Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></h2>
+        <h2>{{$footer[0]->copyright}}<a href="{{$footer[0]->creditsLink}}" target="_blank">{{$footer[0]->credits}}</a></h2>
     </footer>
     <!-- Footer section end -->
 
