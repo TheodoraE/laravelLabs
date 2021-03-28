@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Logo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LogoController extends Controller
 {
@@ -14,7 +15,8 @@ class LogoController extends Controller
      */
     public function index()
     {
-        //
+        $logos = Logo::all();
+        return view('backoffice.main.logo', compact('logos'));
     }
 
     /**
@@ -57,7 +59,8 @@ class LogoController extends Controller
      */
     public function edit(Logo $logo)
     {
-        //
+        $edit = $logo;
+        return view('backoffice.main.editLogo', compact('edit'));
     }
 
     /**
@@ -69,7 +72,17 @@ class LogoController extends Controller
      */
     public function update(Request $request, Logo $logo)
     {
-        //
+        $validation = $request->validate([
+            "url" => 'required',
+        ]);
+
+        $store = $logo;
+        $store->name = $request->name;
+        Storage::put('public/img', $request->url);
+        $store->url = $request->file('url')->hashName();
+
+        $store->save();
+        return redirect('/logos');
     }
 
     /**

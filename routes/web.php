@@ -3,7 +3,16 @@
 use App\Models\Logo;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactFormAddressController;
+use App\Http\Controllers\ContactFormEmailController;
+use App\Http\Controllers\ContactFormPhoneController;
+use App\Http\Controllers\ContactFormPlaceholderController;
+use App\Http\Controllers\ContactFormSubjectController;
+use App\Http\Controllers\FooterController;
+use App\Http\Controllers\HomeCarouselController;
 use App\Http\Controllers\LogoController;
+use App\Http\Controllers\NavbarController;
+use App\Http\Controllers\PageHeaderController;
 use App\Http\Controllers\ServicesController;
 use App\Models\ContactFormAddress;
 use App\Models\ContactFormEmail;
@@ -69,7 +78,15 @@ Route::resource('navbars', NavbarController::class);
 Route::resource('pageHeaders', PageHeaderController::class);
 // Contact Form
 Route::resource('contactFormAddress', ContactFormAddressController::class);
+Route::resource('contactFormPhones', ContactFormPhoneController::class);
+Route::resource('contactFormEmails', ContactFormEmailController::class);
+Route::resource('contactFormPlaceholders', ContactFormPlaceholderController::class);
+Route::resource('contactFormSubjects', ContactFormSubjectController::class);
 
+// Home
+        // Arranger les descriptions 
+Route::resource('homeCarousels', HomeCarouselController::class);
+// Route::resource('homeAboutCards', H)
 
 
 // Route::get('/newsletter')
