@@ -14,7 +14,8 @@ class ContactFormSubjectController extends Controller
      */
     public function index()
     {
-        //
+        $subjects = ContactFormSubject::all();
+        return view('backoffice.contactForm.contactFormSubject', compact('subjects'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ContactFormSubjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.contactForm.createContactFormSubject');
     }
 
     /**
@@ -35,7 +36,14 @@ class ContactFormSubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            "subject" => 'required'
+        ]);
+
+        $store = new ContactFormSubject;
+        $store->subject = $request->subject;
+        $store->save();
+        return redirect('/contactFormSubjects');
     }
 
     /**
@@ -57,7 +65,8 @@ class ContactFormSubjectController extends Controller
      */
     public function edit(ContactFormSubject $contactFormSubject)
     {
-        //
+        $edit = $contactFormSubject;
+        return view('backoffice.contactForm.editContactFormSubject', compact('edit'));
     }
 
     /**
@@ -69,7 +78,14 @@ class ContactFormSubjectController extends Controller
      */
     public function update(Request $request, ContactFormSubject $contactFormSubject)
     {
-        //
+        $validation = $request->validate([
+            "subject" => 'required'
+        ]);
+
+        $update = $contactFormSubject;
+        $update->subject = $request->subject;
+        $update->save();
+        return redirect('/contactFormSubjects');
     }
 
     /**
@@ -80,6 +96,8 @@ class ContactFormSubjectController extends Controller
      */
     public function destroy(ContactFormSubject $contactFormSubject)
     {
-        //
+        $destroy = $contactFormSubject;
+        $destroy->delete();
+        return redirect('/contactFormSubjects');
     }
 }

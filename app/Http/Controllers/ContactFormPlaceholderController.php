@@ -14,7 +14,8 @@ class ContactFormPlaceholderController extends Controller
      */
     public function index()
     {
-        //
+        $placeholders = ContactFormPlaceholder::all();
+        return view('backoffice.contactForm.contactFormPlaceholder', compact('placeholders'));
     }
 
     /**
@@ -57,7 +58,8 @@ class ContactFormPlaceholderController extends Controller
      */
     public function edit(ContactFormPlaceholder $contactFormPlaceholder)
     {
-        //
+        $edit = $contactFormPlaceholder;
+        return view('backoffice.contactForm.editContactFormPlaceholder', compact('edit'));
     }
 
     /**
@@ -69,7 +71,14 @@ class ContactFormPlaceholderController extends Controller
      */
     public function update(Request $request, ContactFormPlaceholder $contactFormPlaceholder)
     {
-        //
+        $validation = $request->validate([
+            "placeholder" => 'required'
+        ]);
+
+        $update = $contactFormPlaceholder;
+        $update->placeholder = $request->placeholder;
+        $update->save();
+        return redirect('/contactFormPlaceholders');
     }
 
     /**
