@@ -10,6 +10,7 @@ use App\Http\Controllers\ContactFormPlaceholderController;
 use App\Http\Controllers\ContactFormSubjectController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\HomeCarouselController;
+use App\Http\Controllers\HomeCarouselDescriptionController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\NavbarController;
 use App\Http\Controllers\PageHeaderController;
@@ -58,8 +59,9 @@ Route::get('/', function () {
     // Home
     $homeCarousel = HomeCarousel::all();
     $homeCarouselDescription = HomeCarouselDescription::all();
+    $homeCarouselCount = 0;
 
-    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription'));
+    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount'));
 });
 
 // Authenticate
@@ -92,6 +94,7 @@ Route::resource('/users', UserController::class);
 // Home
         // Arranger les descriptions 
 Route::resource('homeCarousels', HomeCarouselController::class);
+Route::resource('homeCarouselDescriptions', HomeCarouselDescriptionController::class);
 // Route::resource('homeAboutCards', H)
 
 

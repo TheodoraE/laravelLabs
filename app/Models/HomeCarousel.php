@@ -10,6 +10,6 @@ class HomeCarousel extends Model
     use HasFactory;
     public function carouseldescriptions()
     {
-        return $this->hasOne(HomeCarouselDescription::class, "description_id");
+        return $this->belongsTo(HomeCarouselDescription::class, 'description_id');
     }
 }

@@ -301,7 +301,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Carousel',
-                    'url'  => '#',
+                    'url'  => '/homeCarousels',
                 ],
                 [
                     'text' => 'About Cards',
