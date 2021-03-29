@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             ContactFormSubjectSeeder::class,
             HomeCarouselDescriptionSeeder::class,
             HomeCarouselSeeder::class,
-            
+            HomeAboutCardSeeder::class,
 
             
         ]);

@@ -24,6 +24,7 @@ use App\Models\ContactFormSubject;
 use App\Models\ContactFormSubtitle;
 use App\Models\ContactFormTitle;
 use App\Models\Footer;
+use App\Models\HomeAboutCard;
 use App\Models\HomeCarousel;
 use App\Models\HomeCarouselDescription;
 use App\Models\Navbar;
@@ -57,11 +58,16 @@ Route::get('/', function () {
     $contactFormPlaceholder = ContactFormPlaceholder::all();
     $contactFormSubjects = ContactFormSubject::all();
     // Home
+        // Intro
     $homeCarousel = HomeCarousel::all();
     $homeCarouselDescription = HomeCarouselDescription::all();
-    $homeCarouselCount = 0;
+    $homeCarouselCount = -1;
+        // About
+    $homeAboutCards = HomeAboutCard::all();
 
-    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount'));
+
+
+    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'homeAboutCards'));
 });
 
 // Authenticate

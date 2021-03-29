@@ -5,18 +5,21 @@
     <div class="card-section">
         <div class="container">
             <div class="row">
+                
                 <!-- single card -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="lab-card">
-                        <div class="icon">
-                            <i class="flaticon-023-flask"></i>
+                @foreach ($homeAboutCards as $about)
+                    <div class="{{$about->classCol}}">
+                        <div class="lab-card">
+                            <div class="icon">
+                                <i class="{{$about->classIcon}}"></i>
+                            </div>
+                            <h2>{{$about->title}}</h2>
+                            <p>{{$about->text}}</p>
                         </div>
-                        <h2>Get in the lab</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                    </div>
-                </div>
+                    </div> 
+                @endforeach
                 <!-- single card -->
-                <div class="col-md-4 col-sm-6">
+                {{-- <div class="col-md-4 col-sm-6">
                     <div class="lab-card">
                         <div class="icon">
                             <i class="flaticon-011-compass"></i>
@@ -34,7 +37,7 @@
                         <h2>SMART MARKETING</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
