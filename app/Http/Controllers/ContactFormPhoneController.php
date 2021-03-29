@@ -14,7 +14,8 @@ class ContactFormPhoneController extends Controller
      */
     public function index()
     {
-        //
+        $phones = ContactFormPhone::all();
+        return view('backoffice.contactForm.contactFormPhone', compact('phones'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ContactFormPhoneController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.contactForm.createContactFormPhone');
     }
 
     /**
@@ -35,7 +36,14 @@ class ContactFormPhoneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            "phone" => 'required'
+        ]);
+
+        $store = new ContactFormPhone;
+        $store->phone = $request->phone;
+        $store->save();
+        return redirect('/contactFormPhones');
     }
 
     /**
@@ -57,7 +65,8 @@ class ContactFormPhoneController extends Controller
      */
     public function edit(ContactFormPhone $contactFormPhone)
     {
-        //
+        $edit = $contactFormPhone;
+        return view('backoffice.contactForm.editContactFormPhone', compact('edit'));
     }
 
     /**
@@ -69,7 +78,14 @@ class ContactFormPhoneController extends Controller
      */
     public function update(Request $request, ContactFormPhone $contactFormPhone)
     {
-        //
+        $validation = $request->validate([
+            "phone" => 'required'
+        ]);
+
+        $update = $contactFormPhone;
+        $update->phone = $request->phone;
+        $update->save();
+        return redirect('/contactFormPhones');
     }
 
     /**
@@ -80,6 +96,8 @@ class ContactFormPhoneController extends Controller
      */
     public function destroy(ContactFormPhone $contactFormPhone)
     {
-        //
+        $destroy = $contactFormPhone;
+        $destroy->delete();
+        return redirect('/contactFormPhones');
     }
 }

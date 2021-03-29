@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="mb-5">Ajouter une adresse</h1>
+                    <h1 class="mb-5">Ajouter un e-mail</h1>
 
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -17,17 +17,12 @@
                         </div>
                     @endif
 
-                    <form action="/contactFormAddress" method="POST" class="m-3">
+                    <form action="/contactFormEmails" method="POST" class="m-3">
                         @csrf
                         
                         <div class="form-group">
-                            <label for="address1">Address 1 : </label>
-                            <input type="text" name="address1" class="form-control" value="{{old('address1')}}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="address2">Address 2 : </label>
-                            <input type="text" name="address2" class="form-control" value="{{old('address2')}}">
+                            <label for="email">Email : </label>
+                            <input type="email" name="email" class="form-control" value="{{old('email')}}">
                         </div>
 
                         <button type="submit" class="btn mt-4" style="background-color: #AFE3D0">Ajouter</button>

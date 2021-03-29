@@ -31,7 +31,7 @@
                             <input type="text" name="address2" class="form-control" value="{{old('address2') ? old('address2') : $edit->address2}}">
                         </div>
 
-                        <button type="submit" class="btn btn-warning mt-4">Enregistrer</button>
+                        <button type="submit" class="btn mt-4" style="background-color: #F7D3BB">Enregistrer</button>
                     </form>
                 </div>
             </div>

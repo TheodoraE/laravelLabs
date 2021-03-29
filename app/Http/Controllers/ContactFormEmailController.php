@@ -14,7 +14,8 @@ class ContactFormEmailController extends Controller
      */
     public function index()
     {
-        //
+        $emails = ContactFormEmail::all();
+        return view('backoffice.contactForm.contactFormEmail', compact('emails'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ContactFormEmailController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.contactForm.createContactFormEmail');
     }
 
     /**
@@ -35,7 +36,14 @@ class ContactFormEmailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            "email" => 'required'
+        ]);
+
+        $store = new ContactFormEmail;
+        $store->email = $request->email;
+        $store->save();
+        return redirect('/contactFormEmails');
     }
 
     /**
@@ -57,7 +65,8 @@ class ContactFormEmailController extends Controller
      */
     public function edit(ContactFormEmail $contactFormEmail)
     {
-        //
+        $edit = $contactFormEmail;
+        return view('backoffice.contactForm.editContactFormEmail', compact('edit'));
     }
 
     /**
@@ -69,7 +78,14 @@ class ContactFormEmailController extends Controller
      */
     public function update(Request $request, ContactFormEmail $contactFormEmail)
     {
-        //
+        $validation = $request->validate([
+            "email" => 'required'
+        ]);
+
+        $update = $contactFormEmail;
+        $update->email = $request->email;
+        $update->save();
+        return redirect('/contactFormEmails');
     }
 
     /**
@@ -80,6 +96,8 @@ class ContactFormEmailController extends Controller
      */
     public function destroy(ContactFormEmail $contactFormEmail)
     {
-        //
+        $destroy = $contactFormEmail;
+        $destroy->delete();
+        return redirect('/contactFormEmails');
     }
 }
