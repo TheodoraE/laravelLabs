@@ -36,7 +36,7 @@
                             <input type="text" name="creditsLink" class="form-control" value="{{old('creditsLink') ? old('creditsLink') : $edit->creditsLink}}">
                         </div>
 
-                        <button type="submit" class="btn btn-warning mt-4">Enregistrer</button>
+                        <button type="submit" class="btn mt-4" style="background-color: #F7D3BB">Enregistrer</button>
                     </form>
                 </div>
             </div>

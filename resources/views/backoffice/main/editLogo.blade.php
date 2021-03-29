@@ -30,7 +30,7 @@
                             <input type="file" name="url" id="">
                         </div>
 
-                        <button type="submit" class="btn btn-warning mt-4">Enregistrer</button>
+                        <button type="submit" class="btn mt-4" style="background-color: #F7D3BB">Enregistrer</button>
                     </form>
                 </div>
             </div>

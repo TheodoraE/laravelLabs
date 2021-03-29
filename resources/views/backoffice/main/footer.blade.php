@@ -24,7 +24,7 @@
                                 <td>{{$footer->credits}}</td>
                                 <td>{{$footer->creditsLink}}</td>
                                 <td>
-                                    <a href="/footers/{{$footer->id}}/edit" class="btn btn-warning">EDIT</a>
+                                    <a href="/footers/{{$footer->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
                                 </td>
                             </tr>
                           @endforeach

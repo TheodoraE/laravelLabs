@@ -35,7 +35,7 @@
                             <input type="text" name="page" class="form-control" value="{{old('page')}}">
                         </div>
 
-                        <button type="submit" class="btn btn-success mt-4">Ajouter</button>
+                        <button type="submit" class="btn mt-4" style="background-color: #AFE3D0">Ajouter</button>
                     </form>
                 </div>
             </div>

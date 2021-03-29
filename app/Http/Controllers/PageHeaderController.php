@@ -69,7 +69,8 @@ class PageHeaderController extends Controller
      */
     public function edit(PageHeader $pageHeader)
     {
-        //
+        $edit =$pageHeader;
+        return view('backoffice.main.editPageHeader', compact('edit'));
     }
 
     /**
@@ -81,7 +82,18 @@ class PageHeaderController extends Controller
      */
     public function update(Request $request, PageHeader $pageHeader)
     {
-        //
+        $validation = $request->validate([
+            "home" => 'required',
+            "homeLink" => 'required',
+            "page" => 'required'
+        ]);
+
+        $update = $pageHeader;
+        $update->home = $request->home;
+        $update->homeLink = $request->homeLink;
+        $update->page = $request->page;
+        $update->save();
+        return redirect('/pageHeaders');
     }
 
     /**
@@ -92,6 +104,8 @@ class PageHeaderController extends Controller
      */
     public function destroy(PageHeader $pageHeader)
     {
-        //
+        $destroy = $pageHeader;
+        $destroy->delete();
+        return redirect('/pageHeaders');
     }
 }

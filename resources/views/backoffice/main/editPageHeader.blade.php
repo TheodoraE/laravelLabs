@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="mb-5">Ajouter un lien navbar</h1>
+                    <h1 class="mb-5">Modifier le header</h1>
 
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -17,13 +17,18 @@
                         </div>
                     @endif
 
-                    <form action="/navbars/{{$edit->id}}" method="POST" class="m-3">
+                    <form action="/pageHeaders/{{$edit->id}}" method="POST" class="m-3">
                         @csrf
                         @method('PATCH')
+
+                        <div class="form-group">
+                            <label for="home">Home : </label>
+                            <input type="text" name="home" class="form-control" value="{{old('home') ? old('home') : $edit->home}}">
+                        </div>
                         
                         <div class="form-group">
-                            <label for="link">Link : </label>
-                            <input type="text" name="link" class="form-control" value="{{old('link') ? old('link') : $edit->link}}">
+                            <label for="homeLink">Home link : </label>
+                            <input type="text" name="homeLink" class="form-control" value="{{old('homeLink') ? old('homeLink') : $edit->homeLink}}">
                         </div>
 
                         <div class="form-group">

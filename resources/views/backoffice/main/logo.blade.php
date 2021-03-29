@@ -24,7 +24,7 @@
                                     <img src="{{'storage/img/'.$logo->url}}" alt="" height="50px">
                                 </td>
                                 <td>
-                                    <a href="/logos/{{$logo->id}}/edit" class="btn btn-warning">EDIT</a>
+                                    <a href="/logos/{{$logo->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
                                 </td>
                             </tr>
                           @endforeach

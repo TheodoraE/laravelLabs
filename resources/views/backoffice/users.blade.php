@@ -28,7 +28,7 @@
                                 <td>{{$user->email}}</td>
                                 {{-- <td>{{$user->}}</td> --}}
                                 <td>
-                                    <a href="/users/{{$user->id}}/edit" class="btn btn-warning">EDIT</a>
+                                    <a href="/users/{{$user->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
                                 </td>
                             </tr>
                           @endforeach

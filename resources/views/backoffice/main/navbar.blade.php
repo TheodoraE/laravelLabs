@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <h1 class="mb-5">Navbar</h1>
 
-                    <a href="/navbars/create" class="btn btn-info mb-3">Ajouter un lien</a>
+                    <a href="/navbars/create" class="btn mb-3" style="background-color: #C1C8E3">Ajouter un lien</a>
 
                     <table class="table">
                         <thead>
@@ -26,13 +26,13 @@
                                 <td>{{$navbar->link}}</td>
                                 <td>{{$navbar->page}}</td>
                                 <td>
-                                    <a href="/navbars/{{$navbar->id}}/edit" class="btn btn-warning">EDIT</a>
+                                    <a href="/navbars/{{$navbar->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
                                 </td>
                                 <td>
                                   <form action="/navbars/{{$navbar->id}}" method="POST">
                                       @csrf
                                       @method('DELETE')
-                                      <button type="submit" class="btn btn-danger">DELETE</button>
+                                      <button type="submit" class="btn" style="background-color: #F7959D">DELETE</button>
                                   </form>
                               </td>
                             </tr>

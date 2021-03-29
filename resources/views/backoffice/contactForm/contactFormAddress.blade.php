@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <h1 class="mb-5">Contact Form Address</h1>
 
-                    <a href="/contactFormAddress/create" class="btn btn-info mb-3">Ajouter une adresse</a>
+                    <a href="/contactFormAddress/create" class="btn mb-3" style="background-color: #C1C8E3">Ajouter une adresse</a>
 
                     <table class="table">
                         <thead>
@@ -26,13 +26,13 @@
                                 <td>{{$address->address1}}</td>
                                 <td>{{$address->address2}}</td>
                                 <td>
-                                    <a href="/contactFormAddress/{{$address->id}}/edit" class="btn btn-warning">EDIT</a>
+                                    <a href="/contactFormAddress/{{$address->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
                                 </td>
                                 <td>
                                     <form action="/contactFormAddress/{{$address->id}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">DELETE</button>
+                                        <button type="submit" class="btn" style="background-color: #F7959D">DELETE</button>
                                     </form>
                                 </td>
                             </tr>
