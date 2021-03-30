@@ -14,7 +14,8 @@ class HomeAboutCardController extends Controller
      */
     public function index()
     {
-        //
+        $aboutCards = HomeAboutCard::all();
+        return view('backoffice.home.about.homeAboutCard', compact('aboutCards'));
     }
 
     /**
@@ -24,7 +25,7 @@ class HomeAboutCardController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.home.about.createHomeAboutCard');
     }
 
     /**
@@ -35,7 +36,19 @@ class HomeAboutCardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            "classIcon" => 'required',
+            "title" => 'required',
+            "text" => 'required'
+        ]);
+
+        $store = new HomeAboutCard;
+        $store->classCol = $request->classCol;
+        $store->classIcon = $request->classIcon;
+        $store->title = $request->title;
+        $store->text = $request->text;
+        $store->save();
+        return redirect('/homeAboutCards');
     }
 
     /**
@@ -57,7 +70,8 @@ class HomeAboutCardController extends Controller
      */
     public function edit(HomeAboutCard $homeAboutCard)
     {
-        //
+        $edit = $homeAboutCard;
+        return view('backoffice.home.about.editHomeAboutCard', compact('edit'));
     }
 
     /**
@@ -69,7 +83,20 @@ class HomeAboutCardController extends Controller
      */
     public function update(Request $request, HomeAboutCard $homeAboutCard)
     {
-        //
+        $validation = $request->validate([
+            "classIcon" => 'required',
+            "title" => 'required',
+            "text" => 'required'
+        ]);
+
+        $update = $homeAboutCard;
+        $update->classCol = $request->classCol;
+        $update->classIcon = $request->classIcon;
+        $update->title = $request->title;
+        $update->text = $request->text;
+
+        $update->save();
+        return redirect('/homeAboutCards');
     }
 
     /**
@@ -80,6 +107,8 @@ class HomeAboutCardController extends Controller
      */
     public function destroy(HomeAboutCard $homeAboutCard)
     {
-        //
+        $destroy = $homeAboutCard;
+        $destroy->delete();
+        return redirect('/homeAboutCards');
     }
 }

@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="mb-5">Modifier le lien navbar</h1>
+                    <h1 class="mb-5">Modifier la video</h1>
 
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -17,18 +17,18 @@
                         </div>
                     @endif
 
-                    <form action="/navbars/{{$edit->id}}" method="POST" class="m-3">
+                    <form action="/homeAboutVideo/{{$edit->id}}" method="POST" enctype="multipart/form-data" class="m-3">
                         @csrf
                         @method('PATCH')
                         
                         <div class="form-group">
-                            <label for="link">Link : </label>
-                            <input type="text" name="link" class="form-control" value="{{old('link') ? old('link') : $edit->link}}">
+                            <label for="url">Image : </label> <br>
+                            <input type="file" name="url" id="url">
                         </div>
 
                         <div class="form-group">
-                            <label for="page">Page : </label>
-                            <input type="text" name="page" class="form-control" value="{{old('page') ? old('page') : $edit->page}}">
+                            <label for="youtubeLink">Insérer l'url Youtube : </label>
+                            <input type="text" name="youtubeLink" class="form-control" value="{{old('youtubeLink') ? old('youtubeLink') : $edit->youtubeLink}}">
                         </div>
 
                         <button type="submit" class="btn mt-4" style="background-color: #F7D3BB">Enregistrer</button>

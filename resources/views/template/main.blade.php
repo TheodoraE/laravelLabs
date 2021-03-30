@@ -37,7 +37,7 @@
 	</div>
 
 	<!-- Header section -->
-	<header class="header-section">
+	{{-- <header class="header-section">
 		<div class="logo">
 			<img src="{{asset('storage/img/'.$logo[0]->url)}}" height="32px" width="111px" alt=""><!-- Logo -->
 		</div>
@@ -50,7 +50,7 @@
 				@endforeach
 			</ul>
 		</nav>
-	</header>
+	</header> --}}
 	<!-- Header section end -->
 
 

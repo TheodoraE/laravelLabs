@@ -28,7 +28,11 @@ class DatabaseSeeder extends Seeder
             HomeCarouselDescriptionSeeder::class,
             HomeCarouselSeeder::class,
             HomeAboutCardSeeder::class,
-
+            HomeAboutTitleSeeder::class,
+            HomeAboutContentSeeder::class,
+            HomeAboutButtonSeeder::class,
+            HomeAboutVideoSeeder::class,
+            
             
         ]);
         // \App\Models\User::factory(10)->create();

@@ -9,6 +9,11 @@ use App\Http\Controllers\ContactFormPhoneController;
 use App\Http\Controllers\ContactFormPlaceholderController;
 use App\Http\Controllers\ContactFormSubjectController;
 use App\Http\Controllers\FooterController;
+use App\Http\Controllers\HomeAboutButtonController;
+use App\Http\Controllers\HomeAboutCardController;
+use App\Http\Controllers\HomeAboutContentController;
+use App\Http\Controllers\HomeAboutTitleController;
+use App\Http\Controllers\HomeAboutVideoController;
 use App\Http\Controllers\HomeCarouselController;
 use App\Http\Controllers\HomeCarouselDescriptionController;
 use App\Http\Controllers\LogoController;
@@ -24,7 +29,11 @@ use App\Models\ContactFormSubject;
 use App\Models\ContactFormSubtitle;
 use App\Models\ContactFormTitle;
 use App\Models\Footer;
+use App\Models\HomeAboutButton;
 use App\Models\HomeAboutCard;
+use App\Models\HomeAboutContent;
+use App\Models\HomeAboutTitle;
+use App\Models\HomeAboutVideo;
 use App\Models\HomeCarousel;
 use App\Models\HomeCarouselDescription;
 use App\Models\Navbar;
@@ -64,10 +73,13 @@ Route::get('/', function () {
     $homeCarouselCount = -1;
         // About
     $homeAboutCards = HomeAboutCard::all();
+    $homeAboutTitle = HomeAboutTitle::all();
+    $homeAboutContent = HomeAboutContent::all();
+    $homeAboutButton = HomeAboutButton::all();
+    $homeAboutVideo = HomeAboutVideo::all();
 
 
-
-    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'homeAboutCards'));
+    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'homeAboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo'));
 });
 
 // Authenticate
@@ -81,9 +93,9 @@ Route::resource('blogs', BlogController::class);
 // Main
 Route::resource('logos', LogoController::class);
 Route::resource('footers', FooterController::class);
-// Navbar
+    // Navbar
 Route::resource('navbars', NavbarController::class);
-// Page Header
+    // Page Header
 Route::resource('pageHeaders', PageHeaderController::class);
 // Contact Form
 Route::resource('contactFormAddress', ContactFormAddressController::class);
@@ -95,13 +107,26 @@ Route::resource('contactFormSubjects', ContactFormSubjectController::class);
 // Users
 Route::resource('/users', UserController::class);
 // Profile
-
+Route::get('/profile', function(){
+    return view('backoffice.myProfile');
+});
 
 // Home
         // Arranger les descriptions 
 Route::resource('homeCarousels', HomeCarouselController::class);
 Route::resource('homeCarouselDescriptions', HomeCarouselDescriptionController::class);
-// Route::resource('homeAboutCards', H)
+    // About
+Route::resource('homeAboutCards', HomeAboutCardController::class);
+Route::resource('homeAboutTitle', HomeAboutTitleController::class);
+Route::resource('homeAboutContent', HomeAboutContentController::class);
+Route::resource('homeAboutButton', HomeAboutButtonController::class);
+Route::resource('homeAboutVideo', HomeAboutVideoController::class);
+    // Testimonials
+Route::resource('homeTestimonialsTitle', HomeTestimoninalTitle::class);
+Route::resource('homeTestimonialsCards', HomeTestimoninalCard::class);
+
+
+
 
 
 // Route::get('/newsletter')

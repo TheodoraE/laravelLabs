@@ -243,7 +243,7 @@ return [
         ['header' => 'PARAMÈTRES'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => '/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         ['header' => 'MODIFICATIONS'],
@@ -305,7 +305,19 @@ return [
                 ],
                 [
                     'text' => 'About Cards',
-                    'url'  => '#',
+                    'url'  => '/homeAboutCards',
+                ],
+                [
+                    'text' => 'About Content',
+                    'url'  => '/homeAboutContent',
+                ],
+                [
+                    'text' => 'About Video',
+                    'url'  => '/homeAboutVideo',
+                ],
+                [
+                    'text' => 'Testimonials',
+                    'url'  => '/homeAboutVideo',
                 ],
             ],
         ],
