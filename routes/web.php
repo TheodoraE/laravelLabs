@@ -16,6 +16,8 @@ use App\Http\Controllers\HomeAboutTitleController;
 use App\Http\Controllers\HomeAboutVideoController;
 use App\Http\Controllers\HomeCarouselController;
 use App\Http\Controllers\HomeCarouselDescriptionController;
+use App\Http\Controllers\HomeTestimonialsCardController;
+use App\Http\Controllers\HomeTestimonialsTitleController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\NavbarController;
 use App\Http\Controllers\PageHeaderController;
@@ -36,6 +38,8 @@ use App\Models\HomeAboutTitle;
 use App\Models\HomeAboutVideo;
 use App\Models\HomeCarousel;
 use App\Models\HomeCarouselDescription;
+use App\Models\HomeTestimonialsCard;
+use App\Models\HomeTestimonialsTitle;
 use App\Models\Navbar;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -77,9 +81,12 @@ Route::get('/', function () {
     $homeAboutContent = HomeAboutContent::all();
     $homeAboutButton = HomeAboutButton::all();
     $homeAboutVideo = HomeAboutVideo::all();
+        // Testimonials
+    $homeTestimonialsTitle = HomeTestimonialsTitle::all();
+    $homeTestimonialsCards = HomeTestimonialsCard::all();
 
 
-    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'homeAboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo'));
+    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'homeAboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsTitle', 'homeTestimonialsCards'));
 });
 
 // Authenticate
@@ -122,8 +129,8 @@ Route::resource('homeAboutContent', HomeAboutContentController::class);
 Route::resource('homeAboutButton', HomeAboutButtonController::class);
 Route::resource('homeAboutVideo', HomeAboutVideoController::class);
     // Testimonials
-Route::resource('homeTestimonialsTitle', HomeTestimoninalTitle::class);
-Route::resource('homeTestimonialsCards', HomeTestimoninalCard::class);
+Route::resource('homeTestimonialsTitle', HomeTestimonialsTitleController::class);
+Route::resource('homeTestimonialsCards', HomeTestimonialsCardController::class);
 
 
 

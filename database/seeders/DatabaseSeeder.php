@@ -32,6 +32,8 @@ class DatabaseSeeder extends Seeder
             HomeAboutContentSeeder::class,
             HomeAboutButtonSeeder::class,
             HomeAboutVideoSeeder::class,
+            HomeTestimonialsTitleSeeder::class,
+            HomeTestimonialsCardSeeder::class,
             
             
         ]);

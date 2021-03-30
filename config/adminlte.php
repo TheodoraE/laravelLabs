@@ -317,7 +317,7 @@ return [
                 ],
                 [
                     'text' => 'Testimonials',
-                    'url'  => '/homeAboutVideo',
+                    'url'  => '/homeTestimonialsTitle',
                 ],
             ],
         ],

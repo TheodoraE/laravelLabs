@@ -5,25 +5,25 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-4">
                 <div class="section-title left">
-                    <h2>What our clients say</h2>
+                    <h2>{{$homeTestimonialsTitle[0]->title}}</h2>
                 </div>
                 <div class="owl-carousel" id="testimonial-slide">
                     <!-- single testimonial -->
-                    {{-- @foreach ($collection as $item) --}}
+                    @foreach ($homeTestimonialsCards as $card)
                         <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+                            <span>{{$card->span}}</span>
+                            <p>{{$card->text}}</p>
                             <div class="client-info">
                                 <div class="avatar">
-                                    <img src="{{asset('img/avatar/01.jpg')}}" alt="">
+                                    <img src="{{asset('storage/img/'.$card->url)}}" alt="">
                                 </div>
                                 <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
+                                    <h2>{{$card->name}}</h2>
+                                    <p>{{$card->function}}</p>
                                 </div>
                             </div>
                         </div>
-                    {{-- @endforeach --}}
+                    @endforeach
                 </div>
             </div>
         </div>
