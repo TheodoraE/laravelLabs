@@ -27,8 +27,25 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="classIcon">Icon Class : </label>
-                            <input type="text" name="classIcon" class="form-control" value="{{old('classIcon') ? old('classIcon') : $edit->classIcon}}">
+                            <label for="classIcon">Icon : </label>
+                            <div class="row d-flex my-3">
+                                @foreach ($icons as $icon)
+                                    <div class="input-group my-2 col">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <input type="radio" aria-label="Radio button for following text input" value="{{$icon->icon}}" name="classIcon">
+                                            </div>
+                                        </div>
+                                        <i class="{{$icon->icon}}" style="font-size: 40px"></i>
+                                    </div>
+                                @endforeach
+                            </div>
+                            {{-- <select name="classICon" id="">
+                                @foreach ($icons as $icon)
+                                    <option value="{{$icon->id}}">{{$icon->icon}}</option>
+                                @endforeach
+                            </select> --}}
+                            {{-- <input type="text" name="classIcon" class="form-control" value="{{old('classIcon') ? old('classIcon') : $edit->classIcon}}"> --}}
                         </div>
 
                         <div class="form-group">

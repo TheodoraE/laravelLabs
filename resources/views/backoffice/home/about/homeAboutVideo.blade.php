@@ -26,7 +26,9 @@
                                 <td>
                                   <img src="{{asset('storage/img/'.$video->url)}}" alt="" height="150px">
                                 </td>
-                                <td>{{$video->youtubeLink}}</td>
+                                <td>
+                                  <a href="{{$video->youtubeLink}}">{{$video->youtubeLink}}</a>
+                                </td>
                                 <td>
                                     <a href="/homeAboutVideo/{{$video->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
                                 </td>

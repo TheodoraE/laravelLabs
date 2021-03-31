@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             ContactFormSubjectSeeder::class,
             HomeCarouselDescriptionSeeder::class,
             HomeCarouselSeeder::class,
+            IconSeeder::class,
             HomeAboutCardSeeder::class,
             HomeAboutTitleSeeder::class,
             HomeAboutContentSeeder::class,
@@ -34,7 +35,11 @@ class DatabaseSeeder extends Seeder
             HomeAboutVideoSeeder::class,
             HomeTestimonialsTitleSeeder::class,
             HomeTestimonialsCardSeeder::class,
-            
+            HomeServicesTitleSeeder::class,
+            HomeServicesButtonSeeder::class,
+
+            ServicesCardSeeder::class,
+
             
         ]);
         // \App\Models\User::factory(10)->create();

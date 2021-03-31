@@ -319,6 +319,14 @@ return [
                     'text' => 'Testimonials',
                     'url'  => '/homeTestimonialsTitle',
                 ],
+                [
+                    'text' => 'Services',
+                    'url'  => '/homeServicesTitle',
+                ],
+                [
+                    'text' => 'Team',
+                    'url'  => '/homeTeamTitle',
+                ],
             ],
         ],
         // ['header' => 'labels'],

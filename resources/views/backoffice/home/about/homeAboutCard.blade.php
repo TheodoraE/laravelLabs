@@ -14,7 +14,7 @@
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col">Column class</th>
-                            <th scope="col">Icon Class</th>
+                            <th scope="col">Icon</th>
                             <th scope="col">Title</th>
                             <th scope="col">Text</th>
                             {{-- <th scope="col"> </th> --}}
@@ -26,7 +26,9 @@
                             <tr>
                                 <th scope="row">{{$card->id}}</th>
                                 <td>{{$card->classCol}}</td>
-                                <td>{{$card->classIcon}}</td>
+                                <td>
+                                  <i class="{{$card->classIcon}}" style="font-size: 30px"></i>
+                                </td>
                                 <td>{{$card->title}}</td>
                                 <td>{{$card->text}}</td>
                                 <td>

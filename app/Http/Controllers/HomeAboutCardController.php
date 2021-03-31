@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HomeAboutCard;
+use App\Models\Icon;
 use Illuminate\Http\Request;
 
 class HomeAboutCardController extends Controller
@@ -71,7 +72,8 @@ class HomeAboutCardController extends Controller
     public function edit(HomeAboutCard $homeAboutCard)
     {
         $edit = $homeAboutCard;
-        return view('backoffice.home.about.editHomeAboutCard', compact('edit'));
+        $icons = Icon::all();
+        return view('backoffice.home.about.editHomeAboutCard', compact('edit', 'icons'));
     }
 
     /**
@@ -88,10 +90,11 @@ class HomeAboutCardController extends Controller
             "title" => 'required',
             "text" => 'required'
         ]);
-
+        
         $update = $homeAboutCard;
         $update->classCol = $request->classCol;
         $update->classIcon = $request->classIcon;
+        // dd($request);
         $update->title = $request->title;
         $update->text = $request->text;
 
