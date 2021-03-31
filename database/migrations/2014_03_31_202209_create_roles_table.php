@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHomeTeamCardsTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateHomeTeamCardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('home_team_cards', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
-            $table->string('name');
-            $table->string('function');
+            $table->string('role');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateHomeTeamCardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('home_team_cards');
+        Schema::dropIfExists('roles');
     }
 }

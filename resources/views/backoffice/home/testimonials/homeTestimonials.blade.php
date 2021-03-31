@@ -68,10 +68,10 @@
                                 <td>{{$card->span}}</td>
                                 <td>{{$card->text}}</td>
                                 <td>
-                                  <img src="{{asset('storage/img/'.$card->url)}}" alt="" height="50px">
+                                  <img src="{{asset('storage/img/'.$card->users->url)}}" alt="" height="50px">
                                 </td>
-                                <td>{{$card->name}}</td>
-                                <td>{{$card->function}}</td>                              
+                                <td>{{$card->users->name}}</td>
+                                <td>{{$card->users->positions->function}}</td>                              
                                 <td>
                                     <a href="/homeTestimonialsCards/{{$card->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
                                 </td>

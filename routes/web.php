@@ -50,6 +50,7 @@ use App\Models\HomeTestimonialsCard;
 use App\Models\HomeTestimonialsTitle;
 use App\Models\Navbar;
 use App\Models\ServicesCard;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -100,9 +101,10 @@ Route::get('/', function () {
     $servicesCard = ServicesCard::all();
         // Team
     $homeTeamTitle = HomeTeamTitle::all();
+    $users = User::where('check',1)->get();
     // $homeTeamCards = HomeTeamCard::all();
 
-    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'homeAboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsTitle', 'homeTestimonialsCards', 'homeServicesTitle', 'homeServicesButton', 'servicesCard', 'homeTeamTitle'));
+    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'homeAboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsTitle', 'homeTestimonialsCards', 'homeServicesTitle', 'homeServicesButton', 'servicesCard', 'homeTeamTitle', 'users'));
 });
 
 // Authenticate
@@ -130,7 +132,7 @@ Route::resource('contactFormSubjects', ContactFormSubjectController::class);
 
 
 // Valider les users
-Route::get('/valider/{$id}', [UserController::class, 'valider']);
+Route::get('/valider/{id}', [UserController::class, 'valider']);
 // Users
 Route::resource('/users', UserController::class);
 // Profile
@@ -156,7 +158,7 @@ Route::resource('homeServicesTitle', HomeServicesTitleController::class);
 Route::resource('homeServicesButton', HomeServicesButtonController::class);
     // Team
 Route::resource('homeTeamTitle', HomeTeamTitleController::class);
-// Route::resource('homeTeamCard', HomeTeamCardController::class);
+Route::resource('homeTeamCard', HomeTeamCardController::class);
 
 
 

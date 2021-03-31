@@ -28,17 +28,15 @@
                             <label for="link">Text : </label>
                             <input type="text" name="text" class="form-control" value="{{old('text')}}">
                         </div>
+                        
                         <div class="form-group">
-                            <label for="url">Image : </label> <br>
-                            <input type="file" name="url" id="url">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Name : </label>
-                            <input type="text" name="name" class="form-control" value="{{old('name')}}">
-                        </div>
-                        <div class="form-group">
-                            <label for="function">Function : </label>
-                            <input type="text" name="function" class="form-control" value="{{old('function')}}">
+                            <label for="user_id">User : </label>
+                            <select name="user_id" id="">
+                                <option value="">Choose the user</option>
+                                @foreach ($users as $user)
+                                    <option value="{{$user->id}}">{{$user->firstname}} {{$user->name}}, {{$user->positions->function}}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <button type="submit" class="btn mt-4" style="background-color: #AFE3D0">Ajouter</button>

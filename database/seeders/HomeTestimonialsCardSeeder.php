@@ -19,44 +19,32 @@ class HomeTestimonialsCardSeeder extends Seeder
                 [
                     "span" => "‘​‌‘",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
-                    "url" => "avatar/01.jpg",
-                    "name" => "Michael Smith",
-                    "function" => "CEO Company"
+                    "user_id" => 4
                 ],
                 [
                     "span" => "‘​‌‘",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
-                    "url" => "avatar/01.jpg",
-                    "name" => "Michael Smith",
-                    "function" => "CEO Company"
+                    "user_id" => 4
                 ],
                 [
                     "span" => "‘​‌‘",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
-                    "url" => "avatar/01.jpg",
-                    "name" => "Michael Smith",
-                    "function" => "CEO Company"
+                    "user_id" => 4
                 ],
                 [
                     "span" => "‘​‌‘",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
-                    "url" => "avatar/01.jpg",
-                    "name" => "Michael Smith",
-                    "function" => "CEO Company"
+                    "user_id" => 4
                 ],
                 [
                     "span" => "‘​‌‘",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
-                    "url" => "avatar/01.jpg",
-                    "name" => "Michael Smith",
-                    "function" => "CEO Company"
+                    "user_id" => 4
                 ],
                 [
                     "span" => "‘​‌‘",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
-                    "url" => "avatar/01.jpg",
-                    "name" => "Michael Smith",
-                    "function" => "CEO Company"
+                    "user_id" => 4
                 ],
             ]
         );

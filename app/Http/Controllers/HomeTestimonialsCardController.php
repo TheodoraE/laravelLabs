@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HomeTestimonialsCard;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -25,7 +26,8 @@ class HomeTestimonialsCardController extends Controller
      */
     public function create()
     {
-        return view('backoffice.home.testimonials.createHomeTestimonialsCard');
+        $users = User::where('check', 1)->get();
+        return view('backoffice.home.testimonials.createHomeTestimonialsCard', compact('users'));
     }
 
     /**
@@ -38,18 +40,13 @@ class HomeTestimonialsCardController extends Controller
     {
         $validation = $request->validate([
             "text" => 'required',
-            "url" => 'required',
-            "name" => 'required',
-            "function" => 'required',
+            'user_id' => 'required'
         ]);
 
         $store = new HomeTestimonialsCard;
         $store->span = $request->span;
         $store->text = $request->text;
-        Storage::put('public/img', $request->url);
-        $store->url = $request->file('url')->hashName();
-        $store->name = $request->name;
-        $store->function = $request->function;
+        $store->user_id = $request->user_id;
         $store->save();
         return redirect('homeTestimonialsTitle');
     }
@@ -74,7 +71,9 @@ class HomeTestimonialsCardController extends Controller
     public function edit(HomeTestimonialsCard $homeTestimonialsCard)
     {
         $edit = $homeTestimonialsCard;
-        return view('backoffice.home.testimonials.editHomeTestimonialsCard', compact('edit'));
+        $users = User::where('check', 1)->get();
+
+        return view('backoffice.home.testimonials.editHomeTestimonialsCard', compact('edit', 'users'));
     }
 
     /**
@@ -88,21 +87,14 @@ class HomeTestimonialsCardController extends Controller
     {
         $validation = $request->validate([
             "text" => 'required',
-            "url" => 'required',
-            "name" => 'required',
-            "function" => 'required',
+            "user_id" => 'required',
         ]);
 
         $update = $homeTestimonialsCard;
         $update->span = $request->span;
         $update->text = $request->text;
-        if ($update->url != "big-logo.png") {
-            Storage::delete('public/img/'.$update->url);
-        }
-        Storage::put('public/img', $request->url);
-        $update->url = $request->file('url')->hashName();
-        $update->name = $request->name;
-        $update->function = $request->function;
+        $update->user_id = $request->user_id;
+
         $update->save();
         return redirect('/homeTestimonialsTitle');
     }

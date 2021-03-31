@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'firstname',
         'function_id',
+        'role_id',
         'description',
         'email',
         'password',
@@ -49,5 +50,13 @@ class User extends Authenticatable
     public function positions()
     {
         return $this->belongsTo(Position::class, "function_id");
+    }
+    public function roles()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+    public function testimonials()
+    {
+        return $this->hasMany(HomeTestimonialsCard::class, 'user_id');
     }
 }

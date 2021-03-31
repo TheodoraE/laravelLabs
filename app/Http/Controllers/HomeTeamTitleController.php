@@ -16,9 +16,8 @@ class HomeTeamTitleController extends Controller
     public function index()
     {
         $homeTeamTitle = HomeTeamTitle::all();
-        $homeTeamCards = HomeTeamCard::all();
 
-        return view('backoffice.home.team.homeTeam', compact('homeTeamTitle', 'homeTeamCards'));
+        return view('backoffice.home.team.homeTeam', compact('homeTeamTitle'));
     }
 
     /**

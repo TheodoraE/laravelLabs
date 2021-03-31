@@ -15,11 +15,11 @@
                             <p>{{$card->text}}</p>
                             <div class="client-info">
                                 <div class="avatar">
-                                    <img src="{{asset('storage/img/'.$card->url)}}" alt="">
+                                    <img src="{{asset('storage/img/'.$card->users->url)}}" alt="">
                                 </div>
                                 <div class="client-name">
-                                    <h2>{{$card->name}}</h2>
-                                    <p>{{$card->function}}</p>
+                                    <h2>{{$card->users->firstname}} {{$card->users->name}}</h2>
+                                    <p>{{$card->users->positions->function}}</p>
                                 </div>
                             </div>
                         </div>

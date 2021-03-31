@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\HomeTeamCard;
+use App\Models\Role;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class HomeTeamCardController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +24,7 @@ class HomeTeamCardController extends Controller
      */
     public function create()
     {
-        return view('backoffice.home.team.createHomeTeamCard');
+        //
     }
 
     /**
@@ -36,28 +35,16 @@ class HomeTeamCardController extends Controller
      */
     public function store(Request $request)
     {
-        // $validation = $request->validate([
-        //     "url" => 'required',
-        //     "name" => 'required',
-        //     "function" => 'required'
-        // ]);
-
-        // $store = new HomeTeamCard;
-        // Storage::put('public/img', $request->url);
-        // $store->url = $request->file('url')->hashName();
-        // $store->name = $request->name;
-        // $store->function = $request->function;
-        // $store->save();
-        // return redirect('/homeTeamCard');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\HomeTeamCard  $homeTeamCard
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(HomeTeamCard $homeTeamCard)
+    public function show(Role $role)
     {
         //
     }
@@ -65,10 +52,10 @@ class HomeTeamCardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\HomeTeamCard  $homeTeamCard
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(HomeTeamCard $homeTeamCard)
+    public function edit(Role $role)
     {
         //
     }
@@ -77,10 +64,10 @@ class HomeTeamCardController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\HomeTeamCard  $homeTeamCard
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HomeTeamCard $homeTeamCard)
+    public function update(Request $request, Role $role)
     {
         //
     }
@@ -88,10 +75,10 @@ class HomeTeamCardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\HomeTeamCard  $homeTeamCard
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HomeTeamCard $homeTeamCard)
+    public function destroy(Role $role)
     {
         //
     }
