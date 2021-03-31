@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\HomeTeamCard;
+use App\Models\HomeTeamTitle;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class HomeTeamTitleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        $userOK = $users->where('check',1);
-        return view('backoffice.users', compact('users', 'userOK'));
+        $homeTeamTitle = HomeTeamTitle::all();
+        $homeTeamCards = HomeTeamCard::all();
+
+        return view('backoffice.home.team.homeTeam', compact('homeTeamTitle', 'homeTeamCards'));
     }
 
     /**
@@ -43,10 +45,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\HomeTeamTitle  $homeTeamTitle
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(HomeTeamTitle $homeTeamTitle)
     {
         //
     }
@@ -54,44 +56,42 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\HomeTeamTitle  $homeTeamTitle
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(HomeTeamTitle $homeTeamTitle)
     {
-        //
+        $edit = $homeTeamTitle;
+        return view('backoffice.home.team.editHomeTeamTitle', compact('edit'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\HomeTeamTitle  $homeTeamTitle
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, HomeTeamTitle $homeTeamTitle)
     {
-        //
+        $validation = $request->validate([
+            "title" => 'required'
+        ]);
+
+        $update = $homeTeamTitle;
+        $update->title = $request->title;
+        $update->save();
+        return redirect('/homeTeamTitle');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\HomeTeamTitle  $homeTeamTitle
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(HomeTeamTitle $homeTeamTitle)
     {
-        $destroy = User::find($id);
-        $destroy->delete();
-        return redirect('/users');
-    }
-
-    public function valider($id)
-    {
-        $user = User::find($id);
-        $user->check = 1;
-        $user->save();
-        return redirect('/users');
+        //
     }
 }

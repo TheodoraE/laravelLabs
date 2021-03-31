@@ -18,6 +18,8 @@ use App\Http\Controllers\HomeCarouselController;
 use App\Http\Controllers\HomeCarouselDescriptionController;
 use App\Http\Controllers\HomeServicesButtonController;
 use App\Http\Controllers\HomeServicesTitleController;
+use App\Http\Controllers\HomeTeamCardController;
+use App\Http\Controllers\HomeTeamTitleController;
 use App\Http\Controllers\HomeTestimonialsCardController;
 use App\Http\Controllers\HomeTestimonialsTitleController;
 use App\Http\Controllers\LogoController;
@@ -42,6 +44,8 @@ use App\Models\HomeCarousel;
 use App\Models\HomeCarouselDescription;
 use App\Models\HomeServicesButton;
 use App\Models\HomeServicesTitle;
+use App\Models\HomeTeamCard;
+use App\Models\HomeTeamTitle;
 use App\Models\HomeTestimonialsCard;
 use App\Models\HomeTestimonialsTitle;
 use App\Models\Navbar;
@@ -95,10 +99,10 @@ Route::get('/', function () {
     // Services
     $servicesCard = ServicesCard::all();
         // Team
+    $homeTeamTitle = HomeTeamTitle::all();
+    // $homeTeamCards = HomeTeamCard::all();
 
-
-
-    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'homeAboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsTitle', 'homeTestimonialsCards', 'homeServicesTitle', 'homeServicesButton', 'servicesCard'));
+    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'homeAboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsTitle', 'homeTestimonialsCards', 'homeServicesTitle', 'homeServicesButton', 'servicesCard', 'homeTeamTitle'));
 });
 
 // Authenticate
@@ -123,6 +127,10 @@ Route::resource('contactFormEmails', ContactFormEmailController::class);
 Route::resource('contactFormPlaceholders', ContactFormPlaceholderController::class);
 Route::resource('contactFormSubjects', ContactFormSubjectController::class);
 
+
+
+// Valider les users
+Route::get('/valider/{$id}', [UserController::class, 'valider']);
 // Users
 Route::resource('/users', UserController::class);
 // Profile
@@ -147,8 +155,9 @@ Route::resource('homeTestimonialsCards', HomeTestimonialsCardController::class);
 Route::resource('homeServicesTitle', HomeServicesTitleController::class);
 Route::resource('homeServicesButton', HomeServicesButtonController::class);
     // Team
-// Route::resource('homeTeamTitle', HomeTeamTitleController::class);
+Route::resource('homeTeamTitle', HomeTeamTitleController::class);
 // Route::resource('homeTeamCard', HomeTeamCardController::class);
+
 
 
 

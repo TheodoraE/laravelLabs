@@ -28,7 +28,7 @@ Service -> 9 services de manière aléatoire, pour le titre pareil on doit pouvo
 
 Equipe -> Au milieu doit toujours afficher le CEO et à gauche et à droite deux membres aléatoires de l'équipe. Doit pouvoir rajouter des nouveaux membres de l'équipe. 
 
-Inscription -> Il faut faire une page d'inscription (tout le monde peut s'inscrire) avec leur nom, prénom, adresse mail, fonction dans l'équipe (pour les fonctions on doit pouvoir choisir dans un select 3 fictifs et pouvoir en rajouter), photo & brève description de soi-même -> il faut en tant qu'admin on puisse valider ou non l'appartenance à l'équipe et si c'est le cas il pourra apparaître dans cette partie équipe.
+Inscription -> Il faut faire une page d'inscription (tout le monde peut s'inscrire) avec leur =s l'équipe (pour les fonctions on doit pouvoir choisir dans un select 3 fictifs et pouvoir en rajouter), photo & brève description de soi-même -> il faut en tant qu'admin on puisse valider ou non l'appartenance à l'équipe et si c'est le cas il pourra apparaître dans cette partie équipe.
 (accessible uniquement avec un URL)
 
 Are you ready to stand out ? -> Modifier tout le contenu, que le Browse soit un btn d'inscription à la newsletter -> donne un msg de validation sur le site + 1 email qui leur confirme leur inscription à la newsletter

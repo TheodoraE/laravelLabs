@@ -10,9 +10,12 @@
                         <thead>
                           <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Nom</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Firstname</th>
+                            <th scope="col">Function</th>
                             <th scope="col">Email</th>
-                            {{-- <th scope="col"> </th> --}}
+                            <th scope="col">Description</th>
                             <th scope="col"> </th>
                           </tr>
                         </thead>
@@ -20,9 +23,14 @@
                             @auth
                                 <tr>
                                     <th scope="row">{{Auth::user()->id}}</th>
+                                    <td>
+                                        <img src="{{asset('storage/img/'.Auth::user()->url)}}" alt="" height="50px">
+                                    </td>
                                     <td>{{Auth::user()->name}}</td>
+                                    <td>{{Auth::user()->firstname}}</td>
+                                    <td>{{Auth::user()->positions->function}}</td>
                                     <td>{{Auth::user()->email}}</td>
-                                    {{-- <td>{{$user->}}</td> --}}
+                                    <td>{{Auth::user()->description}}</td>
                                     <td>
                                         <a href="/users/{{Auth::user()->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
                                     </td>

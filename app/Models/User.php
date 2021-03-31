@@ -18,8 +18,13 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'firstname',
+        'function_id',
+        'description',
         'email',
         'password',
+        'url',
+        'check'
     ];
 
     /**
@@ -40,4 +45,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function positions()
+    {
+        return $this->belongsTo(Position::class, "function_id");
+    }
 }

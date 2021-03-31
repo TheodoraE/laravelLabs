@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\HomeTeamCard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-class UserController extends Controller
+class HomeTeamCardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        $userOK = $users->where('check',1);
-        return view('backoffice.users', compact('users', 'userOK'));
+        //
     }
 
     /**
@@ -26,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.home.team.createHomeTeamCard');
     }
 
     /**
@@ -37,16 +36,28 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $validation = $request->validate([
+        //     "url" => 'required',
+        //     "name" => 'required',
+        //     "function" => 'required'
+        // ]);
+
+        // $store = new HomeTeamCard;
+        // Storage::put('public/img', $request->url);
+        // $store->url = $request->file('url')->hashName();
+        // $store->name = $request->name;
+        // $store->function = $request->function;
+        // $store->save();
+        // return redirect('/homeTeamCard');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\HomeTeamCard  $homeTeamCard
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(HomeTeamCard $homeTeamCard)
     {
         //
     }
@@ -54,10 +65,10 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\HomeTeamCard  $homeTeamCard
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(HomeTeamCard $homeTeamCard)
     {
         //
     }
@@ -66,10 +77,10 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\HomeTeamCard  $homeTeamCard
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, HomeTeamCard $homeTeamCard)
     {
         //
     }
@@ -77,21 +88,11 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\HomeTeamCard  $homeTeamCard
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(HomeTeamCard $homeTeamCard)
     {
-        $destroy = User::find($id);
-        $destroy->delete();
-        return redirect('/users');
-    }
-
-    public function valider($id)
-    {
-        $user = User::find($id);
-        $user->check = 1;
-        $user->save();
-        return redirect('/users');
+        //
     }
 }

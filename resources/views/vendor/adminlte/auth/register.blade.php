@@ -14,13 +14,12 @@
 @section('auth_header', __('adminlte::adminlte.register_message'))
 
 @section('auth_body')
-    <form action="{{ $register_url }}" method="post">
+    <form action="{{ $register_url }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
 
         {{-- Name field --}}
         <div class="input-group mb-3">
-            <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
-                   value="{{ old('name') }}" placeholder="{{ __('adminlte::adminlte.full_name') }}" autofocus>
+            <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ old('name') }}" placeholder="{{ __('Name') }}" autofocus>
             <div class="input-group-append">
                 <div class="input-group-text">
                     <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
@@ -33,10 +32,61 @@
             @endif
         </div>
 
+        {{-- Firstname field --}}
+        <div class="input-group mb-3">
+            <input type="text" name="firstname" class="form-control {{ $errors->has('firstname') ? 'is-invalid' : '' }}" value="{{ old('firstname') }}" placeholder="{{ __('Firstname') }}" autofocus>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+            @if($errors->has('firstname'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('firstname') }}</strong>
+                </div>
+            @endif
+        </div>
+
+        <?php use App\Models\Position; $functions=Position::all() ?>
+        {{-- Function field --}}
+        <div class="input-group mb-3">
+            <select name="function_id" id="" class="form-control {{ $errors->has('function_id') ? 'is-invalid' : '' }}" value="{{ old('function_id') }}">
+                <option value="">Function</option>
+                @foreach ($functions as $function)
+                    <option value="{{$function->id}}">{{$function->function}}</option>
+                @endforeach
+            </select>
+            {{-- <input type="text" name="firstname" class="form-control {{ $errors->has('firstname') ? 'is-invalid' : '' }}" value="{{ old('firstname') }}" placeholder="{{ __('adminlte::adminlte.full_firstname') }}" autofocus> --}}
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+            @if($errors->has('function_id'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('function_id') }}</strong>
+                </div>
+            @endif
+        </div>
+
+        {{-- Description field --}}
+        <div class="input-group mb-3">
+            <textarea name="description" id="" cols="32" rows="3" placeholder="Short description..." class="{{ $errors->has('description') ? 'is-invalid' : '' }}" value="{{ old('description') }}"></textarea>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+            @if($errors->has('description'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('description') }}</strong>
+                </div>
+            @endif
+        </div>
+
         {{-- Email field --}}
         <div class="input-group mb-3">
-            <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
-                   value="{{ old('email') }}" placeholder="{{ __('adminlte::adminlte.email') }}">
+            <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{ __('adminlte::adminlte.email') }}">
             <div class="input-group-append">
                 <div class="input-group-text">
                     <span class="fas fa-envelope {{ config('adminlte.classes_auth_icon', '') }}"></span>
@@ -79,6 +129,16 @@
             @if($errors->has('password_confirmation'))
                 <div class="invalid-feedback">
                     <strong>{{ $errors->first('password_confirmation') }}</strong>
+                </div>
+            @endif
+        </div>
+
+        {{-- Image field --}}
+        <div class="input-group mb-3">
+            <input type="file" name="url" id="" class="{{ $errors->has('url') ? 'is-invalid' : '' }}">
+            @if($errors->has('url'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('url') }}</strong>
                 </div>
             @endif
         </div>

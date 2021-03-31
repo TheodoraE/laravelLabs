@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            PositionSeeder::class,
             LogoSeeder::class,
             NavbarSeeder::class,
             FooterSeeder::class,
@@ -37,6 +38,10 @@ class DatabaseSeeder extends Seeder
             HomeTestimonialsCardSeeder::class,
             HomeServicesTitleSeeder::class,
             HomeServicesButtonSeeder::class,
+            HomeTeamTitleSeeder::class,
+            HomeTeamCardSeeder::class,
+
+
 
             ServicesCardSeeder::class,
 
