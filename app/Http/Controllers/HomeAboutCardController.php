@@ -26,7 +26,8 @@ class HomeAboutCardController extends Controller
      */
     public function create()
     {
-        return view('backoffice.home.about.createHomeAboutCard');
+        $icons = Icon::all();
+        return view('backoffice.home.about.createHomeAboutCard', compact('icons'));
     }
 
     /**

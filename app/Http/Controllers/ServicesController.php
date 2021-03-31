@@ -10,9 +10,11 @@ use App\Models\ContactFormSubject;
 use App\Models\ContactFormSubtitle;
 use App\Models\ContactFormTitle;
 use App\Models\Footer;
+use App\Models\HomeServicesTitle;
 use App\Models\Logo;
 use App\Models\Navbar;
 use App\Models\PageHeader;
+use App\Models\ServicesCard;
 use Illuminate\Http\Request;
 
 class ServicesController extends Controller
@@ -41,8 +43,10 @@ class ServicesController extends Controller
         $contactFormSubjects = ContactFormSubject::all();
 
 
+        $homeServicesTitle = HomeServicesTitle::all();
+        $servicesCard = ServicesCard::all();
         
-        return view('pages.services', compact('logo', 'navbar', 'footer', 'pageHeader', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects'));
+        return view('pages.services', compact('logo', 'navbar', 'footer', 'pageHeader', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeServicesTitle', 'servicesCard'));
     }
 
     /**

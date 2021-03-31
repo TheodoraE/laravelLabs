@@ -329,6 +329,16 @@ return [
                 ],
             ],
         ],
+        [
+            'text'    => 'Services',
+            'icon'    => 'fas fa-scroll',
+            'submenu' => [
+                [
+                    'text' => 'Services',
+                    'url'  => '/servicesSection',
+                ],
+            ],
+        ],
         // ['header' => 'labels'],
         // [
         //     'text'       => 'important',

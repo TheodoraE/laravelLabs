@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HomeServicesTitle;
+use App\Models\Icon;
 use App\Models\ServicesCard;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,10 @@ class ServicesCardController extends Controller
      */
     public function index()
     {
-        //
+        // $homeServicesTitle = HomeServicesTitle::all();
+        $servicesCard = ServicesCard::all();
+
+        return view('backoffice.services.servicesSection', compact('servicesCard'));
     }
 
     /**
@@ -24,7 +29,8 @@ class ServicesCardController extends Controller
      */
     public function create()
     {
-        //
+        $icons = Icon::all();
+        return view('backoffice.services.createServicesSection', compact('icons'));
     }
 
     /**
@@ -35,7 +41,18 @@ class ServicesCardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            "classIcon" => 'required',
+            "title" => 'required',
+            "text" => 'required'
+        ]);
+
+        $store = new ServicesCard;
+        $store->classIcon = $request->classIcon;
+        $store->title = $request->title;
+        $store->text = $request->text;
+        $store->save();
+        return redirect('/servicesSection');
     }
 
     /**
@@ -57,7 +74,9 @@ class ServicesCardController extends Controller
      */
     public function edit(ServicesCard $servicesCard)
     {
-        //
+        $edit = $servicesCard;
+        $icons = Icon::all();
+        return view('backoffice.services.editServicesSection', compact('edit', 'icons'));
     }
 
     /**
@@ -69,7 +88,18 @@ class ServicesCardController extends Controller
      */
     public function update(Request $request, ServicesCard $servicesCard)
     {
-        //
+        $validation = $request->validate([
+            "classIcon" => 'required',
+            "title" => 'required',
+            "text" => 'required'
+        ]);
+
+        $update = $servicesCard;
+        $update->classIcon = $request->classIcon;
+        $update->title = $request->title;
+        $update->text = $request->text;
+        $update->save();
+        return redirect('/servicesSection');
     }
 
     /**
@@ -80,6 +110,8 @@ class ServicesCardController extends Controller
      */
     public function destroy(ServicesCard $servicesCard)
     {
-        //
+        $destroy = $servicesCard;
+        $destroy->delete();
+        return redirect('/servicesSection');
     }
 }

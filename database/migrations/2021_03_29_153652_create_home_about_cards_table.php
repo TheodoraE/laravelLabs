@@ -15,7 +15,7 @@ class CreateHomeAboutCardsTable extends Migration
     {
         Schema::create('home_about_cards', function (Blueprint $table) {
             $table->id();
-            $table->string('classCol');
+            $table->string('classCol')->nullable();
             $table->string('classIcon');
             $table->string('title');
             $table->text('text');

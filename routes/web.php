@@ -25,6 +25,7 @@ use App\Http\Controllers\HomeTestimonialsTitleController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\NavbarController;
 use App\Http\Controllers\PageHeaderController;
+use App\Http\Controllers\ServicesCardController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\UserController;
 use App\Models\ContactFormAddress;
@@ -160,7 +161,8 @@ Route::resource('homeServicesButton', HomeServicesButtonController::class);
 Route::resource('homeTeamTitle', HomeTeamTitleController::class);
 Route::resource('homeTeamCard', HomeTeamCardController::class);
 
-
+// Services
+Route::resource('servicesSection', ServicesCardController::class);
 
 
 // Route::get('/newsletter')

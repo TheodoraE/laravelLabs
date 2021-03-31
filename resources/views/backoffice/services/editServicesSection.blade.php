@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="mb-5">Ajouter une card</h1>
+                    <h1 class="mb-5">Modifier la card</h1>
 
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -17,14 +17,10 @@
                         </div>
                     @endif
 
-                    <form action="/homeAboutCards" method="POST" class="m-3">
+                    <form action="/servicesSection/{{$edit->id}}" method="POST" class="m-3">
                         @csrf
+                        @method('PATCH')
                         
-                        {{-- <div class="form-group">
-                            <label for="classCol">Column class : </label>
-                            <input type="text" name="classCol" class="form-control" value="{{old('classCol')}}">
-                        </div> --}}
-
                         <div class="form-group">
                             <label for="classIcon">Icon : </label>
                             <div class="row d-flex my-3">
@@ -43,15 +39,14 @@
 
                         <div class="form-group">
                             <label for="title">Title : </label>
-                            <input type="text" name="title" class="form-control" value="{{old('title')}}">
+                            <input type="text" name="title" class="form-control" value="{{old('title') ? old('title') : $edit->title}}">
                         </div>
-
                         <div class="form-group">
                             <label for="text">Text : </label>
-                            <input type="text" name="text" class="form-control" value="{{old('text')}}">
+                            <input type="text" name="text" class="form-control" value="{{old('text') ? old('text') : $edit->text}}">
                         </div>
 
-                        <button type="submit" class="btn mt-4" style="background-color: #AFE3D0">Ajouter</button>
+                        <button type="submit" class="btn mt-4" style="background-color: #F7D3BB">Enregistrer</button>
                     </form>
                 </div>
             </div>

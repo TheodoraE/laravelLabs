@@ -41,7 +41,6 @@ class DatabaseSeeder extends Seeder
             HomeServicesTitleSeeder::class,
             HomeServicesButtonSeeder::class,
             HomeTeamTitleSeeder::class,
-            HomeTeamCardSeeder::class,
 
 
 

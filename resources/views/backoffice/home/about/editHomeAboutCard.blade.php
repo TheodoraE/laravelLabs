@@ -40,12 +40,6 @@
                                     </div>
                                 @endforeach
                             </div>
-                            {{-- <select name="classICon" id="">
-                                @foreach ($icons as $icon)
-                                    <option value="{{$icon->id}}">{{$icon->icon}}</option>
-                                @endforeach
-                            </select> --}}
-                            {{-- <input type="text" name="classIcon" class="form-control" value="{{old('classIcon') ? old('classIcon') : $edit->classIcon}}"> --}}
                         </div>
 
                         <div class="form-group">
