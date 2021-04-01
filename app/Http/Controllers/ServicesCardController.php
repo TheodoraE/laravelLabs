@@ -72,9 +72,10 @@ class ServicesCardController extends Controller
      * @param  \App\Models\ServicesCard  $servicesCard
      * @return \Illuminate\Http\Response
      */
-    public function edit(ServicesCard $servicesCard)
+    public function edit($id)
     {
-        $edit = $servicesCard;
+        $edit = ServicesCard::find($id);
+        // dd()
         $icons = Icon::all();
         return view('backoffice.services.editServicesSection', compact('edit', 'icons'));
     }

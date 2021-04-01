@@ -11,6 +11,7 @@ use App\Models\ContactFormSubtitle;
 use App\Models\ContactFormTitle;
 use App\Models\Footer;
 use App\Models\Logo;
+use App\Models\Map;
 use App\Models\Navbar;
 use App\Models\PageHeader;
 use Illuminate\Http\Request;
@@ -40,9 +41,9 @@ class ContactController extends Controller
         $contactFormPlaceholder = ContactFormPlaceholder::all();
         $contactFormSubjects = ContactFormSubject::all();
 
+        $maps = Map::all();
 
-
-        return view('pages.contact', compact('logo', 'navbar', 'footer', 'pageHeader', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects'));
+        return view('pages.contact', compact('logo', 'navbar', 'footer', 'pageHeader', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'maps'));
     }
 
     /**

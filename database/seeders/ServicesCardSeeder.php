@@ -17,47 +17,47 @@ class ServicesCardSeeder extends Seeder
         DB::table('services_cards')->insert(
             [
                 [
-                    "classIcon" => "flaticon-023-flask",
+                    "icon_id" => 23,
                     "title" => "Get in the lab",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.."
                 ],
                 [
-                    "classIcon" => "flaticon-011-compass",
+                    "icon_id" => 11,
                     "title" => "Projects online",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.."
                 ],
                 [
-                    "classIcon" => "flaticon-037-idea",
+                    "icon_id" => 26,
                     "title" => "SMART MARKETING",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.."
                 ],
                 [
-                    "classIcon" => "flaticon-039-vector",
+                    "icon_id" => 27,
                     "title" => "Social Media",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.."
                 ],
                 [
-                    "classIcon" => "flaticon-036-brainstorming",
+                    "icon_id" => 28,
                     "title" => "Brainstorming",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.."
                 ],
                 [
-                    "classIcon" => "flaticon-026-search",
+                    "icon_id" => 29,
                     "title" => "Documented",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.."
                 ],
                 [
-                    "classIcon" => "flaticon-018-laptop-1",
+                    "icon_id" => 18,
                     "title" => "Responsive",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.."
                 ],
                 [
-                    "classIcon" => "flaticon-043-sketch",
+                    "icon_id" => 30,
                     "title" => "Retina ready",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.."
                 ],
                 [
-                    "classIcon" => "flaticon-012-cube",
+                    "icon_id" => 12,
                     "title" => "Ultra modern",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.."
                 ],

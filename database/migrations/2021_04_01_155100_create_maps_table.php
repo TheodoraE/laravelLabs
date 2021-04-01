@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHomeAboutCardsTable extends Migration
+class CreateMapsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateHomeAboutCardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('home_about_cards', function (Blueprint $table) {
+        Schema::create('maps', function (Blueprint $table) {
             $table->id();
-            $table->string('classCol')->nullable();
-            $table->unsignedBigInteger('icon_id');
-            $table->foreign('icon_id')->references('id')->on('icons');
-            $table->string('title');
-            $table->text('text');
+            $table->string('address');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateHomeAboutCardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('home_about_cards');
+        Schema::dropIfExists('maps');
     }
 }

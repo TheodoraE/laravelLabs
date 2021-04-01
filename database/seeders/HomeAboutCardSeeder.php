@@ -18,19 +18,19 @@ class HomeAboutCardSeeder extends Seeder
             [
                 [
                     "classCol" => "col-md-4 col-sm-6",
-                    "classIcon" => "flaticon-023-flask",
+                    "icon_id" => 23,
                     "title" => "Get in the lab",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.."
                 ],
                 [
                     "classCol" => "col-md-4 col-sm-6",
-                    "classIcon" => "flaticon-011-compass",
+                    "icon_id" => 11,
                     "title" => "Projects online",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.."
                 ],
                 [
                     "classCol" => "col-md-4 col-sm-12",
-                    "classIcon" => "flaticon-037-idea",
+                    "icon_id" => 26,
                     "title" => "SMART MARKETING",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.."
                 ],

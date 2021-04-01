@@ -27,7 +27,7 @@
                                 <th scope="row">{{$card->id}}</th>
                                 <td>{{$card->classCol}}</td>
                                 <td>
-                                  <i class="{{$card->classIcon}}" style="font-size: 30px"></i>
+                                  <i class="{{$card->icons->icon}}" style="font-size: 30px"></i>
                                 </td>
                                 <td>{{$card->title}}</td>
                                 <td>{{$card->text}}</td>

@@ -15,7 +15,8 @@ class CreateServicesCardsTable extends Migration
     {
         Schema::create('services_cards', function (Blueprint $table) {
             $table->id();
-            $table->string('classIcon');
+            $table->unsignedBigInteger('icon_id');
+            $table->foreign('icon_id')->references('id')->on('icons');
             $table->string('title');
             $table->text('text');
             $table->timestamps();

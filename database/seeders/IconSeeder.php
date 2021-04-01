@@ -164,6 +164,21 @@ class IconSeeder extends Seeder
             ],
             [
                 'icon' => 'flaticon-050-satellite'
+            ],
+            [
+                'icon' => 'flaticon-037-idea'
+            ],
+            [
+                'icon' => 'flaticon-039-vector'
+            ],
+            [
+                'icon' => 'flaticon-036-brainstorming'
+            ],
+            [
+                'icon' => 'flaticon-026-search'
+            ],
+            [
+                'icon' => 'flaticon-043-sketch'
             ]
         ]);
     }

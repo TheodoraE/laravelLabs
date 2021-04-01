@@ -159,7 +159,7 @@ Route::resource('homeServicesTitle', HomeServicesTitleController::class);
 Route::resource('homeServicesButton', HomeServicesButtonController::class);
     // Team
 Route::resource('homeTeamTitle', HomeTeamTitleController::class);
-Route::resource('homeTeamCard', HomeTeamCardController::class);
+// Route::resource('homeTeamCard', HomeTeamCardController::class);
 
 // Services
 Route::resource('servicesSection', ServicesCardController::class);

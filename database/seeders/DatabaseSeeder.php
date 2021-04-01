@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             PositionSeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
+            IconSeeder::class,
             LogoSeeder::class,
             NavbarSeeder::class,
             FooterSeeder::class,
@@ -30,7 +31,6 @@ class DatabaseSeeder extends Seeder
             ContactFormSubjectSeeder::class,
             HomeCarouselDescriptionSeeder::class,
             HomeCarouselSeeder::class,
-            IconSeeder::class,
             HomeAboutCardSeeder::class,
             HomeAboutTitleSeeder::class,
             HomeAboutContentSeeder::class,
@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
 
             ServicesCardSeeder::class,
 
-            
+            MapSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
     }
