@@ -42,9 +42,13 @@ class DatabaseSeeder extends Seeder
             HomeServicesButtonSeeder::class,
             HomeTeamTitleSeeder::class,
 
-
-
             ServicesCardSeeder::class,
+            ServicesFeaturesTitleSeeder::class,
+            ServicesFeaturesCardSeeder::class,
+            ServicesDeviceSeeder::class,
+            ServicesFeaturesButtonSeeder::class,
+            
+
 
             MapSeeder::class,
         ]);

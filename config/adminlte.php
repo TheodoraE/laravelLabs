@@ -246,6 +246,11 @@ return [
             'url'  => '/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
+        [
+            'text'    => 'Functions',
+            'url'     => '/functions',
+            'icon'    => 'fas fa-toolbox',
+        ],
         ['header' => 'MODIFICATIONS'],
         [
             'text'    => 'Main',
@@ -336,6 +341,34 @@ return [
                 [
                     'text' => 'Services',
                     'url'  => '/servicesSection',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Blog',
+            'icon'    => 'fas fa-scroll',
+            'submenu' => [
+                [
+                    'text' => 'Titre',
+                    'url'  => '/',
+                ],
+                [
+                    'text' => 'Titre',
+                    'url'  => '/',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Contact',
+            'icon'    => 'fas fa-scroll',
+            'submenu' => [
+                [
+                    'text' => 'Contact Map',
+                    'url'  => '/contactMap',
+                ],
+                [
+                    'text' => 'Titre',
+                    'url'  => '/',
                 ],
             ],
         ],

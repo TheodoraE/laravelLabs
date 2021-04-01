@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class HomeAboutCard extends Model
+class ServicesFeaturesCard extends Model
 {
     use HasFactory;
     public function icons()

@@ -23,8 +23,10 @@ use App\Http\Controllers\HomeTeamTitleController;
 use App\Http\Controllers\HomeTestimonialsCardController;
 use App\Http\Controllers\HomeTestimonialsTitleController;
 use App\Http\Controllers\LogoController;
+use App\Http\Controllers\MapController;
 use App\Http\Controllers\NavbarController;
 use App\Http\Controllers\PageHeaderController;
+use App\Http\Controllers\PositionController;
 use App\Http\Controllers\ServicesCardController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\UserController;
@@ -116,6 +118,8 @@ Route::resource('services', ServicesController::class);
 Route::resource('contacts', ContactController::class);
 Route::resource('blogs', BlogController::class);
 
+// Functions
+Route::resource('functions', PositionController::class);
 // Main
 Route::resource('logos', LogoController::class);
 Route::resource('footers', FooterController::class);
@@ -163,6 +167,14 @@ Route::resource('homeTeamTitle', HomeTeamTitleController::class);
 
 // Services
 Route::resource('servicesSection', ServicesCardController::class);
+
+
+
+
+
+
+// Contact
+Route::resource('contactMap', MapController::class);
 
 
 // Route::get('/newsletter')

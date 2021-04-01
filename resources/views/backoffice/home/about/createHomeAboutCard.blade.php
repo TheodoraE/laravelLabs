@@ -26,13 +26,13 @@
                         </div> --}}
 
                         <div class="form-group">
-                            <label for="classIcon">Icon : </label>
+                            <label for="icon_id">Icon : </label>
                             <div class="row d-flex my-3">
                                 @foreach ($icons as $icon)
                                     <div class="input-group my-2 col">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">
-                                                <input type="radio" aria-label="Radio button for following text input" value="{{$icon->icon}}" name="classIcon">
+                                                <input type="radio" aria-label="Radio button for following text input" value="{{$icon->icon}}" name="icon_id">
                                             </div>
                                         </div>
                                         <i class="{{$icon->icon}}" style="font-size: 40px"></i>

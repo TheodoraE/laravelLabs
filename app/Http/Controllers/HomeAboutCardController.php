@@ -16,7 +16,8 @@ class HomeAboutCardController extends Controller
     public function index()
     {
         $aboutCards = HomeAboutCard::all();
-        return view('backoffice.home.about.homeAboutCard', compact('aboutCards'));
+        $icons = Icon::all();
+        return view('backoffice.home.about.homeAboutCard', compact('aboutCards', 'icons'));
     }
 
     /**
@@ -39,14 +40,14 @@ class HomeAboutCardController extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
-            "classIcon" => 'required',
+            "icon_id" => 'required',
             "title" => 'required',
             "text" => 'required'
         ]);
 
         $store = new HomeAboutCard;
         $store->classCol = $request->classCol;
-        $store->classIcon = $request->classIcon;
+        $store->icon_id = $request->icon_id;
         $store->title = $request->title;
         $store->text = $request->text;
         $store->save();
@@ -87,14 +88,14 @@ class HomeAboutCardController extends Controller
     public function update(Request $request, HomeAboutCard $homeAboutCard)
     {
         $validation = $request->validate([
-            "classIcon" => 'required',
+            "icon_id" => 'required',
             "title" => 'required',
             "text" => 'required'
         ]);
         
         $update = $homeAboutCard;
         $update->classCol = $request->classCol;
-        $update->classIcon = $request->classIcon;
+        $update->icon_id = $request->icon_id;
         // dd($request);
         $update->title = $request->title;
         $update->text = $request->text;

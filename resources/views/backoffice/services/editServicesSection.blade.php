@@ -22,14 +22,14 @@
                         @method('PATCH')
                         
                         <div class="form-group">
-                            <label for="classIcon">Icon : </label>
+                            <label for="icon_id">Icon : </label>
                             <div class="row d-flex my-3">
                                 @foreach ($icons as $icon)
-                                    @if ($icon->icon == $edit->classIcon)
+                                    @if ($icon->id == $edit->icon_id)
                                         <div class="input-group my-2 col">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="radio" aria-label="Radio button for following text input" value="{{$icon->icon}}" name="classIcon" checked>
+                                                    <input type="radio" aria-label="Radio button for following text input" value="{{$icon->id}}" name="icon_id" checked>
                                                 </div>
                                             </div>
                                             <i class="{{$icon->icon}}" style="font-size: 40px"></i>
@@ -38,7 +38,7 @@
                                         <div class="input-group my-2 col">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="radio" aria-label="Radio button for following text input" value="{{$icon->icon}}" name="classIcon">
+                                                    <input type="radio" aria-label="Radio button for following text input" value="{{$icon->id}}" name="icon_id">
                                                 </div>
                                             </div>
                                             <i class="{{$icon->icon}}" style="font-size: 40px"></i>

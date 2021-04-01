@@ -27,7 +27,7 @@ class ServicesCardSeeder extends Seeder
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.."
                 ],
                 [
-                    "icon_id" => 26,
+                    "icon_id" => 37,
                     "title" => "SMART MARKETING",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.."
                 ],

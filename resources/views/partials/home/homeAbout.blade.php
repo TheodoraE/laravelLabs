@@ -11,7 +11,7 @@
                     <div class="{{$about->classCol}}">
                         <div class="lab-card">
                             <div class="icon">
-                                <i class="{{$about->classIcon}}"></i>
+                                <i class="{{$about->icons->icon}}"></i>
                             </div>
                             <h2>{{$about->title}}</h2>
                             <p>{{$about->text}}</p>

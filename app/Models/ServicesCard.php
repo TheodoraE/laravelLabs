@@ -10,6 +10,6 @@ class ServicesCard extends Model
     use HasFactory;
     public function icons()
     {
-        return $this->belongsTo(Icons::class, 'icon_id');
+        return $this->belongsTo(Icon::class, 'icon_id');
     }
 }

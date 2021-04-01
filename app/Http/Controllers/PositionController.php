@@ -14,7 +14,8 @@ class PositionController extends Controller
      */
     public function index()
     {
-        //
+        $functions = Position::all();
+        return view('backoffice.functions', compact('functions'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PositionController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.createFunctions');
     }
 
     /**
@@ -35,7 +36,14 @@ class PositionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            "function" => 'required'
+        ]);
+
+        $store = new Position;
+        $store->function = $request->function;
+        $store->save();
+        return redirect('/functions');
     }
 
     /**
@@ -55,9 +63,10 @@ class PositionController extends Controller
      * @param  \App\Models\Position  $position
      * @return \Illuminate\Http\Response
      */
-    public function edit(Position $position)
+    public function edit($id)
     {
-        //
+        $edit = Position::find($id);
+        return view('backoffice.editFunctions', compact('edit'));
     }
 
     /**
@@ -67,9 +76,16 @@ class PositionController extends Controller
      * @param  \App\Models\Position  $position
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Position $position)
+    public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            "function" => 'required'
+        ]);
+
+        $update = Position::find($id);
+        $update->function = $request->function;
+        $update->save();
+        return redirect('/functions');
     }
 
     /**
@@ -78,8 +94,10 @@ class PositionController extends Controller
      * @param  \App\Models\Position  $position
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Position $position)
+    public function destroy($id)
     {
-        //
+        $destroy = Position::find($id);
+        $destroy->delete();
+        return redirect('/functions');
     }
 }

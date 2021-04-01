@@ -15,6 +15,10 @@ use App\Models\Logo;
 use App\Models\Navbar;
 use App\Models\PageHeader;
 use App\Models\ServicesCard;
+use App\Models\ServicesDevice;
+use App\Models\ServicesFeaturesButton;
+use App\Models\ServicesFeaturesCard;
+use App\Models\ServicesFeaturesTitle;
 use Illuminate\Http\Request;
 
 class ServicesController extends Controller
@@ -45,8 +49,13 @@ class ServicesController extends Controller
 
         $homeServicesTitle = HomeServicesTitle::all();
         $servicesCard = ServicesCard::all();
+        $servicesFeaturesTitle = ServicesFeaturesTitle::all();
+        $servicesFeaturesCard = ServicesFeaturesCard::all();
+        $servicesDevices = ServicesDevice::all();
+        $servicesFeaturesButton = ServicesFeaturesButton::all();
+
         
-        return view('pages.services', compact('logo', 'navbar', 'footer', 'pageHeader', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeServicesTitle', 'servicesCard'));
+        return view('pages.services', compact('logo', 'navbar', 'footer', 'pageHeader', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeServicesTitle', 'servicesCard', 'servicesFeaturesTitle', 'servicesFeaturesCard', 'servicesDevices', 'servicesFeaturesButton'));
     }
 
     /**

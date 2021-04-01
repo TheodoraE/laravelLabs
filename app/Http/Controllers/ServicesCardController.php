@@ -18,8 +18,9 @@ class ServicesCardController extends Controller
     {
         // $homeServicesTitle = HomeServicesTitle::all();
         $servicesCard = ServicesCard::all();
+        $icons = Icon::all();
 
-        return view('backoffice.services.servicesSection', compact('servicesCard'));
+        return view('backoffice.services.servicesSection', compact('servicesCard', 'icons'));
     }
 
     /**
@@ -42,13 +43,13 @@ class ServicesCardController extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
-            "classIcon" => 'required',
+            "icon_id" => 'required',
             "title" => 'required',
             "text" => 'required'
         ]);
 
         $store = new ServicesCard;
-        $store->classIcon = $request->classIcon;
+        $store->icon_id = $request->icon_id;
         $store->title = $request->title;
         $store->text = $request->text;
         $store->save();
@@ -87,16 +88,16 @@ class ServicesCardController extends Controller
      * @param  \App\Models\ServicesCard  $servicesCard
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ServicesCard $servicesCard)
+    public function update(Request $request, $id)
     {
         $validation = $request->validate([
-            "classIcon" => 'required',
+            "icon_id" => 'required',
             "title" => 'required',
             "text" => 'required'
         ]);
 
-        $update = $servicesCard;
-        $update->classIcon = $request->classIcon;
+        $update = ServicesCard::find($id);
+        $update->icon_id = $request->icon_id;
         $update->title = $request->title;
         $update->text = $request->text;
         $update->save();
@@ -109,9 +110,9 @@ class ServicesCardController extends Controller
      * @param  \App\Models\ServicesCard  $servicesCard
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ServicesCard $servicesCard)
+    public function destroy($id)
     {
-        $destroy = $servicesCard;
+        $destroy = ServicesCard::find($id);
         $destroy->delete();
         return redirect('/servicesSection');
     }

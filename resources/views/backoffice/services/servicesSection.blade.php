@@ -23,21 +23,21 @@
                         <tbody>
                           @foreach ($servicesCard as $card)
                             <tr>
-                                <th scope="row">{{$card->id}}</th>
-                                <td>
-                                  <i class="{{$card->classIcon}}" style="font-size: 30px"></i>
-                                </td>
-                                <td>{{$card->title}}</td>
-                                <td>{{$card->text}}</td>
-                                <td>
-                                    <a href="/servicesSection/{{$card->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
-                                </td>
-                                <td>
-                                  <form action="/servicesSection/{{$card->id}}" method="POST">
-                                      @csrf
-                                      @method('DELETE')
-                                      <button type="submit" class="btn" style="background-color: #F7959D">DELETE</button>
-                                  </form>
+                              <th scope="row">{{$card->id}}</th>
+                              <td>
+                                <i class="{{$card->icons->icon}}" style="font-size: 30px"></i>
+                              </td>
+                              <td>{{$card->title}}</td>
+                              <td>{{$card->text}}</td>
+                              <td>
+                                  <a href="/servicesSection/{{$card->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
+                              </td>
+                              <td>
+                                <form action="/servicesSection/{{$card->id}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn" style="background-color: #F7959D">DELETE</button>
+                                </form>
                               </td>
                             </tr>
                           @endforeach
