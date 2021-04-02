@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ServicesDevice;
+use App\Models\ServicesFeaturesButton;
 use App\Models\ServicesFeaturesTitle;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,11 @@ class ServicesFeaturesTitleController extends Controller
      */
     public function index()
     {
-        //
+        $servicesFeaturesTitle = ServicesFeaturesTitle::all();
+        $servicesDevices = ServicesDevice::all();
+        $servicesfeaturesButton = ServicesFeaturesButton::all();
+    
+        return view('backoffice.services.servicesFeatures', compact('servicesFeaturesTitle', 'servicesDevices', 'servicesfeaturesButton'));
     }
 
     /**
@@ -57,7 +63,8 @@ class ServicesFeaturesTitleController extends Controller
      */
     public function edit(ServicesFeaturesTitle $servicesFeaturesTitle)
     {
-        //
+        $edit = $servicesFeaturesTitle;
+        return view('backoffice.services.editServicesFeaturesTitle', compact('edit'));
     }
 
     /**
@@ -69,7 +76,14 @@ class ServicesFeaturesTitleController extends Controller
      */
     public function update(Request $request, ServicesFeaturesTitle $servicesFeaturesTitle)
     {
-        //
+        $validation = $request->validate([
+            "title" => 'required'
+        ]);
+
+        $update = $servicesFeaturesTitle;
+        $update->title = $request->title;
+        $update->save();
+        return redirect('/servicesFeaturesTitle');
     }
 
     /**

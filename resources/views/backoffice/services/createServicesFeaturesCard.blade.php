@@ -17,14 +17,9 @@
                         </div>
                     @endif
 
-                    <form action="/homeAboutCards" method="POST" class="m-3">
+                    <form action="/servicesFeaturesCards" method="POST" class="m-3">
                         @csrf
-                        
-                        {{-- <div class="form-group">
-                            <label for="classCol">Column class : </label>
-                            <input type="text" name="classCol" class="form-control" value="{{old('classCol')}}">
-                        </div> --}}
-
+                    
                         <div class="form-group">
                             <label for="icon_id">Icon : </label>
                             <div class="row d-flex my-3">

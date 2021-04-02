@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Icon;
 use App\Models\ServicesFeaturesCard;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class ServicesFeaturesCardController extends Controller
      */
     public function index()
     {
-        //
+        $servicesFeaturesCards = ServicesFeaturesCard::all();
+        return view('backoffice.services.servicesFeaturesCard', compact('servicesFeaturesCards'));
     }
 
     /**
@@ -24,7 +26,8 @@ class ServicesFeaturesCardController extends Controller
      */
     public function create()
     {
-        //
+        $icons = Icon::all();
+        return view('backoffice.services.createServicesFeaturesCard', compact('icons'));
     }
 
     /**
@@ -35,7 +38,18 @@ class ServicesFeaturesCardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            "icon_id" => 'required',
+            "title" => 'required',
+            "text" => 'required'
+        ]);
+
+        $store = new ServicesFeaturesCard;
+        $store->icon_id = $request->icon_id;
+        $store->title = $request->title;
+        $store->text = $request->text;
+        $store->save();
+        return redirect('/servicesFeaturesCards');
     }
 
     /**
@@ -57,7 +71,9 @@ class ServicesFeaturesCardController extends Controller
      */
     public function edit(ServicesFeaturesCard $servicesFeaturesCard)
     {
-        //
+        $edit = $servicesFeaturesCard;
+        $icons = Icon::all();
+        return view('backoffice.services.editServicesFeaturesCard', compact('edit', 'icons'));
     }
 
     /**
@@ -69,7 +85,17 @@ class ServicesFeaturesCardController extends Controller
      */
     public function update(Request $request, ServicesFeaturesCard $servicesFeaturesCard)
     {
-        //
+        $validation = $request->validate([
+            "icon_id" => 'required',
+            "title" => 'required',
+            "text" => 'required'
+        ]);
+
+        $update = $servicesFeaturesCard;
+        $update->icon_id = $request->icon_id;
+        $update->title = $request->title;
+        $update->save();
+        return redirect('/servicesFeaturesCards');
     }
 
     /**
@@ -80,6 +106,8 @@ class ServicesFeaturesCardController extends Controller
      */
     public function destroy(ServicesFeaturesCard $servicesFeaturesCard)
     {
-        //
+        $destroy = $servicesFeaturesCard;
+        $destroy->delete();
+        return redirect('/servicesFeaturesCards');
     }
 }

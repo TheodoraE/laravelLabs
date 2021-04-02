@@ -29,6 +29,10 @@ use App\Http\Controllers\PageHeaderController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\ServicesCardController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\ServicesDeviceController;
+use App\Http\Controllers\ServicesFeaturesButtonController;
+use App\Http\Controllers\ServicesFeaturesCardController;
+use App\Http\Controllers\ServicesFeaturesTitleController;
 use App\Http\Controllers\UserController;
 use App\Models\ContactFormAddress;
 use App\Models\ContactFormEmail;
@@ -167,7 +171,10 @@ Route::resource('homeTeamTitle', HomeTeamTitleController::class);
 
 // Services
 Route::resource('servicesSection', ServicesCardController::class);
-
+Route::resource('servicesFeaturesTitle', ServicesFeaturesTitleController::class);
+Route::resource('servicesDevices', ServicesDeviceController::class);
+Route::resource('servicesFeaturesButton', ServicesFeaturesButtonController::class);
+Route::resource('servicesFeaturesCards', ServicesFeaturesCardController::class);
 
 
 

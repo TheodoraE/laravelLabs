@@ -24,7 +24,7 @@
             <!-- Devices -->
             <div class="col-md-4 col-sm-4 devices">
                 <div class="text-center">
-                    <img src="{{asset('storage/img/'.$servicesDevices[0]->url)}}" alt="">
+                    <img src="{{asset('storage/img/'.$servicesDevices[0]->url)}}" alt="" height="490px">
                 </div>
             </div>
             <!-- feature item -->

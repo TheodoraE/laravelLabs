@@ -342,6 +342,14 @@ return [
                     'text' => 'Services',
                     'url'  => '/servicesSection',
                 ],
+                [
+                    'text' => 'Features',
+                    'url'  => '/servicesFeaturesTitle',
+                ],
+                [
+                    'text' => 'Features Cards',
+                    'url'  => '/servicesFeaturesCards',
+                ],
             ],
         ],
         [

@@ -57,7 +57,8 @@ class ServicesFeaturesButtonController extends Controller
      */
     public function edit(ServicesFeaturesButton $servicesFeaturesButton)
     {
-        //
+        $edit = $servicesFeaturesButton;
+        return view('backoffice.services.editServicesFeaturesButton', compact('edit'));
     }
 
     /**
@@ -69,7 +70,16 @@ class ServicesFeaturesButtonController extends Controller
      */
     public function update(Request $request, ServicesFeaturesButton $servicesFeaturesButton)
     {
-        //
+        $validation = $request->validate([
+            "button" => 'required',
+            "link" => 'required'
+        ]);
+
+        $update = $servicesFeaturesButton;
+        $update->button = $request->button;
+        $update->link = $request->link;
+        $update->save();
+        return redirect('/servicesFeaturesTitle');
     }
 
     /**

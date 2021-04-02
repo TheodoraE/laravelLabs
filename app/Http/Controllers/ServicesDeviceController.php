@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ServicesDevice;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ServicesDeviceController extends Controller
 {
@@ -57,7 +58,8 @@ class ServicesDeviceController extends Controller
      */
     public function edit(ServicesDevice $servicesDevice)
     {
-        //
+        $edit = $servicesDevice;
+        return view('backoffice.services.editServicesDevices', compact('edit'));
     }
 
     /**
@@ -69,7 +71,19 @@ class ServicesDeviceController extends Controller
      */
     public function update(Request $request, ServicesDevice $servicesDevice)
     {
-        //
+        $validation = $request->validate([
+            "url" => 'required'
+        ]);
+
+        $update = $servicesDevice;
+        if ($update->url != "device.png") {
+            Storage::delete('public/img/'.$update->url);
+        }
+        Storage::put('public/img', $request->url);
+        $update->url = $request->file('url')->hashName();
+
+        $update->save();
+        return redirect('/servicesFeaturesTitle');
     }
 
     /**
