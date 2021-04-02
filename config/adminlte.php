@@ -367,18 +367,9 @@ return [
             ],
         ],
         [
-            'text'    => 'Contact',
-            'icon'    => 'fas fa-scroll',
-            'submenu' => [
-                [
-                    'text' => 'Contact Map',
-                    'url'  => '/contactMap',
-                ],
-                [
-                    'text' => 'Titre',
-                    'url'  => '/',
-                ],
-            ],
+            'text'    => 'Contact Map',
+            'icon'    => 'fas fa-map-marked-alt',
+            'url' => '/contactMap'
         ],
         // ['header' => 'labels'],
         // [

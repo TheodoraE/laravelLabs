@@ -48,7 +48,9 @@ class DatabaseSeeder extends Seeder
             ServicesDeviceSeeder::class,
             ServicesFeaturesButtonSeeder::class,
             
-
+            BlogCategoriesSeeder::class,
+            BlogTagSeeder::class,
+            
 
             MapSeeder::class,
         ]);

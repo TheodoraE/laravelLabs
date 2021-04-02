@@ -176,6 +176,7 @@ Route::resource('servicesDevices', ServicesDeviceController::class);
 Route::resource('servicesFeaturesButton', ServicesFeaturesButtonController::class);
 Route::resource('servicesFeaturesCards', ServicesFeaturesCardController::class);
 
+// Blog
 
 
 
