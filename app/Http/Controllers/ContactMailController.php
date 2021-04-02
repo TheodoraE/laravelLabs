@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailSend;
 use App\Models\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactMailController extends Controller
 {
@@ -35,7 +37,21 @@ class ContactMailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            "name" => 'required',
+            "email" => 'required|email',
+            "subject_id" => 'required',
+            "message" => 'required'
+        ]);
+
+        $store = new ContactMail;
+        $store->name = $request->name;
+        $store->email = $request->email;
+        $store->subject_id = $request->subject_id;
+        $store->message = $request->message;
+        $store->save();
+        Mail::to('tidoraa@gmail.com')->send(new MailSend($request));
+        return redirect()->back();
     }
 
     /**

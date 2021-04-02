@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactFormEmailController;
 use App\Http\Controllers\ContactFormPhoneController;
 use App\Http\Controllers\ContactFormPlaceholderController;
 use App\Http\Controllers\ContactFormSubjectController;
+use App\Http\Controllers\ContactMailController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\HomeAboutButtonController;
 use App\Http\Controllers\HomeAboutCardController;
@@ -144,7 +145,6 @@ Route::resource('contactFormPlaceholders', ContactFormPlaceholderController::cla
 Route::resource('contactFormSubjects', ContactFormSubjectController::class);
 
 
-
 // Valider les users
 Route::get('/valider/{id}', [UserController::class, 'valider']);
 // Users
@@ -189,8 +189,9 @@ Route::resource('servicesFeaturesCards', ServicesFeaturesCardController::class);
 // Contact
 Route::resource('contactMap', MapController::class);
 
-Route::resource('/newsletter', NewsletterController::class);
-Route::resource('/newsletterMail', NewsletterMailController::class);
+Route::resource('contactMail', ContactMailController::class);
+Route::resource('newsletter', NewsletterController::class);
+Route::resource('newsletterMail', NewsletterMailController::class);
 
 
 Route::get('/home', function() {

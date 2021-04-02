@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ContactFormSubject extends Model
 {
     use HasFactory;
+    public function contactMails()
+    {
+        return $this->hasMany(ContactMail::class, 'subject_id');
+    }
 }
