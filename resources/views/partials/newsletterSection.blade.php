@@ -1,15 +1,25 @@
 <!-- newsletter section -->
-<div class="newsletter-section spad">
+<div id="newsletter-section" class="newsletter-section spad">
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <h2>Newsletter</h2>
+                <h2>{{$newsletters[0]->title}}</h2>
             </div>
             <div class="col-md-9">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <!-- newsletter form -->
-                <form class="nl-form">
-                    <input type="text" placeholder="Your e-mail here">
-                    <button class="site-btn btn-2">Newsletter</button>
+                <form action="/newsletterMail" method="POST" class="nl-form">
+                    @csrf
+                    <input type="text" name="email" id="" placeholder="{{$newsletters[0]->placeholder}}">
+                    <button class="site-btn btn-2">{{$newsletters[0]->button}}</button>
                 </form>
             </div>
         </div>

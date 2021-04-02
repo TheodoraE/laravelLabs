@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             IconSeeder::class,
             LogoSeeder::class,
+            NewsletterSeeder::class,
             NavbarSeeder::class,
             FooterSeeder::class,
             PageHeaderSeeder::class,

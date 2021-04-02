@@ -240,6 +240,11 @@ return [
             'icon'        => 'fas fa-users',
             // 'label'       => count($users),
         ],
+        [
+            'text'    => 'Newsletter Mail',
+            'icon'    => 'far fa-newspaper',
+            'url' => '/newsletterMail'
+        ],
         ['header' => 'PARAMÈTRES'],
         [
             'text' => 'profile',
@@ -299,6 +304,11 @@ return [
                     'url'  => '/contactFormSubjects',
                 ],
             ],
+        ],
+        [
+            'text'    => 'Newsletter',
+            'icon'    => 'far fa-newspaper',
+            'url' => '/newsletter'
         ],
         [
             'text'    => 'Home',

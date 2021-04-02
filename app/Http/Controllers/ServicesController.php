@@ -13,6 +13,7 @@ use App\Models\Footer;
 use App\Models\HomeServicesTitle;
 use App\Models\Logo;
 use App\Models\Navbar;
+use App\Models\Newsletter;
 use App\Models\PageHeader;
 use App\Models\ServicesCard;
 use App\Models\ServicesDevice;
@@ -45,6 +46,8 @@ class ServicesController extends Controller
         $contactFormEmail = ContactFormEmail::all();
         $contactFormPlaceholder = ContactFormPlaceholder::all();
         $contactFormSubjects = ContactFormSubject::all();
+        // Newsletter
+        $newsletters = Newsletter::all();
 
 
         $homeServicesTitle = HomeServicesTitle::all();
@@ -55,7 +58,7 @@ class ServicesController extends Controller
         $servicesFeaturesButton = ServicesFeaturesButton::all();
 
         
-        return view('pages.services', compact('logo', 'navbar', 'footer', 'pageHeader', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeServicesTitle', 'servicesCard', 'servicesFeaturesTitle', 'servicesFeaturesCard', 'servicesDevices', 'servicesFeaturesButton'));
+        return view('pages.services', compact('logo', 'navbar', 'footer', 'pageHeader', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeServicesTitle', 'servicesCard', 'servicesFeaturesTitle', 'servicesFeaturesCard', 'servicesDevices', 'servicesFeaturesButton', 'newsletters'));
     }
 
     /**

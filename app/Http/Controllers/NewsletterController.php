@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Footer;
-use App\Models\Logo;
-use App\Models\Navbar;
 use App\Models\Newsletter;
-use App\Models\PageHeader;
+use App\Models\NewsletterMail;
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class NewsletterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,18 +15,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        // Main
-        $logo = Logo::all();
-        $footer = Footer::all();
-        // Navbar
-        $navbar = Navbar::all();
-        // PageHeader
-        $pageHeader = PageHeader::all();
-        // Newsletter
-        $newsletters = Newsletter::all();
-
-
-        return view('pages.blog', compact('logo', 'navbar', 'footer', 'pageHeader', 'newsletters'));
+        $newsletter = Newsletter::all();
+        return view('backoffice.newsletter.newsletter', compact('newsletter'));
     }
 
     /**
@@ -56,10 +43,10 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Newsletter $newsletter)
     {
         //
     }
@@ -67,33 +54,45 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Newsletter $newsletter)
     {
-        //
+        $edit = $newsletter;
+        return view('backoffice.newsletter.editNewsletter', compact('edit'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Newsletter $newsletter)
     {
-        //
+        $validation = $request->validate([
+            "title" => 'required',
+            "placeholder" => 'required',
+            "button" => 'required'
+        ]);
+
+        $update = $newsletter;
+        $update->title = $request->title;
+        $update->placeholder = $request->placeholder;
+        $update->button = $request->button;
+        $update->save();
+        return redirect('/newsletter');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Newsletter $newsletter)
     {
         //
     }

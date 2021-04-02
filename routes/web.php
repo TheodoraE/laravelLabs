@@ -25,6 +25,8 @@ use App\Http\Controllers\HomeTestimonialsTitleController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\NavbarController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\NewsletterMailController;
 use App\Http\Controllers\PageHeaderController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\ServicesCardController;
@@ -56,6 +58,7 @@ use App\Models\HomeTeamTitle;
 use App\Models\HomeTestimonialsCard;
 use App\Models\HomeTestimonialsTitle;
 use App\Models\Navbar;
+use App\Models\Newsletter;
 use App\Models\ServicesCard;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -87,6 +90,8 @@ Route::get('/', function () {
     $contactFormEmail = ContactFormEmail::all();
     $contactFormPlaceholder = ContactFormPlaceholder::all();
     $contactFormSubjects = ContactFormSubject::all();
+    // Newsletter
+    $newsletters = Newsletter::all();
     // Home
         // Intro
     $homeCarousel = HomeCarousel::all();
@@ -111,7 +116,7 @@ Route::get('/', function () {
     $users = User::where('check',1)->get();
     // $homeTeamCards = HomeTeamCard::all();
 
-    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'homeAboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsTitle', 'homeTestimonialsCards', 'homeServicesTitle', 'homeServicesButton', 'servicesCard', 'homeTeamTitle', 'users'));
+    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'homeAboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsTitle', 'homeTestimonialsCards', 'homeServicesTitle', 'homeServicesButton', 'servicesCard', 'homeTeamTitle', 'users', 'newsletters'));
 });
 
 // Authenticate
@@ -184,8 +189,8 @@ Route::resource('servicesFeaturesCards', ServicesFeaturesCardController::class);
 // Contact
 Route::resource('contactMap', MapController::class);
 
-
-// Route::get('/newsletter')
+Route::resource('/newsletter', NewsletterController::class);
+Route::resource('/newsletterMail', NewsletterMailController::class);
 
 
 Route::get('/home', function() {
