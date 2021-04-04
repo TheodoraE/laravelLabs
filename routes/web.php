@@ -30,6 +30,7 @@ use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\NewsletterMailController;
 use App\Http\Controllers\PageHeaderController;
 use App\Http\Controllers\PositionController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServicesCardController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ServicesDeviceController;
@@ -130,6 +131,8 @@ Route::resource('blogs', BlogController::class);
 
 // Functions
 Route::resource('functions', PositionController::class);
+// Roles
+Route::resource('roles', RoleController::class);
 // Main
 Route::resource('logos', LogoController::class);
 Route::resource('footers', FooterController::class);

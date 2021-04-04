@@ -241,9 +241,14 @@ return [
             // 'label'       => count($users),
         ],
         [
-            'text'    => 'Newsletter Mail',
+            'text'    => 'Newsletter Emails',
             'icon'    => 'far fa-newspaper',
             'url' => '/newsletterMail'
+        ],
+        [
+            'text'    => 'Contact Emails',
+            'icon'    => 'fas fa-envelope-open-text',
+            'url' => '/contactMail'
         ],
         ['header' => 'PARAMÈTRES'],
         [
@@ -255,6 +260,11 @@ return [
             'text'    => 'Functions',
             'url'     => '/functions',
             'icon'    => 'fas fa-toolbox',
+        ],
+        [
+            'text'    => 'Roles',
+            'url'     => '/roles',
+            'icon'    => 'fas fa-id-badge',
         ],
         ['header' => 'MODIFICATIONS'],
         [

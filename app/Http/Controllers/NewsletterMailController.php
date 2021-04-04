@@ -40,7 +40,7 @@ class NewsletterMailController extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
-            "email" => 'required|email'
+            "email" => 'required|email|unique:newsletter_mails,email'
         ]);
 
 
@@ -48,7 +48,7 @@ class NewsletterMailController extends Controller
         $store->email = $request->email;
         $store->save();
         Mail::to('tidoraa@gmail.com')->send(new NewsletterSend($request));
-        return redirect('/#newsletter-section');
+        return redirect('/#newsletter-section')->with('message', 'Vous êtes maintenant inscrit·e à la Newsletter !');;
     }
 
     /**
@@ -86,6 +86,11 @@ class NewsletterMailController extends Controller
         $validation = $request->validate([
             "email" => 'required|email'
         ]);
+        if ($newsletterMail->email != $request->email) {
+            $validation = $request->validate([
+                "email" => 'unique:newsletter_mails,email'
+            ]);
+        };
 
         $update = $newsletterMail;
         $update->email = $request->email;

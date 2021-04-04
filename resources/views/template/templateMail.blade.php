@@ -7,11 +7,9 @@
     <title>Contact Mail</title>
 </head>
 <body>
-    {{-- <h3>Bienvenue <span>{{$emailClient}}</span>,</h3> --}}
-
-    <p>{{$nameClient}}</p>
-    <p>{{$emailClient}}</p>
-    <p>{{$subject}}</p>
+    {{-- <p>{{$nameClient}}</p>
+    <p>{{$emailClient}}</p> --}}
+    <p>Sujet : {{$subject}}</p>
     
     <p>{{$messageClient}}</p>
 

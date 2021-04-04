@@ -9,7 +9,7 @@
 <body>
     <h3>Bienvenue <span>{{$emailClient}}</span>,</h3>
 
-    <p>Vous voici maintenant inscrit à la newsletter.</p>
+    <p>Vous voici maintenant inscrit·e à la newsletter.</p>
 
     <p>À très bientôt !</p>
 

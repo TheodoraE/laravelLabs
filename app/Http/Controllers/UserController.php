@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendRegister;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -92,6 +94,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->check = 1;
         $user->save();
+        Mail::to('tidoraa@gmail.com')->send(new SendRegister($user));
         return redirect('/users');
     }
 }

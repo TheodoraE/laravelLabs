@@ -15,6 +15,11 @@
                         </ul>
                     </div>
                 @endif
+                @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
                 <!-- newsletter form -->
                 <form action="/newsletterMail" method="POST" class="nl-form">
                     @csrf

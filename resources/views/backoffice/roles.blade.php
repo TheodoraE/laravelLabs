@@ -5,27 +5,32 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="mb-5">Newsletter Emails</h1>
-                    
+                    <h1 class="mb-5">Roles</h1>
+
+                    <a href="/roles/create" class="btn mb-3" style="background-color: #C1C8E3">Ajouter une fonction</a>
+
                     <table class="table">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">role</th>
+                            <th scope="col">User</th>
                             <th scope="col"> </th>
                             <th scope="col"> </th>
                           </tr>
                         </thead>
                         <tbody>
-                            @foreach ($newsletter as $news)
+                            @foreach ($roles as $role)
                                 <tr>
-                                    <th scope="row">{{$news->id}}</th>
-                                    <td>{{$news->email}}</td>
+                                    <th scope="row">{{$role->id}}</th>
+                                    <td>{{$role->role}}</td>
+                                    <td>Le link ne fonctionne pas T.T</td>
+                                    {{-- <td>{{$role->users->name}}</td> --}}
                                     <td>
-                                        <a href="/newsletterMail/{{$news->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
+                                        <a href="/roles/{{$role->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
                                     </td>
                                     <td>
-                                        <form action="/newsletterMail/{{$news->id}}" method="POST">
+                                        <form action="/roles/{{$role->id}}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn" style="background-color: #F7959D">DELETE</button>

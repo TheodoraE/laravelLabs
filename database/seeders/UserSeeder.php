@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -23,7 +24,7 @@ class UserSeeder extends Seeder
                     "role_id" => 1,
                     "description" => "Hello",
                     "email" => "admin@admin",
-                    "password" => "admin@admin",
+                    "password" => Hash::make('admin@admin'),
                     "url" => "team/1.jpg",
                     "check" => 1,
                 ],
@@ -32,9 +33,9 @@ class UserSeeder extends Seeder
                     "firstname" => "Christinne",
                     "function_id" => 2,
                     "role_id" => 2,
-                    "description" => "Konishiwa",
+                    "description" => "こんにちは",
                     "email" => "webMaster@webMaster",
-                    "password" => "webMaster@webMaster",
+                    "password" => Hash::make('webMaster@webMaster'),
                     "url" => "team/2.jpg",
                     "check" => 1,
                 ],
@@ -45,7 +46,7 @@ class UserSeeder extends Seeder
                     "role_id" => 3,
                     "description" => "Ola",
                     "email" => "redactor@redactor",
-                    "password" => "redactor",
+                    "password" => Hash::make('redactor'),
                     "url" => "team/3.jpg",
                     "check" => 1,
                 ],
@@ -56,7 +57,7 @@ class UserSeeder extends Seeder
                     "role_id" => 4,
                     "description" => "Je suis membre de la société",
                     "email" => "membre@membre",
-                    "password" => "membre@membre",
+                    "password" => Hash::make('membre@membre'),
                     "url" => "avatar/01.jpg",
                     "check" => 0,
                 ],
