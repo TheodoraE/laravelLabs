@@ -6,7 +6,7 @@
             {{-- <h2>Get in <span>the Lab</span> and see the services</h2> --}}
         </div>
         <div class="row">
-            @foreach ($servicesCard as $card)
+            @foreach ($paginationServices as $card)
                 <!-- single service -->
                 <div class="col-md-4 col-sm-6">
                     <div class="service">
@@ -20,6 +20,9 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        <div>
+            {{  $paginationServices->fragment('service')->links('vendor.pagination.bootstrap-4') }}
         </div>
     </div>
 </div>

@@ -25,7 +25,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.createRoles');
     }
 
     /**
@@ -36,7 +36,14 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            "role" => 'required'
+        ]);
+
+        $store = new Role;
+        $store->role = $request->role;
+        $store->save();
+        return redirect('/roles');
     }
 
     /**
@@ -58,7 +65,8 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        $edit = $role;
+        return view('backoffice.editRoles', compact('edit'));
     }
 
     /**
@@ -70,7 +78,14 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $validation = $request->validate([
+            "role" => 'required'
+        ]);
+        
+        $update = $role;
+        $update->role = $request->role;
+        $update->save();
+        return redirect('/roles');
     }
 
     /**
@@ -81,6 +96,8 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $destroy = $role;
+        $destroy->delete();
+        return redirect('/roles');
     }
 }
