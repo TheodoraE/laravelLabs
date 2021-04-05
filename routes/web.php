@@ -30,6 +30,7 @@ use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\NewsletterMailController;
 use App\Http\Controllers\PageHeaderController;
 use App\Http\Controllers\PositionController;
+use App\Http\Controllers\PostTagController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServicesCardController;
 use App\Http\Controllers\ServicesController;
@@ -38,6 +39,8 @@ use App\Http\Controllers\ServicesFeaturesButtonController;
 use App\Http\Controllers\ServicesFeaturesCardController;
 use App\Http\Controllers\ServicesFeaturesTitleController;
 use App\Http\Controllers\UserController;
+use App\Models\BlogCategories;
+use App\Models\BlogTag;
 use App\Models\ContactFormAddress;
 use App\Models\ContactFormEmail;
 use App\Models\ContactFormPhone;
@@ -61,6 +64,7 @@ use App\Models\HomeTestimonialsCard;
 use App\Models\HomeTestimonialsTitle;
 use App\Models\Navbar;
 use App\Models\Newsletter;
+use App\Models\PageHeader;
 use App\Models\ServicesCard;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -185,8 +189,7 @@ Route::resource('servicesFeaturesButton', ServicesFeaturesButtonController::clas
 Route::resource('servicesFeaturesCards', ServicesFeaturesCardController::class);
 
 // Blog
-
-
+Route::resource('postTag', PostTagController::class);
 
 
 // Contact

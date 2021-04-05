@@ -2,7 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogCategories;
+use App\Models\BlogTag;
+use App\Models\Footer;
+use App\Models\Logo;
+use App\Models\Navbar;
+use App\Models\Newsletter;
+use App\Models\PageHeader;
 use App\Models\PostTag;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostTagController extends Controller
@@ -14,7 +22,7 @@ class PostTagController extends Controller
      */
     public function index()
     {
-        //
+       //
     }
 
     /**
@@ -46,7 +54,27 @@ class PostTagController extends Controller
      */
     public function show(PostTag $postTag)
     {
-        //
+        // Main
+        $logo = Logo::all();
+        $footer = Footer::all();
+        // Navbar
+        $navbar = Navbar::all();
+        // Page Header
+        $pageHeader = PageHeader::all();
+
+        // User
+        $usersOK = User::where('check',1)->get();
+
+        // Post
+        $post = $postTag;
+
+        // Side
+        $categories = BlogCategories::all();
+        $tags = BlogTag::all();
+        $newsletters = Newsletter::all();
+
+
+        return view('pages.showBlog', compact('logo', 'footer', 'navbar', 'pageHeader', 'posts', 'categories', 'tags', 'newsletters', 'usersOK'));
     }
 
     /**

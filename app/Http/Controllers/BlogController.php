@@ -9,6 +9,7 @@ use App\Models\Logo;
 use App\Models\Navbar;
 use App\Models\Newsletter;
 use App\Models\PageHeader;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -30,13 +31,15 @@ class BlogController extends Controller
         // Newsletter
         $newsletters = Newsletter::all();
 
+        $posts = Post::all();
+
         // Categories
         $categories = BlogCategories::all();
         // Tags
         $tags = BlogTag::all();
 
 
-        return view('pages.blog', compact('logo', 'navbar', 'footer', 'pageHeader', 'newsletters', 'categories', 'tags'));
+        return view('pages.blog', compact('logo', 'navbar', 'footer', 'pageHeader', 'newsletters', 'posts', 'categories', 'tags'));
     }
 
     /**

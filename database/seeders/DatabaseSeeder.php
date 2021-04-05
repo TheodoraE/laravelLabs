@@ -51,7 +51,9 @@ class DatabaseSeeder extends Seeder
             
             BlogCategoriesSeeder::class,
             BlogTagSeeder::class,
-            
+            PostSeeder::class,
+
+            // CommentSeeder::class,
 
             MapSeeder::class,
         ]);

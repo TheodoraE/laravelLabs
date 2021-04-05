@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Post extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+    // use SoftDeletes;
     
     public function users()
     {
@@ -17,7 +17,7 @@ class Post extends Model
     }
     public function categories()
     {
-        return $this->hasOne(BlogCategories::class, 'category_id');
+        return $this->belongsTo(BlogCategories::class, 'category_id');
     }
 
     public function postsPost()
