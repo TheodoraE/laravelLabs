@@ -2,6 +2,7 @@
 
 use App\Models\Logo;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContactFormAddressController;
 use App\Http\Controllers\ContactFormEmailController;
@@ -191,6 +192,9 @@ Route::resource('servicesFeaturesCards', ServicesFeaturesCardController::class);
 
 // Blog
 Route::resource('postTag', PostTagController::class);
+Route::resource('comments', CommentController::class);
+// Valider les commentaires
+Route::get('/validerComments/{id}', [CommentController::class, 'validerComment']);
 
 
 // Contact
@@ -203,6 +207,7 @@ Route::resource('newsletterMail', NewsletterMailController::class);
 
 Route::get('/search', [PostController::class, 'search']);
 Route::get('/filterCategory/{id}', [PostController::class, 'filterCategory']);
+Route::get('/filterTag/{id}', [PostController::class, 'filterTag']);
 
 Route::get('/home', function() {
     return view('home');

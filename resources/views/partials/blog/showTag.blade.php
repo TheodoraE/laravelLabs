@@ -4,11 +4,13 @@
         <div class="row">
             <div class="col-md-8 col-sm-7 blog-posts">
                 {{-- @if($posts->isNotEmpty()) --}}
-                    @foreach ($posts as $post)
-                        <div class="post-list">
-                            <p>{{ $post->title }}</p>
-                            <img src="{{ asset('storage/img/'.$post->url) }}">
-                        </div>
+                    @foreach ($postsTaguer as $post)
+                        @foreach ($post->posts as $item)
+                            <div class="post-list">
+                                <p>{{ $item->title }}</p>
+                                <img src="{{ asset('storage/img/'.$item->url) }}">
+                            </div>
+                        @endforeach
                     @endforeach
                 {{-- @else 
                     <div>

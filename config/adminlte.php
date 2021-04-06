@@ -377,8 +377,8 @@ return [
             'icon'    => 'fas fa-scroll',
             'submenu' => [
                 [
-                    'text' => 'Titre',
-                    'url'  => '/',
+                    'text' => 'Comments',
+                    'url'  => '/comments',
                 ],
                 [
                     'text' => 'Titre',

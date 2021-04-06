@@ -53,7 +53,7 @@ class ServicesController extends Controller
         $homeServicesTitle = HomeServicesTitle::all();
         $servicesCard = ServicesCard::all();
         $servicesFeaturesTitle = ServicesFeaturesTitle::all();
-        $servicesFeaturesCard = ServicesFeaturesCard::all();
+        $servicesFeaturesCard = ServicesFeaturesCard::orderBy('id', 'DESC')->get();
         $servicesDevices = ServicesDevice::all();
         $servicesFeaturesButton = ServicesFeaturesButton::all();
 

@@ -53,8 +53,7 @@ class DatabaseSeeder extends Seeder
             TagSeeder::class,
             PostSeeder::class,
             PostTagSeeder::class,
-
-            // CommentSeeder::class,
+            CommentSeeder::class,
 
             MapSeeder::class,
         ]);

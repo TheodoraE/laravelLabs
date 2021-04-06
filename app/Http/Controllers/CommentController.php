@@ -14,7 +14,10 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::all();
+        $commentsOK = $comments->where('check', 1);
+
+        return view('backoffice.blog.comments', compact('comments', 'commentsOK'));
     }
 
     /**
@@ -35,7 +38,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate();
     }
 
     /**
@@ -80,6 +83,16 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $destroy = $comment;
+        $destroy->delete();
+        return redirect('/comments');
+    }
+
+    public function validerComment($id)
+    {
+        $comment = Comment::find($id);
+        $comment->check = 1;
+        $comment->save();
+        return redirect('/comments');
     }
 }
