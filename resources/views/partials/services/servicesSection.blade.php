@@ -21,7 +21,7 @@
                 </div>
             @endforeach
         </div>
-        <div>
+        <div style="text-align: center">
             {{  $paginationServices->fragment('service')->links('vendor.pagination.bootstrap-4') }}
         </div>
     </div>

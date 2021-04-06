@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BlogTag;
 use Illuminate\Http\Request;
 
-class BlogTagController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.

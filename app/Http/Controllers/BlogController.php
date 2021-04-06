@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\BlogCategories;
-use App\Models\BlogTag;
 use App\Models\Footer;
 use App\Models\Logo;
 use App\Models\Navbar;
 use App\Models\Newsletter;
 use App\Models\PageHeader;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -36,7 +36,7 @@ class BlogController extends Controller
         // Categories
         $categories = BlogCategories::all();
         // Tags
-        $tags = BlogTag::all();
+        $tags = Tag::all();
 
 
         return view('pages.blog', compact('logo', 'navbar', 'footer', 'pageHeader', 'newsletters', 'posts', 'categories', 'tags'));

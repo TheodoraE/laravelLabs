@@ -17,10 +17,12 @@
                             <h2 class="post-title">{{$post->title}}</h2>
                             <div class="post-meta">
                                 <a href="">{{$post->categories->category}}</a>
-                                <a href="">Design, Inspiration</a>
+                                @foreach ($post->tags as $tage)
+                                    <a href="">{{$tage->tag}}</a>
+                                @endforeach
                                 <a href="">2 Comments</a>
                             </div>
-                            <p>{{!!$post->text!!}}</p>
+                            <p>{{Str::limit($post->text, 318)}}</p>
                             <a href="/postTag/{{$post->id}}" class="read-more">Read More</a>
                         </div>
                     </div>
@@ -76,8 +78,8 @@
             <div class="col-md-4 col-sm-5 sidebar">
                 <!-- Single widget -->
                 <div class="widget-item">
-                    <form action="#" class="search-form">
-                        <input type="text" placeholder="Search">
+                    <form action="/search" method="GET" class="search-form">
+                        <input type="text" name="search" placeholder="Search">
                         <button class="search-btn"><i class="flaticon-026-search"></i></button>
                     </form>
                 </div>
@@ -86,7 +88,7 @@
                     <h2 class="widget-title">Categories</h2>
                     <ul>
                         @foreach ($categories as $category)
-                            <li><a href="#">{{$category->category}}</a></li>
+                            <li><a href="/filterCategory/{{$category->id}}">{{$category->category}}</a></li>
                         @endforeach
                     </ul>
                 </div>

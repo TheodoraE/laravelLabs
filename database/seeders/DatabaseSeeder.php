@@ -50,8 +50,9 @@ class DatabaseSeeder extends Seeder
             ServicesFeaturesButtonSeeder::class,
             
             BlogCategoriesSeeder::class,
-            BlogTagSeeder::class,
+            TagSeeder::class,
             PostSeeder::class,
+            PostTagSeeder::class,
 
             // CommentSeeder::class,
 

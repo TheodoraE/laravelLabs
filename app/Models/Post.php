@@ -20,8 +20,8 @@ class Post extends Model
         return $this->belongsTo(BlogCategories::class, 'category_id');
     }
 
-    public function postsPost()
+    public function tags()
     {
-        return $this->hasMany(PostTag::class, 'post_id');
+        return $this->belongsToMany(Tag::class);
     }
 }

@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class BlogTagSeeder extends Seeder
+class BlogTagPostSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,28 +14,27 @@ class BlogTagSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('blog_tags')->insert(
+        DB::table('blog_tag_post')->insert(
             [
                 [
-                    "tag" => "branding"
+                    "post_id" => 1,
+                    "tag_id" => 1
                 ],
                 [
-                    "tag" => "identity"
+                    "post_id" => 1,
+                    "tag_id" => 2
                 ],
                 [
-                    "tag" => "video"
+                    "post_id" => 1,
+                    "tag_id" => 3
                 ],
                 [
-                    "tag" => "design"
+                    "post_id" => 2,
+                    "tag_id" => 2
                 ],
                 [
-                    "tag" => "inspiration"
-                ],
-                [
-                    "tag" => "web design"
-                ],
-                [
-                    "tag" => "photography"
+                    "post_id" => 2,
+                    "tag_id" => 3
                 ],
             ]
         );

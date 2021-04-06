@@ -30,6 +30,7 @@ use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\NewsletterMailController;
 use App\Http\Controllers\PageHeaderController;
 use App\Http\Controllers\PositionController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostTagController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServicesCardController;
@@ -199,6 +200,9 @@ Route::resource('contactMail', ContactMailController::class);
 Route::resource('newsletter', NewsletterController::class);
 Route::resource('newsletterMail', NewsletterMailController::class);
 
+
+Route::get('/search', [PostController::class, 'search']);
+Route::get('/filterCategory/{id}', [PostController::class, 'filterCategory']);
 
 Route::get('/home', function() {
     return view('home');

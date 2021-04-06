@@ -90,4 +90,42 @@ class PostController extends Controller
     {
         //
     }
+
+    public function search(Request $request)
+    {
+        // Main
+        $logo = Logo::all();
+        $footer = Footer::all();
+        // Navbar
+        $navbar = Navbar::all();
+
+        $pageHeader = PageHeader::all();
+        // Newsletter
+        $newsletters = Newsletter::all();
+
+
+        $search = $request->input('search');
+        $posts = Post::query()->where('title', 'LIKE', "%{$search}%")->orWhere('text', 'LIKE', "%{$search}%")->get();
+
+        return view('pages.searchBlog', compact('logo', 'footer', 'navbar', 'pageHeader', 'newsletters', 'posts'));
+    }
+
+    public function filterCategory(Request $request)
+    {
+        // Main
+        $logo = Logo::all();
+        $footer = Footer::all();
+        // Navbar
+        $navbar = Navbar::all();
+
+        $pageHeader = PageHeader::all();
+        // Newsletter
+        $newsletters = Newsletter::all();
+
+
+        $posts = Post::where('category_id', $request->id);
+        // dd($posts);
+
+        return view('pages.searchBlog', compact('logo', 'footer', 'navbar', 'pageHeader', 'newsletters', 'posts'));
+    }
 }
