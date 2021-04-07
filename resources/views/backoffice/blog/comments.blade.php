@@ -87,7 +87,11 @@
                                             <td>{{$comment->email}}</td>
                                             <td>{{$comment->posts->title}}</td>
                                             <td>{{$comment->comment}}</td>
-                                            <td>{{$comment->date}}</td>
+                                            @if ($comment->created_at == NULL)
+                                                <td>03 april 2017</td>
+                                            @else
+                                                <td>{{$comment->created_at->format("d").' '.$comment->created_at->format("m y")}}</td>
+                                            @endif
                                             <td>
                                                 <a href="/validerComment/{{$comment->id}}" class="btn" style="background-color: #AFE3D0">Valider</a>
                                             </td>

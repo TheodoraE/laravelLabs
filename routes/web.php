@@ -195,6 +195,7 @@ Route::resource('posts', PostController::class);
 Route::resource('comments', CommentController::class);
 // Valider les commentaires
 Route::get('/validerComment/{id}', [CommentController::class, 'validerComment']);
+Route::get('/validerPost/{id}', [PostController::class, 'validerPost']);
 
 
 // Contact

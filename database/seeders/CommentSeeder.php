@@ -24,7 +24,6 @@ class CommentSeeder extends Seeder
                     "post_id" => 2,
                     // "user_id" => 3,
                     "comment" => "Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. ",
-                    "date" => "03 nov, 2017",
                     "check" => 1
                 ],
                 [
@@ -35,7 +34,16 @@ class CommentSeeder extends Seeder
                     "post_id" => 2,
                     // "user_id" => 2,
                     "comment" => "Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. ",
-                    "date" => "03 nov, 2017",
+                    "check" => 1
+                ],
+                [
+                    "url" => "team/2.jpg",
+                    "name" => "Smith",
+                    "firstname" => "Michael",
+                    "email" => "membre@membre",
+                    "post_id" => 1,
+                    // "user_id" => 2,
+                    "comment" => "Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. ",
                     "check" => 1
                 ]
             ]

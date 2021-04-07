@@ -377,12 +377,12 @@ return [
             'icon'    => 'fas fa-scroll',
             'submenu' => [
                 [
-                    'text' => 'Comments',
-                    'url'  => '/comments',
+                    'text' => 'Posts',
+                    'url'  => '/posts',
                 ],
                 [
-                    'text' => 'Titre',
-                    'url'  => '/',
+                    'text' => 'Comments',
+                    'url'  => '/comments',
                 ],
             ],
         ],

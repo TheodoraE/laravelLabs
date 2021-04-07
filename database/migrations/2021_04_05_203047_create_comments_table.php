@@ -22,7 +22,6 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('post_id');
             $table->foreign('post_id')->references('id')->on('posts');
             $table->text('comment');
-            $table->string('date');
             $table->integer('check');
             $table->timestamps();
         });

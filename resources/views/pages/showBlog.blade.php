@@ -6,18 +6,27 @@
 		<div class="post-thumbnail">
 			<img src="{{asset('storage/img/'.$post->url)}}" alt="">
 			<div class="post-date">
-				<h2>{{$post->day}}</h2>
-				<h3>{{$post->year}}</h3>
+				@if ($post->created_at == NULL)
+
+                    <h2>03</h2>
+                    <h3>April 2017</h3>
+
+                    @else
+
+                    <h2>{{$post->created_at->format("d")}}</h2>
+                    <h3>{{$post->created_at->format("m y")}}</h3>
+
+                @endif
 			</div>
 		</div>
 		<div class="post-content">
 			<h2 class="post-title">{{$post->title}}</h2>
 			<div class="post-meta">
                 <a href="/filterCategory/{{$post->id}}">{{$post->categories->category}}</a>
-                @foreach ($post->tags->take(2) as $tage)
+                @foreach ($post->tags as $tage)
                     <a href="/filterTag/{{$tage->id}}">{{$tage->tag}}</a>
                 @endforeach
-                <a href="/posts/{{$post->id}}">{{count($commentsId)}} Comments</a>
+                <a href="#comments">{{count($commentsId)}} Comments</a>
             </div>
 			<p>{!!$post->text!!}</p>
 		</div>
@@ -32,7 +41,7 @@
 			</div>
 		</div>
 		<!-- Post Comments -->
-		<div class="comments">
+		<div id="comments" class="comments">
 			<h2>Comments ({{count($commentsId)}})</h2>
 			@if (count($commentsId) != 0)
 				<ul class="comment-list">
@@ -42,7 +51,13 @@
 								<img src="{{asset('storage/img/'.$comment->url)}}" alt="">
 							</div>
 							<div class="commetn-text">
-								<h3>{{$comment->firstname.' '.$comment->name}} | {{$comment->date}}</h3>
+								<h3>{{$comment->firstname.' '.$comment->name}} | 
+									@if ($comment->created_at == NULL)
+										<td>03 april 2017</td>
+									@else
+										<td>{{$comment->created_at->format("d").' '.$comment->created_at->format("m y")}}</td>
+									@endif
+								</h3>
 								<p>{{$comment->comment}}</p>
 							</div>
 						</li>
@@ -71,18 +86,11 @@
 							<div class="col-sm-6">
 								<input type="text" name="name" placeholder="Your name">
 							</div>
-							<div class="col-sm-6">
+							<div class="col-sm-12">
 								<input type="text" name="email" placeholder="Your email">
-							</div>
-							<div class="col-sm-6">
-								<label for="url">Profile :</label>
-								<input type="file" name="url" id="url">
 							</div>
 							
 						@endif
-						<div class="col-sm-12">
-							<input type="text" name="date" placeholder="DD Month, YYYY">
-						</div>
 
 						<div class="col-sm-12">
 							{{-- <input type="text" name="subject" placeholder="Subject"> --}}

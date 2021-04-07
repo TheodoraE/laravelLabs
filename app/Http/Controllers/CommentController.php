@@ -53,18 +53,15 @@ class CommentController extends Controller
             $store->firstname = Auth::user()->firstname;
             $store->email = Auth::user()->email;
         } else{
-            Storage::put('public/img', $request->url);
-            $store->url = $request->file('url')->hashName();
+            $store->url = 'silhouette.jpeg';
             $store->name = $request->name;
             $store->firstname = $request->firstname;
             $store->email = $request->email;
         }
         $previous = url()->previous();
         $store->post_id = (int)Str::afterLast($previous, '/');
-        // dd((int)Str::afterLast($previous, '/'));
         
         $store->comment = $request->comment;
-        $store->date = $request->date;
         $store->check = 0;
 
         $store->save();

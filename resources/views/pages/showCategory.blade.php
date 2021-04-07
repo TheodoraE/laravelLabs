@@ -8,8 +8,17 @@
 			<div class="post-thumbnail">
 				<img src="{{asset('storage/img/'.$post->url)}}" alt="">
 				<div class="post-date">
-					<h2>{{$post->day}}</h2>
-					<h3>{{$post->year}}</h3>
+					@if ($post->created_at == NULL)
+
+						<h2>03</h2>
+						<h3>April 2017</h3>
+
+						@else
+
+						<h2>{{$post->created_at->format("d")}}</h2>
+						<h3>{{$post->created_at->format("m y")}}</h3>
+
+					@endif
 				</div>
 			</div>
 			<div class="post-content">

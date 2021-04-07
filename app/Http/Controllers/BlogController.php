@@ -33,6 +33,7 @@ class BlogController extends Controller
         $newsletters = Newsletter::all();
 
         $posts = Post::all();
+        $postsOK = $posts->where('check', 1);
 
         // Categories
         $categories = BlogCategories::all();
@@ -40,8 +41,12 @@ class BlogController extends Controller
         $tags = Tag::all();
 
         $commentsAll = Comment::all();
+        $commentsOK = $commentsAll->where('check', 1);
+        // $commentsId = $commentsOK->where('post_id', $post->id);
 
-        return view('pages.blog', compact('logo', 'navbar', 'footer', 'pageHeader', 'newsletters', 'posts', 'categories', 'tags', 'commentsAll'));
+        $paginationPosts  =  Post::orderBy('id', 'DESC')->paginate(3);
+
+        return view('pages.blog', compact('logo', 'navbar', 'footer', 'pageHeader', 'newsletters', 'posts', 'postsOK', 'categories', 'tags', 'commentsAll', 'commentsOK', 'paginationPosts'));
     }
 
     /**

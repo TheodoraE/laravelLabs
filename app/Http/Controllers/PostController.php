@@ -15,7 +15,9 @@ use App\Models\PostTag;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -26,7 +28,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        $postsOK = $posts->where('check', 1);
+        $postsNO = $posts->where('check', 0);
+        return view('backoffice.blog.posts', compact('posts', 'postsOK', 'postsNO'));
     }
 
     /**
@@ -36,7 +41,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = BlogCategories::all();
+        $tags = Tag::all();
+        return view('backoffice.blog.createPost', compact('categories', 'tags'));
     }
 
     /**
@@ -47,7 +54,28 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            "url" => 'required',
+            "title" => 'required',
+            "text" => 'required',
+            "category_id" => 'required',
+        ]);
+        
+        $store = new Post;
+        Storage::put('public/img', $request->url);
+        $store->url = $request->file('url')->hashName();
+        $store->title = $request->title;
+        $store->text = $request->text;
+        $store->category_id = $request->category_id;
+        $store->check = 0;
+        $store->user_id = Auth::id();
+        $store->save();
+        // dd($store->id);
+        foreach ($request->tag as $item) {
+            $store->tags()->attach($item, ['post_id' => $store->id]);
+        }
+
+        return redirect('/posts');
     }
 
     /**
@@ -92,7 +120,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        // $edit = $post;
+        $categories = BlogCategories::all();
+        $tags = Tag::all();
+        return view('backoffice.blog.editPost', compact('categories', 'tags', 'post'));
     }
 
     /**
@@ -104,7 +135,32 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $validation = $request->validate([
+            "url" => 'required',
+            "title" => 'required',
+            "text" => 'required',
+            "category_id" => 'required',
+        ]);
+
+        $update = $post;
+        // if($update->url->)
+        // Condition Storage
+        // Storage::delete('public/img/'.$update->url);
+        Storage::put('public/img', $request->url);
+        $update->url = $request->file('url')->hashName();
+        $update->title = $request->title;
+        $update->text = $request->text;
+        $update->category_id = $request->category_id;
+        $update->check = 1;
+        $update->user_id = Auth::id();
+        $update->save();
+
+        $update->tags()->detach();
+        foreach ($request->tag as $item) {
+            $update->tags()->attach($item, ['post_id' => $update->id]);
+        }
+
+        return redirect('/posts');
     }
 
     /**
@@ -115,7 +171,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $destroy = $post;
+        $destroy->delete();
+        return redirect('/posts');
     }
 
     public function search(Request $request)
@@ -197,5 +255,13 @@ class PostController extends Controller
         // dd($posts);
 
         return view('pages.showTag', compact('logo', 'footer', 'navbar', 'pageHeader', 'newsletters', 'categories', 'tags', 'commentsAll', 'postsTaguer', 'posts'));
+    }
+
+    public function validerPost($id)
+    {
+        $post = Post::find($id);
+        $post->check = 1;
+        $post->save();
+        return redirect('/posts');
     }
 }
