@@ -1,108 +1,33 @@
-<!-- page section -->
-<div class="page-section spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-sm-7 blog-posts">
-                <!-- Post item -->
-                @foreach ($posts as $post)
-                    <div class="post-item">
-                        <div class="post-thumbnail">
-                            <img src="{{asset('storage/img/'.$post->url)}}" alt="">
-                            <div class="post-date">
-                                <h2>{{$post->day}}</h2>
-                                <h3>{{$post->year}}</h3>
-                            </div>
-                        </div>
-                        <div class="post-content">
-                            <h2 class="post-title">{{$post->title}}</h2>
-                            <div class="post-meta">
-                                <a href="">{{$post->categories->category}}</a>
-                                @foreach ($post->tags as $tage)
-                                    <a href="">{{$tage->tag}}</a>
-                                @endforeach
-                                <a href="">2 Comments</a>
-                            </div>
-                            <p>{{Str::limit($post->text, 318)}}</p>
-                            <a href="/postTag/{{$post->id}}" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                @endforeach
-                {{-- <!-- Post item -->
-                <div class="post-item">
-                    <div class="post-thumbnail">
-                        <img src="{{asset('img/blog/blog-1.jpg')}}" alt="">
-                        <div class="post-date">
-                            <h2>03</h2>
-                            <h3>Nov 2017</h3>
-                        </div>
-                    </div>
-                    <div class="post-content">
-                        <h2 class="post-title">Just a simple blog post</h2>
-                        <div class="post-meta">
-                            <a href="">Loredana Papp</a>
-                            <a href="">Design, Inspiration</a>
-                            <a href="">2 Comments</a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Phasellus vestibulum, quam tincidunt venenatis ultrices, est libero mattis ante, ac consectetur diam neque eget quam. Etiam feugiat augue et varius blandit. Praesent mattis, eros a sodales commodo.</p>
-                        <a href="blog-post.html" class="read-more">Read More</a>
-                    </div>
-                </div>
-                <!-- Post item -->
-                <div class="post-item">
-                    <div class="post-thumbnail">
-                        <img src="{{asset('img/blog/blog-3.jpg')}}" alt="">
-                        <div class="post-date">
-                            <h2>03</h2>
-                            <h3>Nov 2017</h3>
-                        </div>
-                    </div>
-                    <div class="post-content">
-                        <h2 class="post-title">Just a simple blog post</h2>
-                        <div class="post-meta">
-                            <a href="">Loredana Papp</a>
-                            <a href="">Design, Inspiration</a>
-                            <a href="">2 Comments</a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Phasellus vestibulum, quam tincidunt venenatis ultrices, est libero mattis ante, ac consectetur diam neque eget quam. Etiam feugiat augue et varius blandit. Praesent mattis, eros a sodales commodo.</p>
-                        <a href="blog-post.html" class="read-more">Read More</a>
-                    </div>
-                </div> --}}
-                <!-- Pagination -->
-                <div class="page-pagination">
-                    <a class="active" href="">01.</a>
-                    <a href="">02.</a>
-                    <a href="">03.</a>
-                </div>
-            </div>
-            <!-- Sidebar area -->
-            <div class="col-md-4 col-sm-5 sidebar">
-                <!-- Single widget -->
-                <div class="widget-item">
-                    <form action="/search" method="GET" class="search-form">
-                        <input type="text" name="search" placeholder="Search">
-                        <button class="search-btn"><i class="flaticon-026-search"></i></button>
-                    </form>
-                </div>
-                <!-- Single widget -->
-                <div class="widget-item">
-                    <h2 class="widget-title">Categories</h2>
-                    <ul>
-                        @foreach ($categories as $category)
-                            <li><a href="/filterCategory/{{$category->id}}">{{$category->category}}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-                <!-- Single widget -->
-                <div class="widget-item">
-                    <h2 class="widget-title">Tags</h2>
-                    <ul class="tag">
-                        @foreach ($tags as $tag)
-                            <li><a href="/filterTag/{{$tag->id}}">{{$tag->tag}}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
+<!-- Post item -->
+@foreach ($posts as $post)
+    <div class="post-item">
+        <div class="post-thumbnail">
+            <img src="{{asset('storage/img/'.$post->url)}}" alt="">
+            <div class="post-date">
+                <h2>{{$post->day}}</h2>
+                <h3>{{$post->year}}</h3>
             </div>
         </div>
+        <div class="post-content">
+            <h2 class="post-title">{{$post->title}}</h2>
+            <div class="post-meta">
+                <a href="/filterCategory/{{$post->id}}">{{$post->categories->category}}</a>
+                @foreach ($post->tags->take(2) as $tage)
+                    <a href="/filterTag/{{$tage->id}}">{{$tage->tag}}</a>
+                @endforeach
+                <a href="/posts/{{$post->id}}">{{count($commentsAll->where('post_id', $post->id))}} Comments</a>
+            </div>
+            <p>{{Str::limit($post->text, 318)}}</p>
+            <a href="/posts/{{$post->id}}" class="read-more">Read More</a>
+        </div>
     </div>
+@endforeach
+
+<!-- Pagination -->
+<div class="page-pagination">
+    <a class="active" href="">01.</a>
+    <a href="">02.</a>
+    <a href="">03.</a>
 </div>
+            
 <!-- page section end-->

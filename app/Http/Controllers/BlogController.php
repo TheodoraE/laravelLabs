@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BlogCategories;
+use App\Models\Comment;
 use App\Models\Footer;
 use App\Models\Logo;
 use App\Models\Navbar;
@@ -38,8 +39,9 @@ class BlogController extends Controller
         // Tags
         $tags = Tag::all();
 
+        $commentsAll = Comment::all();
 
-        return view('pages.blog', compact('logo', 'navbar', 'footer', 'pageHeader', 'newsletters', 'posts', 'categories', 'tags'));
+        return view('pages.blog', compact('logo', 'navbar', 'footer', 'pageHeader', 'newsletters', 'posts', 'categories', 'tags', 'commentsAll'));
     }
 
     /**

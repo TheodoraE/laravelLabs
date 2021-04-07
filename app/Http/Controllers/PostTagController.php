@@ -54,27 +54,27 @@ class PostTagController extends Controller
      */
     public function show(PostTag $postTag)
     {
-        // Main
-        $logo = Logo::all();
-        $footer = Footer::all();
-        // Navbar
-        $navbar = Navbar::all();
-        // Page Header
-        $pageHeader = PageHeader::all();
+        // // Main
+        // $logo = Logo::all();
+        // $footer = Footer::all();
+        // // Navbar
+        // $navbar = Navbar::all();
+        // // Page Header
+        // $pageHeader = PageHeader::all();
 
-        // User
-        $usersOK = User::where('check',1)->get();
+        // // User
+        // $usersOK = User::where('check',1)->get();
 
-        // Post
-        $post = $postTag;
+        // // Post
+        // $post = $postTag;
 
-        // Side
-        $categories = BlogCategories::all();
-        $tags = BlogTag::all();
-        $newsletters = Newsletter::all();
+        // // Side
+        // $categories = BlogCategories::all();
+        // $tags = BlogTag::all();
+        // $newsletters = Newsletter::all();
 
 
-        return view('pages.showBlog', compact('logo', 'footer', 'navbar', 'pageHeader', 'posts', 'categories', 'tags', 'newsletters', 'usersOK'));
+        // return view('pages.showBlog', compact('logo', 'footer', 'navbar', 'pageHeader', 'posts', 'categories', 'tags', 'newsletters', 'usersOK'));
     }
 
     /**

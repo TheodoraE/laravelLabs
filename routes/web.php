@@ -191,7 +191,7 @@ Route::resource('servicesFeaturesButton', ServicesFeaturesButtonController::clas
 Route::resource('servicesFeaturesCards', ServicesFeaturesCardController::class);
 
 // Blog
-Route::resource('postTag', PostTagController::class);
+Route::resource('posts', PostController::class);
 Route::resource('comments', CommentController::class);
 // Valider les commentaires
 Route::get('/validerComments/{id}', [CommentController::class, 'validerComment']);

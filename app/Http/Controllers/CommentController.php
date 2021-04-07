@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Ramsey\Uuid\Type\Integer;
 
 class CommentController extends Controller
 {
@@ -38,7 +42,32 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        $validation = $request->validate();
+        $validation = $request->validate([
+            "comment" => 'required',
+        ]);
+
+        $store = new Comment;
+        if (Auth::check()){
+            $store->url = Auth::user()->url;
+            $store->name = Auth::user()->name;
+            $store->firstname = Auth::user()->firstname;
+            $store->email = Auth::user()->email;
+        } else{
+            Storage::put('public/img', $request->url);
+            $store->url = $request->file('url')->hashName();
+            $store->name = $request->name;
+            $store->firstname = $request->firstname;
+            $store->email = $request->email;
+        }
+        $previous = url()->previous();
+        $store->post_id = (Str::afterLast($previous, '/'));
+        
+        $store->comment = $request->comment;
+        $store->date = $request->date;
+        $store->check = 0;
+
+        $store->save();
+        return redirect()->back();
     }
 
     /**

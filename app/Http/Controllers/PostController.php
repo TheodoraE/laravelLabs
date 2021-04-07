@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BlogCategories;
 use App\Models\BlogTag;
+use App\Models\Comment;
 use App\Models\Footer;
 use App\Models\Logo;
 use App\Models\Navbar;
@@ -57,7 +58,26 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        // Main
+        $logo = Logo::all();
+        $footer = Footer::all();
+        // Navbar
+        $navbar = Navbar::all();
+        // Page Header
+        $pageHeader = PageHeader::all();
+
+        // User
+        $usersOK = User::where('check',1)->get();
+
+        // Side
+        $categories = BlogCategories::all();
+        $tags = Tag::all();
+        $newsletters = Newsletter::all();
+
+        $commentsAll = Comment::all();
+
+
+        return view('pages.showBlog', compact('logo', 'footer', 'navbar', 'pageHeader', 'post', 'categories', 'tags', 'newsletters', 'usersOK', 'commentsAll'));        
     }
 
     /**
@@ -108,11 +128,13 @@ class PostController extends Controller
         $categories = BlogCategories::all();
         $tags = Tag::all();
 
+        $commentsAll = Comment::all();
+
 
         $search = $request->input('search');
         $posts = Post::query()->where('title', 'LIKE', "%{$search}%")->orWhere('text', 'LIKE', "%{$search}%")->get();
 
-        return view('pages.searchBlog', compact('logo', 'footer', 'navbar', 'pageHeader', 'newsletters', 'categories', 'tags', 'posts'));
+        return view('pages.searchBlog', compact('logo', 'footer', 'navbar', 'pageHeader', 'newsletters', 'categories', 'tags', 'posts', 'commentsAll'));
     }
 
     public function filterCategory($id)
@@ -132,9 +154,10 @@ class PostController extends Controller
 
         $posts = Post::all();
         $postsCategory = $posts->where('category_id', $id);
+        $commentsAll = Comment::all();
         // dd($posts);
 
-        return view('pages.showCategory', compact('logo', 'footer', 'navbar', 'pageHeader', 'newsletters', 'categories', 'tags', 'posts', 'postsCategory'));
+        return view('pages.showCategory', compact('logo', 'footer', 'navbar', 'pageHeader', 'newsletters', 'categories', 'tags', 'posts', 'postsCategory', 'commentsAll'));
     }
 
     public function filterTag($id)
@@ -151,10 +174,13 @@ class PostController extends Controller
 
         $categories = BlogCategories::all();
         $tags = Tag::all();
+        $commentsAll = Comment::all();
+
 
         $postsAll = Post::all();
         $postTag = DB::table('post_tag')->get();
         $postsTaguer = $postTag->where('tag_id', $id);
+        $posts = Post::all();
         // dd($postsTaguer);
         // $posts = $postsAll->where($postsTaguer->post_id, $postsAll->id);
         
@@ -166,6 +192,6 @@ class PostController extends Controller
         // }
         // dd($posts);
 
-        return view('pages.showTag', compact('logo', 'footer', 'navbar', 'pageHeader', 'newsletters', 'categories', 'tags', 'postsTaguer'));
+        return view('pages.showTag', compact('logo', 'footer', 'navbar', 'pageHeader', 'newsletters', 'categories', 'tags', 'commentsAll', 'postsTaguer', 'posts'));
     }
 }
