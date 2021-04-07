@@ -60,7 +60,8 @@ class CommentController extends Controller
             $store->email = $request->email;
         }
         $previous = url()->previous();
-        $store->post_id = (Str::afterLast($previous, '/'));
+        $store->post_id = (int)Str::afterLast($previous, '/');
+        // dd((int)Str::afterLast($previous, '/'));
         
         $store->comment = $request->comment;
         $store->date = $request->date;

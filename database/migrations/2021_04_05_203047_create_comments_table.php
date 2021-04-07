@@ -24,7 +24,7 @@ class CreateCommentsTable extends Migration
             $table->text('comment');
             $table->string('date');
             $table->integer('check');
-            // $table->timestamps();
+            $table->timestamps();
         });
     }
 

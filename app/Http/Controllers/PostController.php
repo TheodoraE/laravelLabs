@@ -75,9 +75,13 @@ class PostController extends Controller
         $newsletters = Newsletter::all();
 
         $commentsAll = Comment::all();
+        $commentsOK = $commentsAll->where('check', 1);
+        $commentsId = $commentsOK->where('post_id', $post->id);
+        
+        // $comments = Comment::all();
 
 
-        return view('pages.showBlog', compact('logo', 'footer', 'navbar', 'pageHeader', 'post', 'categories', 'tags', 'newsletters', 'usersOK', 'commentsAll'));        
+        return view('pages.showBlog', compact('logo', 'footer', 'navbar', 'pageHeader', 'post', 'categories', 'tags', 'newsletters', 'usersOK', 'commentsOK', 'commentsAll', 'commentsId'));        
     }
 
     /**

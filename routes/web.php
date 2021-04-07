@@ -194,7 +194,7 @@ Route::resource('servicesFeaturesCards', ServicesFeaturesCardController::class);
 Route::resource('posts', PostController::class);
 Route::resource('comments', CommentController::class);
 // Valider les commentaires
-Route::get('/validerComments/{id}', [CommentController::class, 'validerComment']);
+Route::get('/validerComment/{id}', [CommentController::class, 'validerComment']);
 
 
 // Contact

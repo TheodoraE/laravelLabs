@@ -17,7 +17,7 @@
                 @foreach ($post->tags->take(2) as $tage)
                     <a href="/filterTag/{{$tage->id}}">{{$tage->tag}}</a>
                 @endforeach
-                <a href="/posts/{{$post->id}}">{{count($commentsAll->where('post_id', $post->id))}} Comments</a>
+                <a href="/posts/{{$post->id}}">{{count($commentsId)}} Comments</a>
             </div>
 			<p>{!!$post->text!!}</p>
 		</div>
@@ -33,10 +33,10 @@
 		</div>
 		<!-- Post Comments -->
 		<div class="comments">
-			<h2>Comments ({{count($commentsAll->where('post_id', $post->id))}})</h2>
-			@if (count($commentsAll->where('post_id', $post->id)) != 0)
+			<h2>Comments ({{count($commentsId)}})</h2>
+			@if (count($commentsId) != 0)
 				<ul class="comment-list">
-					@foreach ($commentsAll as $comment)
+					@foreach ($commentsId as $comment)
 						<li>
 							<div class="avatar">
 								<img src="{{asset('storage/img/'.$comment->url)}}" alt="">
@@ -75,23 +75,10 @@
 								<input type="text" name="email" placeholder="Your email">
 							</div>
 							<div class="col-sm-6">
-								<input type="file" name="url" id="">
+								<label for="url">Profile :</label>
+								<input type="file" name="url" id="url">
 							</div>
-							{{-- <div class="col-sm-12">
-								<label for="user_id">Author :</label>
-								<select name="user_id" id="" class="form-control">
-									<option value="{{Auth::user()->id}}">{{Auth::user()->firstname.' '.Auth::user()->name}}</option>
-								</select>
-							</div> --}}
-							{{-- <div class="col-sm-12">
-								<label for="user_id">Author :</label>
-								<select name="user_id" id="" class="form-control">
-									<option value="">Choose your profile</option>
-									@foreach ($usersOK as $user)
-										<option value="{{$user->id}}">{{$user->firstname.' '.$user->name.', '.$user->positions->function}}</option>
-									@endforeach
-								</select>
-							</div> --}}
+							
 						@endif
 						<div class="col-sm-12">
 							<input type="text" name="date" placeholder="DD Month, YYYY">
