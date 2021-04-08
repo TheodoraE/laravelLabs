@@ -19,32 +19,38 @@ class HomeTestimonialsCardSeeder extends Seeder
                 [
                     "span" => "‘​‌‘",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
-                    "user_id" => 4
+                    "user_id" => 4,
+                    "check" => 1,
                 ],
                 [
                     "span" => "‘​‌‘",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
-                    "user_id" => 4
+                    "user_id" => 4,
+                    "check" => 1,
                 ],
                 [
                     "span" => "‘​‌‘",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
-                    "user_id" => 4
+                    "user_id" => 4,
+                    "check" => 1,
                 ],
                 [
                     "span" => "‘​‌‘",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
-                    "user_id" => 4
+                    "user_id" => 4,
+                    "check" => 1,
                 ],
                 [
                     "span" => "‘​‌‘",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
-                    "user_id" => 4
+                    "user_id" => 4,
+                    "check" => 1,
                 ],
                 [
                     "span" => "‘​‌‘",
                     "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
-                    "user_id" => 4
+                    "user_id" => 4,
+                    "check" => 1,
                 ],
             ]
         );

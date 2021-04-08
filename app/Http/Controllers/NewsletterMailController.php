@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\NewsletterSend;
+use App\Models\MailAdress;
 use App\Models\NewsletterMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -51,7 +52,9 @@ class NewsletterMailController extends Controller
         $store = new NewsletterMail;
         $store->email = $request->email;
         $store->save();
-        Mail::to('tidoraa@gmail.com')->send(new NewsletterSend($request));
+
+        $email = MailAdress::first();
+        Mail::to($email)->send(new NewsletterSend($request));
         return redirect('/#newsletter-section')->with('message', 'Vous êtes maintenant inscrit·e à la Newsletter !');;
     }
 

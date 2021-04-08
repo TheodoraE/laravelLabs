@@ -56,6 +56,7 @@ class DatabaseSeeder extends Seeder
             CommentSeeder::class,
 
             MapSeeder::class,
+            MailAdressSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
     }

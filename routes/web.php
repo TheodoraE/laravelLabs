@@ -26,6 +26,7 @@ use App\Http\Controllers\HomeTeamTitleController;
 use App\Http\Controllers\HomeTestimonialsCardController;
 use App\Http\Controllers\HomeTestimonialsTitleController;
 use App\Http\Controllers\LogoController;
+use App\Http\Controllers\MailAdressController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\NavbarController;
 use App\Http\Controllers\NewsletterController;
@@ -110,7 +111,7 @@ Route::get('/', function () {
     $homeCarouselCount = -1;
         // About
     $homeAboutCards = HomeAboutCard::all();
-    $aboutCards = $homeAboutCards->take(3)->shuffle();
+    $aboutCards = $homeAboutCards->shuffle()->take(3);
     $homeAboutTitle = HomeAboutTitle::all();
     $titre1 = HomeAboutTitle::first();
     $titleOne = Str::of($titre1->title)->replace('(', '<span>');
@@ -122,6 +123,7 @@ Route::get('/', function () {
         // Testimonials
     $homeTestimonialsTitle = HomeTestimonialsTitle::all();
     $homeTestimonialsCards = HomeTestimonialsCard::all();
+    $testimonials = HomeTestimonialsCard::orderBy('id', 'DESC')->get()->take(6);
         // Services
     $homeServicesTitle = HomeServicesTitle::all();
     $homeServicesButton = HomeServicesButton::all();
@@ -130,7 +132,7 @@ Route::get('/', function () {
     $title2 = Str::of($titleTwo)->replace(')', '</span>');
 
     // Services
-    $servicesCard = ServicesCard::all();
+    $servicesCard = ServicesCard::get()->take(9);
         // Team
     $homeTeamTitle = HomeTeamTitle::all();
     $users = User::where('check',1)->get();
@@ -140,7 +142,7 @@ Route::get('/', function () {
 
     // $homeTeamCards = HomeTeamCard::all();
 
-    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'homeAboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsTitle', 'homeTestimonialsCards', 'homeServicesTitle', 'homeServicesButton', 'servicesCard', 'homeTeamTitle', 'users', 'newsletters', 'title1', 'title2', 'title3'));
+    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'aboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsTitle', 'homeTestimonialsCards', 'testimonials', 'homeServicesTitle', 'homeServicesButton', 'servicesCard', 'homeTeamTitle', 'users', 'newsletters', 'title1', 'title2', 'title3'));
 });
 
 // Authenticate
@@ -219,6 +221,7 @@ Route::resource('tags', TagController::class);
 Route::resource('contactMap', MapController::class);
 
 Route::resource('contactMail', ContactMailController::class);
+Route::resource('mailAddress', MailAdressController::class);
 Route::resource('newsletter', NewsletterController::class);
 Route::resource('newsletterMail', NewsletterMailController::class);
 

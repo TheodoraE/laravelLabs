@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Mail\MailSend;
 use App\Models\ContactMail;
+use App\Models\HomeTestimonialsCard;
+use App\Models\MailAdress;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -20,7 +22,9 @@ class ContactMailController extends Controller
     public function index()
     {
         $emails = ContactMail::orderBy('id', 'DESC')->get();
-        return view('backoffice.contactForm.contactEmails', compact('emails'));
+        $emailAdress = MailAdress::all();
+
+        return view('backoffice.contactForm.contactEmails', compact('emails', 'emailAdress'));
     }
 
     /**
@@ -48,13 +52,19 @@ class ContactMailController extends Controller
             "message" => 'required'
         ]);
 
+        // if ($request->subject_id == 2){
+        //     $store = new HomeTestimonialsCard;
+            
+        // }
         $store = new ContactMail;
         $store->name = $request->name;
         $store->email = $request->email;
         $store->subject_id = $request->subject_id;
         $store->message = $request->message;
         $store->save();
-        Mail::to('tidoraa@gmail.com')->send(new MailSend($request));
+
+        $email = MailAdress::first();
+        Mail::to($email)->send(new MailSend($request));
         return redirect()->back();
     }
 

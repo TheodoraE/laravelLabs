@@ -19,6 +19,7 @@ class CreateHomeTestimonialsCardsTable extends Migration
             $table->text('text');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('check');
             $table->timestamps();
         });
     }

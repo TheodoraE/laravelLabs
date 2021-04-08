@@ -51,8 +51,9 @@ class HomeTestimonialsCardController extends Controller
         $store->span = $request->span;
         $store->text = $request->text;
         $store->user_id = $request->user_id;
+        $store->check = 0;
         $store->save();
-        return redirect('homeTestimonialsTitle');
+        return redirect('/homeTestimonialsTitle');
     }
 
     /**
@@ -98,6 +99,7 @@ class HomeTestimonialsCardController extends Controller
         $update->span = $request->span;
         $update->text = $request->text;
         $update->user_id = $request->user_id;
+        $update->check = 0;
 
         $update->save();
         return redirect('/homeTestimonialsTitle');

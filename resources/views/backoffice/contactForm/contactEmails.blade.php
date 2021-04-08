@@ -2,6 +2,35 @@
 
 @section('content')
     <div class="row">
+          <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="mb-5">Company Email Adress</h1>
+
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Email Address</th>
+                            <th scope="col"> </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @foreach ($emailAdress as $email)
+                            <tr>
+                                <th scope="row">{{$email->id}}</th>
+                                <td>{{$email->email}}</td>
+                                <td>
+                                  <a href="/mailAddress/{{$email->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
+                                </td>
+                            </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+
         <div class="col-12">
             <div class="card">
                 <div class="card-body">

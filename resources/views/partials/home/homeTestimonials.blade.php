@@ -9,7 +9,7 @@
                 </div>
                 <div class="owl-carousel" id="testimonial-slide">
                     <!-- single testimonial -->
-                    @foreach ($homeTestimonialsCards as $card)
+                    @foreach ($testimonials as $card)
                         <div class="testimonial">
                             <span>{{$card->span}}</span>
                             <p>{{$card->text}}</p>
