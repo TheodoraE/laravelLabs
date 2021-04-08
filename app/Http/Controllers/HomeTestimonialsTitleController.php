@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class HomeTestimonialsTitleController extends Controller
 {
+    public function __construct(){
+        $this->middleware(["auth", "isWebMaster"]);
+    }
+    
     /**
      * Display a listing of the resource.
      *

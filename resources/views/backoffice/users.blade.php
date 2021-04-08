@@ -39,16 +39,34 @@
                                 <td>{{$user->positions->function}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->description}}</td>
-                                <td>
-                                    <a href="/users/{{$user->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
-                                </td>
-                                <td>
-                                  <form action="/users/{{$user->id}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn" style="background-color: #F7959D">DELETE</button>
-                                  </form>
-                                </td>
+                                
+                                @if ($user->role_id == 1)
+                                  @can('isAdmin')
+                                    <td>
+                                      <a href="/users/{{$user->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
+                                    </td>
+                                    <td>
+                                      <form action="/users/{{$user->id}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn" style="background-color: #F7959D">DELETE</button>
+                                      </form>
+                                    </td>
+                                  @endcan
+                                @elseif ($user->role_id != 1)
+                                  @can('isWebMaster')
+                                      <td>
+                                        <a href="/users/{{$user->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>
+                                      </td>
+                                      <td>
+                                        <form action="/users/{{$user->id}}" method="POST">
+                                          @csrf
+                                          @method('DELETE')
+                                          <button class="btn" style="background-color: #F7959D">DELETE</button>
+                                        </form>
+                                      </td>
+                                    @endcan
+                                @endif
                               </tr>
                             @endif
                           @endforeach

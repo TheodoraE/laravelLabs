@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogCategoriesController;
 use App\Models\Logo;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CommentController;
@@ -40,6 +41,7 @@ use App\Http\Controllers\ServicesDeviceController;
 use App\Http\Controllers\ServicesFeaturesButtonController;
 use App\Http\Controllers\ServicesFeaturesCardController;
 use App\Http\Controllers\ServicesFeaturesTitleController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Models\BlogCategories;
 use App\Models\BlogTag;
@@ -71,6 +73,7 @@ use App\Models\ServicesCard;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,7 +110,12 @@ Route::get('/', function () {
     $homeCarouselCount = -1;
         // About
     $homeAboutCards = HomeAboutCard::all();
+    $aboutCards = $homeAboutCards->take(3)->shuffle();
     $homeAboutTitle = HomeAboutTitle::all();
+    $titre1 = HomeAboutTitle::first();
+    $titleOne = Str::of($titre1->title)->replace('(', '<span>');
+    $title1 = Str::of($titleOne)->replace(')', '</span>');
+
     $homeAboutContent = HomeAboutContent::all();
     $homeAboutButton = HomeAboutButton::all();
     $homeAboutVideo = HomeAboutVideo::all();
@@ -117,14 +125,22 @@ Route::get('/', function () {
         // Services
     $homeServicesTitle = HomeServicesTitle::all();
     $homeServicesButton = HomeServicesButton::all();
+    $titre2 = HomeServicesTitle::first();
+    $titleTwo = Str::of($titre2->title)->replace('(', '<span>');
+    $title2 = Str::of($titleTwo)->replace(')', '</span>');
+
     // Services
     $servicesCard = ServicesCard::all();
         // Team
     $homeTeamTitle = HomeTeamTitle::all();
     $users = User::where('check',1)->get();
+    $titre3 = HomeTeamTitle::first();
+    $titleThree = Str::of($titre3->title)->replace('(', '<span>');
+    $title3 = Str::of($titleThree)->replace(')', '</span>');
+
     // $homeTeamCards = HomeTeamCard::all();
 
-    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'homeAboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsTitle', 'homeTestimonialsCards', 'homeServicesTitle', 'homeServicesButton', 'servicesCard', 'homeTeamTitle', 'users', 'newsletters'));
+    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'homeAboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsTitle', 'homeTestimonialsCards', 'homeServicesTitle', 'homeServicesButton', 'servicesCard', 'homeTeamTitle', 'users', 'newsletters', 'title1', 'title2', 'title3'));
 });
 
 // Authenticate
@@ -191,12 +207,13 @@ Route::resource('servicesFeaturesButton', ServicesFeaturesButtonController::clas
 Route::resource('servicesFeaturesCards', ServicesFeaturesCardController::class);
 
 // Blog
-Route::resource('posts', PostController::class);
-Route::resource('comments', CommentController::class);
-// Valider les commentaires
+    // Valider les commentaires
 Route::get('/validerComment/{id}', [CommentController::class, 'validerComment']);
 Route::get('/validerPost/{id}', [PostController::class, 'validerPost']);
-
+Route::resource('posts', PostController::class);
+Route::resource('comments', CommentController::class);
+Route::resource('categories', BlogCategoriesController::class);
+Route::resource('tags', TagController::class);
 
 // Contact
 Route::resource('contactMap', MapController::class);
@@ -212,5 +229,5 @@ Route::get('/filterTag/{id}', [PostController::class, 'filterTag']);
 
 Route::get('/home', function() {
     return view('home');
-})->name('home')->middleware('auth');
+})->name('home')->middleware('isVerified');
 

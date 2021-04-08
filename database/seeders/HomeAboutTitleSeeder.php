@@ -17,7 +17,7 @@ class HomeAboutTitleSeeder extends Seeder
         DB::table('home_about_titles')->insert(
             [
                 [
-                    "title" => "Get in the Lab and discover the world",
+                    "title" => "Get in (the Lab) and discover the world",
                 ]
             ]
         );

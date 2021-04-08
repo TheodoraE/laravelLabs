@@ -46,7 +46,7 @@ class UserSeeder extends Seeder
                     "role_id" => 3,
                     "description" => "Ola",
                     "email" => "redactor@redactor",
-                    "password" => Hash::make('redactor'),
+                    "password" => Hash::make('redactor@redactor'),
                     "url" => "team/3.jpg",
                     "check" => 1,
                 ],

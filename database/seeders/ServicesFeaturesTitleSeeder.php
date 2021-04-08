@@ -17,7 +17,7 @@ class ServicesFeaturesTitleSeeder extends Seeder
         DB::table('services_features_titles')->insert(
             [
                 [
-                    "title" => "Get in the Lab and discover the world"
+                    "title" => "Get in the Lab and discover (the world)"
                 ]
             ]
         );

@@ -17,7 +17,7 @@ class HomeTeamTitleSeeder extends Seeder
         DB::table('home_team_titles')->insert(
             [
                 [
-                    "title" => "Get in the Lab and  meet the team"
+                    "title" => "Get in (the Lab) and  meet the team"
                 ]
             ]
         );

@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactMailController extends Controller
 {
+    public function __construct(){
+        $this->middleware(["auth", "isWebMaster"]);
+    }
     /**
      * Display a listing of the resource.
      *

@@ -21,6 +21,11 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
+    public function __construct(){
+        $this->middleware(["auth", "isRedactor"]);
+        // $this->middleware("isRedactor");
+    }
+    
     /**
      * Display a listing of the resource.
      *

@@ -238,17 +238,20 @@ return [
             'text'        => 'Utilisateurs',
             'url'         => '/users',
             'icon'        => 'fas fa-users',
+            'can' => 'isWebMaster'
             // 'label'       => count($users),
         ],
         [
             'text'    => 'Newsletter Emails',
             'icon'    => 'far fa-newspaper',
-            'url' => '/newsletterMail'
+            'url' => '/newsletterMail',
+            'can' => 'isWebMaster'
         ],
         [
             'text'    => 'Contact Emails',
             'icon'    => 'fas fa-envelope-open-text',
-            'url' => '/contactMail'
+            'url' => '/contactMail',
+            'can' => 'isWebMaster'
         ],
         ['header' => 'PARAMÈTRES'],
         [
@@ -260,16 +263,21 @@ return [
             'text'    => 'Functions',
             'url'     => '/functions',
             'icon'    => 'fas fa-toolbox',
+            'can' => 'isWebMaster'
         ],
         [
             'text'    => 'Roles',
             'url'     => '/roles',
             'icon'    => 'fas fa-id-badge',
+            'can' => 'isWebMaster'
         ],
-        ['header' => 'MODIFICATIONS'],
+        ['header' => 'MODIFICATIONS',
+            'can' => ['isWebMaster', 'isRedactor'],
+        ],
         [
             'text'    => 'Main',
             'icon'    => 'fas fa-scroll',
+            'can' => 'isWebMaster',
             'submenu' => [
                 [
                     'text' => 'Logo',
@@ -292,6 +300,7 @@ return [
         [
             'text'    => 'Contact Form',
             'icon'    => 'fas fa-scroll',
+            'can' => 'isWebMaster',
             'submenu' => [
                 [
                     'text' => 'Address',
@@ -318,11 +327,13 @@ return [
         [
             'text'    => 'Newsletter',
             'icon'    => 'far fa-newspaper',
+            'can' => 'isWebMaster',
             'url' => '/newsletter'
         ],
         [
             'text'    => 'Home',
             'icon'    => 'fas fa-scroll',
+            'can' => 'isWebMaster',
             'submenu' => [
                 [
                     'text' => 'Carousel',
@@ -357,6 +368,7 @@ return [
         [
             'text'    => 'Services',
             'icon'    => 'fas fa-scroll',
+            'can' => 'isWebMaster',
             'submenu' => [
                 [
                     'text' => 'Services',
@@ -375,20 +387,34 @@ return [
         [
             'text'    => 'Blog',
             'icon'    => 'fas fa-scroll',
+            'can' => ['isWebMaster', 'isRedactor'],
             'submenu' => [
                 [
                     'text' => 'Posts',
                     'url'  => '/posts',
+                    'can' => ['isWebMaster', 'isRedactor']
                 ],
                 [
                     'text' => 'Comments',
                     'url'  => '/comments',
+                    'can' => 'isWebMaster',
+                ],
+                [
+                    'text' => 'Categories',
+                    'url'  => '/categories',
+                    'can' => ['isWebMaster', 'isRedactor']
+                ],
+                [
+                    'text' => 'Tags',
+                    'url'  => '/tags',
+                    'can' => ['isWebMaster', 'isRedactor']
                 ],
             ],
         ],
         [
             'text'    => 'Contact Map',
             'icon'    => 'fas fa-map-marked-alt',
+            'can' => 'isWebMaster',
             'url' => '/contactMap'
         ],
         // ['header' => 'labels'],

@@ -12,6 +12,15 @@
             <div class="card">
                 <div class="card-body">
                     <p class="mb-0">You are logged in!</p>
+                    @if ($errors->any()) 
+                        <div class="alert alert-danger mt-5"> 
+                            <ul> 
+                                @foreach ($errors->all() as $error) 
+                                <li>{{ $error }}</li> 
+                                @endforeach 
+                            </ul> 
+                        </div> 
+                    @endif
                 </div>
             </div>
         </div>

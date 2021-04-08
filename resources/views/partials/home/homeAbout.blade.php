@@ -7,7 +7,7 @@
             <div class="row">
                 
                 <!-- single card -->
-                @foreach ($homeAboutCards as $about)
+                @foreach ($aboutCards as $about)
                     <div class="{{$about->classCol}}">
                         <div class="lab-card">
                             <div class="icon">
@@ -29,7 +29,7 @@
     <div class="about-contant">
         <div class="container">
             <div class="section-title">
-                <h2>{{$homeAboutTitle[0]->title}}</h2>
+                <h2>{!! $title1 !!}</h2>
                 {{-- <h2>Get in <span>the Lab</span> and discover the world</h2> --}}
             </div>
             <div class="row">

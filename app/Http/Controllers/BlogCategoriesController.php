@@ -14,7 +14,8 @@ class BlogCategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $categories = BlogCategories::all();
+        return view('backoffice.blog.categories', compact('categories'));
     }
 
     /**
@@ -24,7 +25,7 @@ class BlogCategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.blog.createCategory');
     }
 
     /**
@@ -35,7 +36,14 @@ class BlogCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            "category" => 'required'
+        ]);
+
+        $store = new BlogCategories;
+        $store->category = $request->category;
+        $store->save();
+        return redirect('/categories');
     }
 
     /**
@@ -55,9 +63,10 @@ class BlogCategoriesController extends Controller
      * @param  \App\Models\BlogCategories  $blogCategories
      * @return \Illuminate\Http\Response
      */
-    public function edit(BlogCategories $blogCategories)
+    public function edit($id)
     {
-        //
+        $edit = BlogCategories::find($id);
+        return view('backoffice.blog.editCategory', compact('edit'));
     }
 
     /**
@@ -67,9 +76,16 @@ class BlogCategoriesController extends Controller
      * @param  \App\Models\BlogCategories  $blogCategories
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BlogCategories $blogCategories)
+    public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            "category" => 'required'
+        ]);
+
+        $update = BlogCategories::find($id);
+        $update->category = $request->category;
+        $update->save();
+        return redirect('/categories');
     }
 
     /**
@@ -78,8 +94,10 @@ class BlogCategoriesController extends Controller
      * @param  \App\Models\BlogCategories  $blogCategories
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BlogCategories $blogCategories)
+    public function destroy($id)
     {
-        //
+        $destroy = BlogCategories::find($id);
+        $destroy->delete();
+        return redirect('/categories');
     }
 }

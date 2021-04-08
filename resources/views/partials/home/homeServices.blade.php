@@ -2,7 +2,7 @@
 <div class="services-section spad">
     <div class="container">
         <div class="section-title dark">
-            <h2>{{$homeServicesTitle[0]->title}}</h2>
+            <h2>{!! $title2 !!}</h2>
             {{-- <h2>Get in <span>the Lab</span> and see the services</h2> --}}
         </div>
         <div class="row">

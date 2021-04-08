@@ -11,6 +11,10 @@ use Ramsey\Uuid\Type\Integer;
 
 class CommentController extends Controller
 {
+    public function __construct(){
+        $this->middleware(["auth", "isWebMaster"]);
+    }
+    
     /**
      * Display a listing of the resource.
      *

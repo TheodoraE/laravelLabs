@@ -21,6 +21,7 @@ use App\Models\ServicesFeaturesButton;
 use App\Models\ServicesFeaturesCard;
 use App\Models\ServicesFeaturesTitle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ServicesController extends Controller
 {
@@ -51,8 +52,16 @@ class ServicesController extends Controller
 
 
         $homeServicesTitle = HomeServicesTitle::all();
+        $titre2 = HomeServicesTitle::first();
+        $titleTwo = Str::of($titre2->title)->replace('(', '<span>');
+        $title2 = Str::of($titleTwo)->replace(')', '</span>');
+
         $servicesCard = ServicesCard::all();
         $servicesFeaturesTitle = ServicesFeaturesTitle::all();
+        $titre4 = HomeServicesTitle::first();
+        $titleFour = Str::of($titre4->title)->replace('(', '<span>');
+        $title4 = Str::of($titleFour)->replace(')', '</span>');
+
         $servicesFeaturesCard = ServicesFeaturesCard::orderBy('id', 'DESC')->get();
         $servicesDevices = ServicesDevice::all();
         $servicesFeaturesButton = ServicesFeaturesButton::all();
@@ -60,7 +69,7 @@ class ServicesController extends Controller
         $paginationServices  =  ServicesCard::orderBy('id', 'DESC')->paginate(9);
 
         
-        return view('pages.services', compact('logo', 'navbar', 'footer', 'pageHeader', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeServicesTitle', 'servicesCard', 'servicesFeaturesTitle', 'servicesFeaturesCard', 'servicesDevices', 'servicesFeaturesButton', 'newsletters', 'paginationServices'));
+        return view('pages.services', compact('logo', 'navbar', 'footer', 'pageHeader', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeServicesTitle', 'servicesCard', 'servicesFeaturesTitle', 'servicesFeaturesCard', 'servicesDevices', 'servicesFeaturesButton', 'newsletters', 'paginationServices', 'title2', 'title4'));
     }
 
     /**

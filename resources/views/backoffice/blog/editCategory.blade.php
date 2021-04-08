@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="mb-5">Modifier le titre</h1>
+                    <h1 class="mb-5">Modifier la catégorie</h1>
 
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -17,14 +17,13 @@
                         </div>
                     @endif
 
-                    <form action="/homeAboutTitle/{{$edit->id}}" method="POST" class="m-3">
+                    <form action="/categories/{{$edit->id}}" method="POST" class="m-3">
                         @csrf
                         @method('PATCH')
                         
                         <div class="form-group">
-                            <label for="title">Title : </label>
-                            <input type="text" name="title" class="form-control" value="{{old('title') ? old('title') : $edit->title}}">
-                            <p>Mettez la partie à surligner entre parenthèses</p>
+                            <label for="category">Category : </label>
+                            <input type="text" name="category" class="form-control" value="{{old('category') ? old('category') : $edit->category}}">
                         </div>
 
                         <button type="submit" class="btn mt-4" style="background-color: #F7D3BB">Enregistrer</button>
