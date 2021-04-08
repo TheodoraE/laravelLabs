@@ -31,7 +31,8 @@
                         </div>
                         <div class="form-group">
                             <label for="text">Post : </label> <br>
-                            <textarea name="text" id="" cols="125" rows="10">{!!old('text') ? old('text') : $post->text!!}</textarea>
+                            <textarea name="text" id="" cols="125" rows="10">{!!old('text') ? old('text') : $post->text!!}</textarea> <br>
+                            <span>Insérer {{ $br }} pour aller à la ligne</span>
                         </div>
                         {{-- Select  --}}
                         <div class="form-group">
@@ -39,7 +40,9 @@
                             <select name="category_id" id="">
                                 <option value="{{$post->categories->id}}">{{$post->categories->category}}</option>
                                 @foreach ($categories as $item)
-                                    <option value="{{$item->id}}">{{$item->category}}</option>
+                                    @if ($item->id != $post->category_id)
+                                        <option value="{{$item->id}}">{{$item->category}}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>

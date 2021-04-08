@@ -45,7 +45,7 @@
 						@endforeach
 						<a href="/posts/{{$post->id}}">{{count($commentsAll->where('post_id', $post->id))}} Comments</a>
 					</div>
-					<p>{{Str::limit($post->text, 318)}}</p>
+					<p>{!! Str::limit($post->text, 318) !!}</p>
 					<a href="/posts/{{$post->id}}" class="read-more">Read More</a>
 				</div>
 			</div>

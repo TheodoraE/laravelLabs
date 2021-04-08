@@ -48,7 +48,8 @@ class PostController extends Controller
     {
         $categories = BlogCategories::all();
         $tags = Tag::all();
-        return view('backoffice.blog.createPost', compact('categories', 'tags'));
+        $br = "<br>";
+        return view('backoffice.blog.createPost', compact('categories', 'tags', 'br'));
     }
 
     /**
@@ -128,7 +129,8 @@ class PostController extends Controller
         // $edit = $post;
         $categories = BlogCategories::all();
         $tags = Tag::all();
-        return view('backoffice.blog.editPost', compact('categories', 'tags', 'post'));
+        $br = "<br>";
+        return view('backoffice.blog.editPost', compact('categories', 'tags', 'post', 'br'));
     }
 
     /**

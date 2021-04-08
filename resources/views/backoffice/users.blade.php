@@ -20,6 +20,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Firstname</th>
                             <th scope="col">Function</th>
+                            <th scope="col">Role</th>
                             <th scope="col">Email</th>
                             <th scope="col">Description</th>
                             <th scope="col"> </th>
@@ -37,6 +38,7 @@
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->firstname}}</td>
                                 <td>{{$user->positions->function}}</td>
+                                <td>{{$user->roles->role}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->description}}</td>
                                 
@@ -92,6 +94,7 @@
                           <th scope="col">Name</th>
                           <th scope="col">Firstname</th>
                           <th scope="col">Function</th>
+                          <th scope="col">Role</th>
                           <th scope="col">Email</th>
                           <th scope="col">Description</th>
                           <th scope="col"> </th>
@@ -109,6 +112,7 @@
                               <td>{{$user->name}}</td>
                               <td>{{$user->firstname}}</td>
                               <td>{{$user->positions->function}}</td>
+                              <td>{{$user->roles->role}}</td>
                               <td>{{$user->email}}</td>
                               <td>{{$user->description}}</td>
                               <td>

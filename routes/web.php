@@ -106,9 +106,9 @@ Route::get('/', function () {
     $newsletters = Newsletter::all();
     // Home
         // Intro
-    $homeCarousel = HomeCarousel::all();
+    $homeCarousel = HomeCarousel::orderBy('id', 'ASC')->get();
     $homeCarouselDescription = HomeCarouselDescription::all();
-    $homeCarouselCount = -1;
+    // $homeCarouselCount = -1;
         // About
     $homeAboutCards = HomeAboutCard::all();
     $aboutCards = $homeAboutCards->shuffle()->take(3);
@@ -142,7 +142,7 @@ Route::get('/', function () {
 
     // $homeTeamCards = HomeTeamCard::all();
 
-    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'homeCarouselCount', 'aboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsTitle', 'homeTestimonialsCards', 'testimonials', 'homeServicesTitle', 'homeServicesButton', 'servicesCard', 'homeTeamTitle', 'users', 'newsletters', 'title1', 'title2', 'title3'));
+    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'aboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsTitle', 'homeTestimonialsCards', 'testimonials', 'homeServicesTitle', 'homeServicesButton', 'servicesCard', 'homeTeamTitle', 'users', 'newsletters', 'title1', 'title2', 'title3'));
 });
 
 // Authenticate

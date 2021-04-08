@@ -30,7 +30,8 @@
                         </div>
                         <div class="form-group">
                             <label for="text">Post : </label> <br>
-                            <textarea name="text" id="" cols="100" rows="5">{{old('text')}}</textarea>
+                            <textarea name="text" id="" cols="100" rows="5">{{old('text')}}</textarea> <br>
+                            <span>Insérer {{ $br }} pour aller à la ligne</span>
                         </div>
                         {{-- Select  --}}
                         <div class="form-group">

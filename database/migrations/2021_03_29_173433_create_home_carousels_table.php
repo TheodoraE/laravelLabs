@@ -16,8 +16,9 @@ class CreateHomeCarouselsTable extends Migration
         Schema::create('home_carousels', function (Blueprint $table) {
             $table->id();
             $table->string('url');
-            $table->unsignedBigInteger('description_id');
-            $table->foreign('description_id')->references('id')->on('home_carousel_descriptions');
+            $table->unsignedBigInteger('description_id')->nullable();
+            $table->foreign('description_id')->references('id')->on('home_carousel_descriptions')->nullable();
+            $table->integer('order');
             $table->timestamps();
         });
     }

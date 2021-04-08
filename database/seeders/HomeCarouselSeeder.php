@@ -18,19 +18,23 @@ class HomeCarouselSeeder extends Seeder
             [
                 [
                     "url" => '01.jpg',
-                    "description_id" => 1
+                    "description_id" => 1,
+                    "order" => 1
                 ],
                 [
                     "url" => '02.jpg',
-                    "description_id" => 2
+                    "description_id" => 2,
+                    "order" => 2
                 ],
                 [
                     "url" => '01.jpg',
-                    "description_id" => 3
+                    "description_id" => 3,
+                    "order" => 3
                 ],
                 [
                     "url" => '02.jpg',
-                    "description_id" => 4
+                    "description_id" => 4,
+                    "order" => 4
                 ],
             ]
         );

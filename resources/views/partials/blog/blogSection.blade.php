@@ -2,7 +2,7 @@
 @foreach ($postsOK as $post)
     <div class="post-item">
         <div class="post-thumbnail">
-            <img src="{{asset('storage/img/'.$post->url)}}" alt="">
+            <img src="{{asset('storage/img/'.$post->url)}}" height="268px" alt="">
             <div class="post-date">
                 @if ($post->created_at == NULL)
 
@@ -26,7 +26,7 @@
                 @endforeach
                 <a href="/posts/{{$post->id}}">{{count($commentsOK->where('post_id', $post->id))}} Comments</a>
             </div>
-            <p>{{Str::limit($post->text, 318)}}</p>
+            <p>{!! Str::limit($post->text, 318) !!}</p>
             <a href="/posts/{{$post->id}}" class="read-more">Read More</a>
         </div>
     </div>
@@ -39,7 +39,7 @@
     <a href="">03.</a>
 </div> --}}
 <div style="text-align: center">
-    {{$paginationPosts->fragment('service')->links('vendor.pagination.bootstrap-4')}}
+    {{$postsOK->fragment('service')->links('vendor.pagination.bootstrap-4')}}
 </div>
             
 <!-- page section end-->

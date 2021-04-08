@@ -15,6 +15,7 @@ use App\Models\Logo;
 use App\Models\Navbar;
 use App\Models\Newsletter;
 use App\Models\PageHeader;
+use App\Models\Post;
 use App\Models\ServicesCard;
 use App\Models\ServicesDevice;
 use App\Models\ServicesFeaturesButton;
@@ -62,14 +63,14 @@ class ServicesController extends Controller
         $titleFour = Str::of($titre4->title)->replace('(', '<span>');
         $title4 = Str::of($titleFour)->replace(')', '</span>');
 
-        $servicesFeaturesCard = ServicesFeaturesCard::orderBy('id', 'DESC')->get();
+        $servicesFeaturesCard = ServicesFeaturesCard::orderBy('id', 'DESC')->get()->take(6);
         $servicesDevices = ServicesDevice::all();
         $servicesFeaturesButton = ServicesFeaturesButton::all();
-
         $paginationServices  =  ServicesCard::orderBy('id', 'DESC')->paginate(9);
 
+        $servicesBlog = Post::where('check', 1)->orderBy('id', 'DESC')->get()->take(3);
         
-        return view('pages.services', compact('logo', 'navbar', 'footer', 'pageHeader', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeServicesTitle', 'servicesCard', 'servicesFeaturesTitle', 'servicesFeaturesCard', 'servicesDevices', 'servicesFeaturesButton', 'newsletters', 'paginationServices', 'title2', 'title4'));
+        return view('pages.services', compact('logo', 'navbar', 'footer', 'pageHeader', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeServicesTitle', 'servicesCard', 'servicesFeaturesTitle', 'servicesFeaturesCard', 'servicesDevices', 'servicesFeaturesButton', 'newsletters', 'paginationServices', 'title2', 'title4', 'servicesBlog'));
     }
 
     /**
