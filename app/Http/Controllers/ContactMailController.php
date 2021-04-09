@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 class ContactMailController extends Controller
 {
     public function __construct(){
-        $this->middleware(["auth", "isWebMaster"]);
+        $this->middleware(["auth", "isWebMaster"])->only('index');
     }
     /**
      * Display a listing of the resource.

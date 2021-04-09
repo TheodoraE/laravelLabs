@@ -22,12 +22,17 @@
 		<div class="post-content">
 			<h2 class="post-title">{{$post->title}}</h2>
 			<div class="post-meta">
-                <a href="/filterCategory/{{$post->id}}">{{$post->categories->category}}</a>
+                <a id="styleMeta" href="/filterCategory/{{$post->id}}">{{$post->categories->category}}</a>
                 @foreach ($post->tags as $tage)
-                    <a href="/filterTag/{{$tage->id}}">{{$tage->tag}}</a>
+					@if ($loop->iteration == 1)
+						<a id="styleMeta" href="/filterTag/{{$tage->id}}">{{$tage->tag}}</a>
+					@else
+						<a href="/filterTag/{{$tage->id}}">, {{$tage->tag}}</a>
+					@endif
                 @endforeach
-                <a href="#comments">{{count($commentsId)}} Comments</a>
+                <a id="styleMeta" href="#comments">{{count($commentsId)}} Comments</a>
             </div>
+			
 			<p>{!!$post->text!!}</p>
 		</div>
 		<!-- Post Author -->

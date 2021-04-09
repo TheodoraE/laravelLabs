@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Mail;
 class NewsletterMailController extends Controller
 {
     public function __construct(){
-        $this->middleware(["auth", "isWebMaster"]);
+        $this->middleware(["auth", "isWebMaster"])->only(['index', 'edit', 'update', 'destroy']);
     }
 
     /**
@@ -53,9 +53,9 @@ class NewsletterMailController extends Controller
         $store->email = $request->email;
         $store->save();
 
-        $email = MailAdress::first();
-        Mail::to($email)->send(new NewsletterSend($request));
-        return redirect('/#newsletter-section')->with('message', 'Vous êtes maintenant inscrit·e à la Newsletter !');;
+        // $email = MailAdress::first();
+        Mail::to($request->email)->send(new NewsletterSend($request));
+        return redirect('/#newsletter-section')->with('message', 'Vous êtes maintenant inscrit·e à la Newsletter !');
     }
 
     /**

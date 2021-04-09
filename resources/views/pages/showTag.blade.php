@@ -2,23 +2,11 @@
 
 @section('content')
 
-	@if($posts->isNotEmpty())
-		@foreach ($postsTaguer as $post)
-			@foreach ($post->posts as $item)
-				<div class="post-list">
-					<p>{{ $item->title }}</p>
-					<img src="{{ asset('storage/img/'.$item->url) }}">
-				</div>
-			@endforeach
-		@endforeach
-	@else 
-		<div>
-			<h2>No posts found</h2>
-		</div>
-	@endif
+	
 
-	{{-- @if($posts->isNotEmpty())
-		@foreach ($postsCategory as $post)
+	@if(count($tabPosts) != 0)
+		@foreach ($tabPosts as $post)
+		{{-- {{dd($tabPosts)}} --}}
 			<div class="post-item">
 				<div class="post-thumbnail">
 					<img src="{{asset('storage/img/'.$post->url)}}" alt="">
@@ -39,11 +27,15 @@
 				<div class="post-content">
 					<h2 class="post-title">{{$post->title}}</h2>
 					<div class="post-meta">
-						<a href="/filterCategory/{{$post->id}}">{{$post->categories->category}}</a>
+						<a id="styleMeta" href="/filterCategory/{{$post->id}}">{{$post->categories->category}}</a>
 						@foreach ($post->tags->take(2) as $tage)
-							<a href="/filterTag/{{$tage->id}}">{{$tage->tag}}</a>
+							@if ($loop->iteration == 1)
+								<a id="styleMeta" href="/filterTag/{{$tage->id}}">{{$tage->tag}}</a>
+							@else
+								<a href="/filterTag/{{$tage->id}}">, {{$tage->tag}}</a>
+							@endif
 						@endforeach
-						<a href="/posts/{{$post->id}}">{{count($commentsAll->where('post_id', $post->id))}} Comments</a>
+						<a id="styleMeta" href="/posts/{{$post->id}}">{{count($commentsAll->where('post_id', $post->id))}} Comments</a>
 					</div>
 					<p>{!! Str::limit($post->text, 318) !!}</p>
 					<a href="/posts/{{$post->id}}" class="read-more">Read More</a>
@@ -54,7 +46,7 @@
 		<div>
 			<h2>No posts found</h2>
 		</div>
-	@endif --}}
+	@endif
 
 
 @endsection

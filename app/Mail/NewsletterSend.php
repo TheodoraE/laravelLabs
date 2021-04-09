@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\MailAdress;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -28,6 +29,7 @@ class NewsletterSend extends Mailable
      */
     public function build()
     {
-        return $this->from($this->email)->subject('Bienvenue !')->view('template.templateNewsletter')->with(['emailClient' => $this->email]);
+        $emailAddress = MailAdress::first();
+        return $this->from($emailAddress)->subject('Bienvenue !')->view('template.templateNewsletter')->with(['emailClient' => $this->email]);
     }
 }

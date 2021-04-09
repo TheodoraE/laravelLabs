@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Storage;
 class PostController extends Controller
 {
     public function __construct(){
-        $this->middleware(["auth", "isRedactor"]);
+        $this->middleware(["auth", "isRedactor"])->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
         // $this->middleware("isRedactor");
     }
     
@@ -199,11 +199,15 @@ class PostController extends Controller
 
         $commentsAll = Comment::all();
 
-
         $search = $request->input('search');
         $posts = Post::query()->where('title', 'LIKE', "%{$search}%")->orWhere('text', 'LIKE', "%{$search}%")->get();
 
-        return view('pages.searchBlog', compact('logo', 'footer', 'navbar', 'pageHeader', 'newsletters', 'categories', 'tags', 'posts', 'commentsAll'));
+        if ($request->input('search') == null) {
+            return redirect()->back();
+        } else {
+            return view('pages.searchBlog', compact('logo', 'footer', 'navbar', 'pageHeader', 'newsletters', 'categories', 'tags', 'posts', 'commentsAll'));
+        }
+
     }
 
     public function filterCategory($id)
@@ -253,15 +257,23 @@ class PostController extends Controller
         // dd($postsTaguer);
         // $posts = $postsAll->where($postsTaguer->post_id, $postsAll->id);
         
-        // dd($posts);
         // foreach ($postsTaguer as $item) {
         //     foreach ($postsAll as $post) {
         //         $posts = $postsAll->where($item->post_id, "=", $post->id);
         //     }
         // }
-        // dd($posts);
 
-        return view('pages.showTag', compact('logo', 'footer', 'navbar', 'pageHeader', 'newsletters', 'categories', 'tags', 'commentsAll', 'postsTaguer', 'posts'));
+        $tabPosts = [];
+        $tabTags = [];
+        foreach ($postsAll as $item) {
+            $tabTags = $item->tags->pluck('id')->toArray();
+            if (in_array($id, $tabTags)) {
+                array_push($tabPosts, $item);
+            }
+            unset($TabTags);
+        }
+
+        return view('pages.showTag', compact('logo', 'footer', 'navbar', 'pageHeader', 'newsletters', 'categories', 'tags', 'commentsAll', 'postsTaguer', 'tabTags', 'tabPosts'));
     }
 
     public function validerPost($id)

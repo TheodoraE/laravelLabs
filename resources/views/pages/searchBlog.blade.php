@@ -24,11 +24,15 @@
 				<div class="post-content">
 					<h2 class="post-title">{{$post->title}}</h2>
 					<div class="post-meta">
-						<a href="/filterCategory/{{$post->id}}">{{$post->categories->category}}</a>
+						<a id="styleMeta" href="/filterCategory/{{$post->id}}">{{$post->categories->category}}</a>
 						@foreach ($post->tags->take(2) as $tage)
-							<a href="/filterTag/{{$tage->id}}">{{$tage->tag}}</a>
+							@if ($loop->iteration == 1)
+								<a id="styleMeta" href="/filterTag/{{$tage->id}}">{{$tage->tag}}</a>
+							@else
+								<a href="/filterTag/{{$tage->id}}">, {{$tage->tag}}</a>
+							@endif
 						@endforeach
-						<a href="/posts/{{$post->id}}">{{count($commentsAll->where('post_id', $post->id))}} Comments</a>
+						<a id="styleMeta" href="/posts/{{$post->id}}">{{count($commentsAll->where('post_id', $post->id))}} Comments</a>
 					</div>
 					<p>{!! Str::limit($post->text, 318) !!}</p>
 					<a href="/posts/{{$post->id}}" class="read-more">Read More</a>

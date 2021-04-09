@@ -145,6 +145,10 @@ Route::get('/', function () {
     return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'aboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsTitle', 'homeTestimonialsCards', 'testimonials', 'homeServicesTitle', 'homeServicesButton', 'servicesCard', 'homeTeamTitle', 'users', 'newsletters', 'title1', 'title2', 'title3'));
 });
 
+Route::fallback(function () {
+    return redirect()->back();
+});
+
 // Authenticate
 Auth::routes();
 

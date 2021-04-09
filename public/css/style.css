@@ -1086,14 +1086,16 @@ ul {
 	margin-bottom: 40px;
 }
 
+
+
 .post-meta a {
 	color: #0b1033;
 	font-size: 12px;
-	padding-left: 20px;
+	/* padding-left: 20px; */
 	position: relative;
-	margin-left: 10px;
+	/* margin-left: 10px; */
 }
-
+/* 
 .post-meta a:after {
 	position: absolute;
 	content: "";
@@ -1103,7 +1105,29 @@ ul {
 	top: 3px;
 	background: #2be6ab;
 	border-radius: 10px;
+} */
+
+#styleMeta {
+	color: #0b1033;
+	font-size: 12px;
+	padding-left: 20px;
+	position: relative;
+	margin-left: 10px;
 }
+
+#styleMeta:after {
+	position: absolute;
+	content: "";
+	width: 7px;
+	height: 7px;
+	left: 0;
+	top: 3px;
+	background: #2be6ab;
+	border-radius: 10px;
+}
+
+
+
 
 .post-meta a:first-child {
 	margin-left: 0;
