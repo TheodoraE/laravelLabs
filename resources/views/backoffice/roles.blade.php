@@ -14,7 +14,7 @@
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col">role</th>
-                            <th scope="col">User</th>
+                            {{-- <th scope="col">User</th> --}}
                             <th scope="col"> </th>
                             <th scope="col"> </th>
                           </tr>
@@ -24,7 +24,6 @@
                                 <tr>
                                     <th scope="row">{{$role->id}}</th>
                                     <td>{{$role->role}}</td>
-                                    <td>Le link ne fonctionne pas T.T</td>
                                     {{-- <td>{{$role->users->name}}</td> --}}
                                     <td>
                                         <a href="/roles/{{$role->id}}/edit" class="btn" style="background-color: #F7D3BB">EDIT</a>

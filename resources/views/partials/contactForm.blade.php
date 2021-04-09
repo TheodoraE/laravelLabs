@@ -21,6 +21,28 @@
             </div>
             <!-- contact form -->
             <div class="col-md-6 col-pull">
+                <div>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    @if(session()->has('message'))
+                        <div class="alert alert-success">
+                            {{ session()->get('message') }}
+                        </div>
+                    @endif
+                    @if ($message = Session::get('error'))
+                        <div class="alert alert-danger alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
+                </div>
                 <form action="/contactMail" method="POST" class="form-class" id="con_form">
                     @csrf
                     <div class="row">
@@ -31,7 +53,7 @@
                             <input type="text" name="email" placeholder="{{$contactFormPlaceholder[1]->placeholder}}">
                         </div>
                         <div class="col-sm-12">
-                            <select name="subject_id" id="" class="form-control mb-5">
+                            <select name="subject_id" id="" class=" mb-5">
                                 <option value="">{{$contactFormPlaceholder[2]->placeholder}}</option>
                                 @foreach ($contactFormSubjects as $subject)
                                     <option value="{{$subject->id}}">{{$subject->subject}}</option>
@@ -41,7 +63,7 @@
 
                             <textarea name="message" placeholder="{{$contactFormPlaceholder[3]->placeholder}}" class="mt-5"></textarea>
 
-                            <button class="site-btn">send</button>
+                            <button type="submit" class="site-btn">send</button>
                         </div>
                     </div>
                 </form>

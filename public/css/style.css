@@ -1509,6 +1509,13 @@ ul {
 	font-weight: 500;
 }
 
+.form-class select {
+    width: 100%;
+    margin-bottom: 26px;
+    border: none;
+    background: #f6edfb;
+    padding: 17px 20px;
+}
 
 
 /* ===========================

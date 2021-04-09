@@ -82,11 +82,16 @@ class LogoController extends Controller
 
         $update = $logo;
         $update->name = $request->name;
-        if ($update->url != "big-logo.png") {
-            Storage::delete('public/img/'.$update->url);
+
+        if ($update->url == null){
+            $update->url = $logo->url;
+        } else {
+            if ($update->url != "big-logo.png") {
+                Storage::delete('public/img/'.$update->url);
+            }
+            Storage::put('public/img', $request->url);
+            $update->url = $request->file('url')->hashName();
         }
-        Storage::put('public/img', $request->url);
-        $update->url = $request->file('url')->hashName();
 
         $update->save();
         return redirect('/logos');

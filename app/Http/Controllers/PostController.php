@@ -143,18 +143,20 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $validation = $request->validate([
-            "url" => 'required',
             "title" => 'required',
             "text" => 'required',
             "category_id" => 'required',
         ]);
 
         $update = $post;
-        // if($update->url->)
-        // Condition Storage
-        // Storage::delete('public/img/'.$update->url);
-        Storage::put('public/img', $request->url);
-        $update->url = $request->file('url')->hashName();
+
+        if ($request->url == null){
+            $update->url = $post->url;
+        } else {
+            // Storage::delete('public/img/'.$update->url);
+            Storage::put('public/img', $request->url);
+            $update->url = $request->file('url')->hashName();
+        }
         $update->title = $request->title;
         $update->text = $request->text;
         $update->category_id = $request->category_id;

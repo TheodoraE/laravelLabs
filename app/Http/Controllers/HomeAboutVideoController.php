@@ -94,11 +94,15 @@ class HomeAboutVideoController extends Controller
 
         $update->youtubeLink = $request->youtubeLink;
 
-        if ($update->url != "video.jpg") {
-            Storage::delete('public/img/'.$update->url);
+        if ($request->url == null){
+            $update->url = $homeAboutVideo->url;
+        } else {
+            if ($update->url != "video.jpg") {
+                Storage::delete('public/img/'.$update->url);
+            }
+            Storage::put('public/img', $request->url);
+            $update->url = $request->file('url')->hashName();
         }
-        Storage::put('public/img', $request->url);
-        $update->url = $request->file('url')->hashName();
         
         $update->save();
         return redirect('/homeAboutVideo');

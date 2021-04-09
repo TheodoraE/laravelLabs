@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\MailSend;
+use App\Models\ContactFormSubject;
 use App\Models\ContactMail;
 use App\Models\HomeTestimonialsCard;
 use App\Models\MailAdress;
@@ -52,20 +53,22 @@ class ContactMailController extends Controller
             "message" => 'required'
         ]);
 
-        // if ($request->subject_id == 2){
-        //     $store = new HomeTestimonialsCard;
-            
-        // }
-        $store = new ContactMail;
-        $store->name = $request->name;
-        $store->email = $request->email;
-        $store->subject_id = $request->subject_id;
-        $store->message = $request->message;
-        $store->save();
+        $subjects = ContactFormSubject::all();
 
-        $email = MailAdress::first();
-        Mail::to($email)->send(new MailSend($request));
-        return redirect()->back();
+        if ($subjects->find($request->subject_id) != null){
+            $store = new ContactMail;
+            $store->name = $request->name;
+            $store->email = $request->email;
+            $store->subject_id = $request->subject_id;
+            $store->message = $request->message;
+            $store->save();
+    
+            $email = MailAdress::first();
+            Mail::to($email)->send(new MailSend($request));
+            return redirect()->back()->with('status', 'Votre email à bien été envoyé.');
+        } else {
+            return redirect()->back()->withError('error', 'Commande non disponible');
+        }
     }
 
     /**

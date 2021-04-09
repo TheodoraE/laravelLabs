@@ -20,7 +20,9 @@
         <div class="post-content">
             <h2 class="post-title">{{$post->title}}</h2>
             <div class="post-meta">
+
                 <a id="styleMeta" href="/filterCategory/{{$post->id}}">{{$post->categories->category}}</a>
+
                 @foreach ($post->tags->take(2) as $tage)
                     @if ($loop->iteration == 1)
                         <a id="styleMeta" href="/filterTag/{{$tage->id}}">{{$tage->tag}}</a>
@@ -28,6 +30,7 @@
                         <a href="/filterTag/{{$tage->id}}">, {{$tage->tag}}</a>
                     @endif
                 @endforeach
+                
                 <a id="styleMeta" href="/posts/{{$post->id}}">{{count($commentsOK->where('post_id', $post->id))}} Comments</a>
             </div>
             <p>{!! Str::limit($post->text, 318) !!}</p>
