@@ -122,6 +122,9 @@ Route::get('/', function () {
     $homeAboutVideo = HomeAboutVideo::all();
         // Testimonials
     $homeTestimonialsTitle = HomeTestimonialsTitle::all();
+    $titre4 = HomeTestimonialsTitle::first();
+    $titleFour = Str::of($titre4->title)->replace('(', '<span>');
+    $title4 = Str::of($titleFour)->replace(')', '</span>');
     $homeTestimonialsCards = HomeTestimonialsCard::all();
     $testimonials = HomeTestimonialsCard::orderBy('id', 'DESC')->get()->take(6);
         // Services
@@ -142,7 +145,7 @@ Route::get('/', function () {
 
     // $homeTeamCards = HomeTeamCard::all();
 
-    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'aboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsTitle', 'homeTestimonialsCards', 'testimonials', 'homeServicesTitle', 'homeServicesButton', 'servicesCard', 'homeTeamTitle', 'users', 'newsletters', 'title1', 'title2', 'title3'));
+    return view('welcome', compact('logo', 'navbar', 'footer', 'contactFormTitle', 'contactFormSubtitle', 'contactFormAddress', 'contactFormPhone', 'contactFormEmail', 'contactFormPlaceholder', 'contactFormSubjects', 'homeCarousel', 'homeCarouselDescription', 'aboutCards', 'homeAboutTitle', 'homeAboutContent', 'homeAboutButton', 'homeAboutVideo', 'homeTestimonialsCards', 'testimonials', 'homeServicesTitle', 'homeServicesButton', 'servicesCard', 'homeTeamTitle', 'users', 'newsletters', 'title1', 'title2', 'title3', 'title4'));
 });
 
 Route::fallback(function () {

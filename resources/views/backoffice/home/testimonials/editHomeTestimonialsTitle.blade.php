@@ -24,6 +24,7 @@
                         <div class="form-group w-50">
                             <label for="title">Title : </label>
                             <input type="text" name="title" class="form-control" value="{{old('title') ? old('title') : $edit->title}}">
+                            <p>Mettez la partie à surligner entre parenthèses</p>
                         </div>
 
                         <button type="submit" class="btn mt-4" style="background-color: #F7D3BB">Enregistrer</button>

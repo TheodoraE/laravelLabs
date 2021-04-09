@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Logo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Image;
 
 class LogoController extends Controller
 {
@@ -87,10 +88,13 @@ class LogoController extends Controller
             $update->url = $logo->url;
         } else {
             if ($update->url != "big-logo.png") {
-                Storage::delete('public/img/'.$update->url);
+                Storage::delete('storage/img/'.$update->url);
             }
             Storage::put('public/img', $request->url);
             $update->url = $request->file('url')->hashName();
+
+            $img = Image::make('storage/img/'.$update->url)->resize(120,100);
+            $img->save('img/small-'.$update->url);
         }
 
         $update->save();

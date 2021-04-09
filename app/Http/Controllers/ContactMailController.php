@@ -55,7 +55,7 @@ class ContactMailController extends Controller
 
         $subjects = ContactFormSubject::all();
 
-        if ($subjects->find($request->subject_id) != null){
+        if ($subjects->find($request->subject_id)){
             $store = new ContactMail;
             $store->name = $request->name;
             $store->email = $request->email;
@@ -65,9 +65,9 @@ class ContactMailController extends Controller
     
             $email = MailAdress::first();
             Mail::to($email)->send(new MailSend($request));
-            return redirect()->back()->with('status', 'Votre email à bien été envoyé.');
+            return redirect()->back()->with('status', 'Votre email à bien été envoyé !');
         } else {
-            return redirect()->back()->withError('error', 'Commande non disponible');
+            return redirect()->back()->withError('-- Commande non disponible --');
         }
     }
 
