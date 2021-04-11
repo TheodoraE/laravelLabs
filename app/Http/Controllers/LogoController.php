@@ -77,14 +77,15 @@ class LogoController extends Controller
      */
     public function update(Request $request, Logo $logo)
     {
-        $validation = $request->validate([
-            "url" => 'required',
-        ]);
+        // $validation = $request->validate([
+        //     "url" => 'required',
+        // ]);
 
         $update = $logo;
         $update->name = $request->name;
+        // dd($request->url);
 
-        if ($update->url == null){
+        if ($request->url == null){
             $update->url = $logo->url;
         } else {
             if ($update->url != "big-logo.png") {
@@ -93,10 +94,9 @@ class LogoController extends Controller
             Storage::put('public/img', $request->url);
             $update->url = $request->file('url')->hashName();
 
-            $img = Image::make('storage/img/'.$update->url)->resize(120,100);
-            $img->save('img/small-'.$update->url);
+            $img = Image::make('storage/img/'.$update->url)->resize(111,32);
+            $img->save("img/miniPhotos/mini.jpg");
         }
-
         $update->save();
         return redirect('/logos');
     }

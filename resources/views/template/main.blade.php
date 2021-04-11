@@ -31,7 +31,7 @@
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader">
-			<img src="{{asset('storage/img/'.$logo[0]->url)}}" height="32px" width="111px" alt=""><!-- Logo -->
+			<img src="{{asset('img/miniPhotos/mini.jpg')}}" alt=""><!-- Logo -->
 			<h2>Loading.....</h2>
 		</div>
 	</div>
