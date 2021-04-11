@@ -36,23 +36,6 @@
 		</div>
 	</div>
 
-	<!-- Header section -->
-	{{-- <header class="header-section">
-		<div class="logo">
-			<img src="{{asset('storage/img/'.$logo[0]->url)}}" height="32px" width="111px" alt=""><!-- Logo -->
-		</div>
-		<!-- Navigation -->
-		<div class="responsive"><i class="fa fa-bars"></i></div>
-		<nav>
-			<ul class="menu-list">
-				@foreach ($navbar as $navbar)
-					<li><a href="{{$navbar->link}}">{{$navbar->page}}</a></li>
-				@endforeach
-			</ul>
-		</nav>
-	</header> --}}
-	<!-- Header section end -->
-
 
     {{-- Content --}}
     @yield('content')

@@ -149,7 +149,7 @@ Route::get('/', function () {
 });
 
 Route::fallback(function () {
-    return redirect()->back();
+    return redirect('/');
 });
 
 // Authenticate

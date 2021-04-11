@@ -19,20 +19,7 @@
 	</header>
 	<!-- Header section end -->
 
-    <!-- Page header -->
-	<div class="page-top-section">
-		<div class="overlay"></div>
-		<div class="container text-right">
-			<div class="page-info">
-				<h2>{{$pageHeader[0]->page}}</h2>
-				<div class="page-links">
-					<a href="{{$pageHeader[0]->homeLink}}">{{$pageHeader[0]->home}}</a>
-					<span>{{$pageHeader[0]->page}}</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Page header end-->
+	@include('partials.pageHeader')
 
 
     @include('partials.services.servicesSection')
