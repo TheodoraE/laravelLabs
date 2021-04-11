@@ -113,35 +113,43 @@ Route::get('/', function () {
     $homeAboutCards = HomeAboutCard::all();
     $aboutCards = $homeAboutCards->shuffle()->take(3);
     $homeAboutTitle = HomeAboutTitle::all();
-    $titre1 = HomeAboutTitle::first();
-    $titleOne = Str::of($titre1->title)->replace('(', '<span>');
-    $title1 = Str::of($titleOne)->replace(')', '</span>');
+
+    $title1 = highlight(HomeAboutTitle::first());
 
     $homeAboutContent = HomeAboutContent::all();
     $homeAboutButton = HomeAboutButton::all();
     $homeAboutVideo = HomeAboutVideo::all();
         // Testimonials
     $homeTestimonialsTitle = HomeTestimonialsTitle::all();
-    $titre4 = HomeTestimonialsTitle::first();
-    $titleFour = Str::of($titre4->title)->replace('(', '<span>');
-    $title4 = Str::of($titleFour)->replace(')', '</span>');
+    $title4 = highlight(HomeTestimonialsTitle::first());
+
     $homeTestimonialsCards = HomeTestimonialsCard::all();
     $testimonials = HomeTestimonialsCard::orderBy('id', 'DESC')->get()->take(6);
         // Services
     $homeServicesTitle = HomeServicesTitle::all();
     $homeServicesButton = HomeServicesButton::all();
-    $titre2 = HomeServicesTitle::first();
-    $titleTwo = Str::of($titre2->title)->replace('(', '<span>');
-    $title2 = Str::of($titleTwo)->replace(')', '</span>');
+    $title2 = highlight(HomeServicesTitle::first());
 
     // Services
     $servicesCard = ServicesCard::get()->take(9);
         // Team
     $homeTeamTitle = HomeTeamTitle::all();
     $users = User::where('check',1)->get();
-    $titre3 = HomeTeamTitle::first();
-    $titleThree = Str::of($titre3->title)->replace('(', '<span>');
-    $title3 = Str::of($titleThree)->replace(')', '</span>');
+    $title3 = highlight(HomeTeamTitle::first());
+    
+
+
+
+
+    // TITRES
+    $title1 = highlight(HomeAboutTitle::first());
+    $title2 = highlight(HomeServicesTitle::first());
+    $title3 = highlight(HomeTeamTitle::first());
+    $title4 = highlight(HomeTestimonialsTitle::first());
+
+
+
+    
 
     // $homeTeamCards = HomeTeamCard::all();
 
